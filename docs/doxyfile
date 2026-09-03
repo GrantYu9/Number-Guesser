@@ -1,0 +1,3 @@
+INPUT = ../src/backend
+GENERATE_LATEX = NO
+RECURSIVE = YES
