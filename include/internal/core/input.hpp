@@ -5,3 +5,5 @@
 #include <eigen3/Eigen/Core>
 
 Eigen::VectorXf image_to_vector(std::filesystem::path input);
+
+Eigen::VectorXf mnist(std::filesystem::path input); // !!!

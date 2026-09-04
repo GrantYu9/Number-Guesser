@@ -1,25 +1,24 @@
 #pragma once
 
-#include "activation_functions.hpp"
-#include "hidden_layer.hpp"
-#include "input.hpp"
-#include "output.hpp"
+#include "dense_layer.hpp"
+#include "globals.hpp"
 
-#include <filesystem>
+#include <array>
 #include <vector>
 
 #include <eigen3/Eigen/Core>
 
 class NeuralNetwork {
 private:
-    std::vector<HiddenLayer> hidden_layers;
-
-    OutputLayer output_layer;
+    DenseLayer input_layer;
+    std::vector<DenseLayer> hidden_layers;
+    DenseLayer output_layer;
 
 public:
-    NeuralNetwork(std::vector<HiddenLayer> hidden_layers, 
-        OutputLayer output_layer) : 
-        hidden_layers(hidden_layers), output_layer(output_layer) {}
+    NeuralNetwork(DenseLayer input_layer, std::vector<DenseLayer> hidden_layers, 
+        DenseLayer output_layer) : 
+        input_layer(input_layer), hidden_layers(hidden_layers), 
+        output_layer(output_layer) {}
 
-    Eigen::VectorXf forward_pass(std::filesystem::path input);
+    std::array<float, Global::NUMBER_OF_OUTPUTS> guess(Eigen::VectorXf input);
 };
