@@ -6,7 +6,5 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 project(number_guesser)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
-
 add_subdirectory(src)
 add_subdirectory(testing)
