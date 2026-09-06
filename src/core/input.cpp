@@ -2,7 +2,9 @@
 #define STB_IMAGE_RESIZE_IMPLEMENTATION
 
 #include "globals.hpp"
+#include "exceptions.hpp"
 
+#include <cassert>
 #include <filesystem>
 #include <vector>
 
@@ -13,33 +15,36 @@
 Eigen::VectorXf create_output(unsigned char* input);
 
 Eigen::VectorXf image_to_vector(const std::filesystem::path input) {
-    constexpr int GREYSCALE = 1;
+    // constexpr int GREYSCALE = 1;
+    // Eigen::VectorXf output;
 
-    Eigen::VectorXf output;
+    // int channels;
+    // int height;
+    // int width;
 
-    int channels;
-    int height;
-    int width;
+    // unsigned char* raw_image = stbi_load(input.string().c_str(), &width, &height, 
+    //     &channels, GREYSCALE);
 
-    unsigned char* raw_image = stbi_load(input.string().c_str(), &width, &height, 
-        &channels, GREYSCALE);
+    // if (raw_image == nullptr) {
+    //     throw ImageReadError();
+    // }
 
-    if (height != Global::IMAGE_LENGTH || width != Global::IMAGE_LENGTH) {
-        std::vector<unsigned char> target_image(Global::IMAGE_PIXELS);
-        unsigned char* target_image_ptr = target_image.data();
+    // if (height != Global::IMAGE_LENGTH || width != Global::IMAGE_LENGTH) {
+    //     std::vector<unsigned char> target_image(Global::IMAGE_PIXELS);
+    //     unsigned char* target_image_ptr = target_image.data();
 
-        stbir_resize_uint8_linear(raw_image, width, height, width, 
-            target_image_ptr, Global::IMAGE_LENGTH, Global::IMAGE_LENGTH, 
-            Global::IMAGE_LENGTH, STBIR_1CHANNEL);
+    //     stbir_resize_uint8_linear(raw_image, width, height, width, 
+    //         target_image_ptr, Global::IMAGE_LENGTH, Global::IMAGE_LENGTH, 
+    //         Global::IMAGE_LENGTH, STBIR_1CHANNEL);
 
-        output = create_output(target_image_ptr);
-    } else {
-        output = create_output(raw_image);
-    }
+    //     output = create_output(target_image_ptr);
+    // } else {
+    //     output = create_output(raw_image);
+    // }
 
-    stbi_image_free(raw_image);
+    // stbi_image_free(raw_image);
 
-    return output;
+    // return output;
 }
 
 Eigen::VectorXf create_output(unsigned char* input) {

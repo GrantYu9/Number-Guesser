@@ -1,13 +1,38 @@
+/** @file exceptions.hpp
+ * @brief A header that offers custom exceptions.
+ */
+
 #pragma once
 
 #include <stdexcept>
 
-class ImageReadError : public std::runtime_error {
+/** @brief When we fail to read a file. */
+class FileReadError : public std::runtime_error {
 public:
-    ImageReadError() : std::runtime_error("Improper image read.") {}
+    /** @brief Passes an error message to the super constructor. */
+    FileReadError();
 };
 
-class FinalVectorSizeError : public std::runtime_error {
+/** @brief When we fail to write to a file. */
+class FileWriteError : public std::runtime_error {
 public:
-    FinalVectorSizeError() : std::runtime_error("Vector size not 10.") {}
+    /** @brief Passes an error message to the super constructor. */
+    FileWriteError();
+};
+
+/** @brief When an image fails to be read properly. */
+class ImageReadError : public std::runtime_error {
+public:
+    /** @brief Passes an error message to the super constructor. */
+    ImageReadError();
+};
+
+/** @brief When there is no value to be read from the file.
+ * @details For the weights and biases persistence.
+ * @see @ref persistence.hpp
+ */
+class NoValueOnFileError : public std::runtime_error {
+public:
+    /** @brief Passes an error message to the super constructor. */
+    NoValueOnFileError();
 };

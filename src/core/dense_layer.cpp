@@ -2,6 +2,8 @@
 
 #include <eigen3/Eigen/Core>
 
+DenseLayer::DenseLayer(Eigen::MatrixXf weights_matrix, Eigen::VectorXf bias) {} // !!!
+
 Eigen::VectorXf DenseLayer::modify(Eigen::VectorXf input) {
-    return (weights * input) + bias;
+    // return (weights * input) + bias;
 }

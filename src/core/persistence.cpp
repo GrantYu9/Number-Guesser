@@ -1,0 +1,43 @@
+#include "exceptions.hpp"
+#include "persistence.hpp"
+
+#include <filesystem>
+#include <fstream>
+#include <vector>
+
+#include <eigen3/Eigen/Core>
+
+Eigen::VectorXf load_bias(std::filesystem::path path) {
+    // !!!
+}
+
+std::vector<Eigen::VectorXf> load_biases(std::filesystem::path path) {
+    // !!!
+}
+
+Eigen::MatrixXf load_weights_matrix(std::filesystem::path path) {
+    // !!!
+}
+
+std::vector<Eigen::MatrixXf> load_weights_matrices(std::filesystem::path path) {
+    // !!!
+}
+
+void save_bias(Eigen::VectorXf bias, std::filesystem::path path) {
+    // !!!
+}
+
+void save_biases(std::vector<Eigen::VectorXf> biases, 
+    std::filesystem::path path) {
+    // !!!
+}
+
+void save_weights_matrix(Eigen::MatrixXf weights_matrix, 
+    std::filesystem::path path) {
+    // !!!
+}
+
+void save_weights_matrices(std::vector<Eigen::MatrixXf> weights_matrices, 
+    std::filesystem::path path) {
+    // !!!
+}

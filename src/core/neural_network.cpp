@@ -5,12 +5,16 @@
 
 #include <array>
 
-std::array<float, Global::NUMBER_OF_OUTPUTS> NeuralNetwork::guess(Eigen::VectorXf input) {
-    input = relu(input_layer.modify(input));
-    
-    for (DenseLayer hidden_layer : hidden_layers) {
-        input = relu(hidden_layer.modify(input));
-    }
+NeuralNetwork::NeuralNetwork() {
+    // !!!
+} 
 
-    return softmax(output_layer.modify(input));
+std::array<float, Global::NUMBER_OF_OUTPUTS> NeuralNetwork::guess(Eigen::VectorXf input) {
+    // input = relu(input_layer.modify(input));
+    
+    // for (DenseLayer hidden_layer : hidden_layers) {
+    //     input = relu(hidden_layer.modify(input));
+    // }
+
+    // return softmax(output_layer.modify(input));
 }
