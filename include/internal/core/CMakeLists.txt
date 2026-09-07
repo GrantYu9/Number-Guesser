@@ -2,6 +2,7 @@ add_library(core INTERFACE)
 add_library(core_compiled
     ${CMAKE_SOURCE_DIR}/src/core/activation_functions.cpp
     ${CMAKE_SOURCE_DIR}/src/core/dense_layer.cpp
+    ${CMAKE_SOURCE_DIR}/src/core/exceptions.cpp
     ${CMAKE_SOURCE_DIR}/src/core/input.cpp
     ${CMAKE_SOURCE_DIR}/src/core/neural_network.cpp
 )

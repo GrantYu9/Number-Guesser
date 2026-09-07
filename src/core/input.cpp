@@ -4,9 +4,9 @@
 #include "globals.hpp"
 #include "exceptions.hpp"
 
+#include <array>
 #include <cassert>
 #include <filesystem>
-#include <vector>
 
 #include <eigen3/Eigen/Core>
 #include "stb_image.h"
@@ -20,50 +20,49 @@ namespace {
     constexpr int IMAGE_PIXELS = 784;
 }
 
-Eigen::VectorXf create_output(unsigned char* input);
+Eigen::VectorXf create_output(const unsigned char* input);
 
-Eigen::VectorXf image_to_vector(const std::filesystem::path input) {
-    // constexpr int GREYSCALE = 1;
-    // Eigen::VectorXf output;
+Eigen::VectorXf image_to_vector(const std::filesystem::path& input) {
+    constexpr int GREYSCALE = 1;
 
-    // int channels;
-    // int height;
-    // int width;
+    Eigen::VectorXf output(IMAGE_PIXELS);
 
-    // unsigned char* raw_image = stbi_load(input.string().c_str(), &width, &height, 
-    //     &channels, GREYSCALE);
+    int channels;
+    int height;
+    int width;
 
-    // if (raw_image == nullptr) {
-    //     throw ImageReadError();
-    // }
+    unsigned char* raw_image = stbi_load(input.string().c_str(), &width, &height, 
+        &channels, GREYSCALE);
 
-    // if (height != Global::IMAGE_LENGTH || width != Global::IMAGE_LENGTH) {
-    //     std::vector<unsigned char> target_image(Global::IMAGE_PIXELS);
-    //     unsigned char* target_image_ptr = target_image.data();
+    if (raw_image == nullptr) {
+        throw ImageReadError();
+    }
 
-    //     stbir_resize_uint8_linear(raw_image, width, height, width, 
-    //         target_image_ptr, Global::IMAGE_LENGTH, Global::IMAGE_LENGTH, 
-    //         Global::IMAGE_LENGTH, STBIR_1CHANNEL);
+    if (height != IMAGE_LENGTH || width != IMAGE_LENGTH) {
+        std::array<unsigned char, IMAGE_PIXELS> target_image;
+        unsigned char* target_image_ptr = target_image.data();
 
-    //     output = create_output(target_image_ptr);
-    // } else {
-    //     output = create_output(raw_image);
-    // }
+        stbir_resize_uint8_linear(raw_image, width, height, width, 
+            target_image_ptr, IMAGE_LENGTH, IMAGE_LENGTH, IMAGE_LENGTH, 
+            STBIR_1CHANNEL);
 
-    // stbi_image_free(raw_image);
+        output = create_output(target_image_ptr);
+    } else {
+        output = create_output(raw_image);
+    }
 
-    // return output;
-    
-    return Eigen::MatrixXf::Random(); // !!!
+    stbi_image_free(raw_image);
+
+    return output;
 }
 
-/**
- * !!!
+/** @brief Takes the input image pointer and turns it into a normalized vector
+ * with values in [-1, 1].
  */
-Eigen::VectorXf create_output(unsigned char* input) {
+Eigen::VectorXf create_output(const unsigned char* input) {
     constexpr float NORMALIZE = 255.0f;
 
-    Eigen::VectorXf output = Eigen::Map<Eigen::Matrix<unsigned char, Eigen::Dynamic, 1>>(input, IMAGE_PIXELS).cast<float>();
+    Eigen::VectorXf output = Eigen::Map<const Eigen::Matrix<unsigned char, Eigen::Dynamic, 1>>(input, IMAGE_PIXELS).cast<float>();
 
     return output / NORMALIZE;
 }
