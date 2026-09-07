@@ -18,4 +18,4 @@ Eigen::VectorXf relu(Eigen::VectorXf& input);
  * 10, coefficients.
  * @see @ref https://en.wikipedia.org/wiki/Softmax_function
  */
-std::array<float, Global::NUMBER_OF_OUTPUTS> softmax(Eigen::VectorXf& input);
+std::array<float, Globals::NUMBER_OF_OUTPUTS> softmax(Eigen::VectorXf& input);

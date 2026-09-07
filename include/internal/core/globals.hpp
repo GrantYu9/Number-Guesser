@@ -3,12 +3,7 @@
 #pragma once
 
 /** @brief A namespace that offers global constants. */
-namespace Global {
-    /** @brief Number of pixels the target image should be in length. Note 
-     * that the the target image is square. */
-    constexpr int IMAGE_LENGTH = 28;
-    /** @brief Number of pixels the target image should have. */
-    constexpr int IMAGE_PIXELS = 784;
+namespace Globals {
     /** @brief Number of rows the input layer matrix should have. */
     constexpr int INPUT_LAYER_ROWS = 128;
     /** @brief Number of columns the input layer matrix should have. */

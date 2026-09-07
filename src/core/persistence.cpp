@@ -7,6 +7,10 @@
 
 #include <eigen3/Eigen/Core>
 
+namespace {
+    // !!!
+}
+
 Eigen::VectorXf load_bias(std::filesystem::path path) {
     return Eigen::VectorXf::Random(); // !!!
 }

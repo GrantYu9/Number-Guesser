@@ -15,7 +15,7 @@ Eigen::VectorXf relu(Eigen::VectorXf input) {
     return Eigen::VectorXf::Random();
 }
 
-std::array<float, Global::NUMBER_OF_OUTPUTS> softmax(Eigen::VectorXf input) {
+std::array<float, Globals::NUMBER_OF_OUTPUTS> softmax(Eigen::VectorXf input) {
     // if (input.rows() != Global::NUMBER_OF_OUTPUTS) {
     //     throw FinalVectorSizeError();
     // }
@@ -36,5 +36,5 @@ std::array<float, Global::NUMBER_OF_OUTPUTS> softmax(Eigen::VectorXf input) {
 
     // return probabilities;
 
-    return std::array<float, Global::NUMBER_OF_OUTPUTS>{0}; // !!!
+    return std::array<float, Globals::NUMBER_OF_OUTPUTS>{0}; // !!!
 }

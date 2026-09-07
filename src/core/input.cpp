@@ -12,6 +12,14 @@
 #include "stb_image.h"
 #include "stb_image_resize2.h"
 
+namespace {
+    /** @brief Number of pixels the target image should be in length. Note 
+     * that the the target image is square. */
+    constexpr int IMAGE_LENGTH = 28;
+    /** @brief Number of pixels the target image should have. */
+    constexpr int IMAGE_PIXELS = 784;
+}
+
 Eigen::VectorXf create_output(unsigned char* input);
 
 Eigen::VectorXf image_to_vector(const std::filesystem::path input) {
@@ -49,10 +57,13 @@ Eigen::VectorXf image_to_vector(const std::filesystem::path input) {
     return Eigen::MatrixXf::Random(); // !!!
 }
 
+/**
+ * !!!
+ */
 Eigen::VectorXf create_output(unsigned char* input) {
     constexpr float NORMALIZE = 255.0f;
 
-    Eigen::VectorXf output = Eigen::Map<Eigen::Matrix<unsigned char, Eigen::Dynamic, 1>>(input, Global::IMAGE_PIXELS).cast<float>();
+    Eigen::VectorXf output = Eigen::Map<Eigen::Matrix<unsigned char, Eigen::Dynamic, 1>>(input, IMAGE_PIXELS).cast<float>();
 
     return output / NORMALIZE;
 }
