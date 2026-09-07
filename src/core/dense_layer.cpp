@@ -6,5 +6,5 @@ DenseLayer::DenseLayer(const Eigen::MatrixXf& weights_matrix,
     const Eigen::VectorXf& bias) : weights_matrix(weights_matrix), bias(bias) {}
 
 Eigen::VectorXf DenseLayer::modify(Eigen::VectorXf& input) {
-    // return (weights * input) + bias;
+    return (weights_matrix * input) + bias;
 }

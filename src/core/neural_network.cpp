@@ -21,4 +21,6 @@ std::array<float, Global::NUMBER_OF_OUTPUTS>
     // }
 
     // return softmax(output_layer.modify(input));
+
+    return std::array<float, Global::NUMBER_OF_OUTPUTS>{0}; // !!!
 }

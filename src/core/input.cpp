@@ -45,6 +45,8 @@ Eigen::VectorXf image_to_vector(const std::filesystem::path input) {
     // stbi_image_free(raw_image);
 
     // return output;
+    
+    return Eigen::MatrixXf::Random(); // !!!
 }
 
 Eigen::VectorXf create_output(unsigned char* input) {

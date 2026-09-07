@@ -8,19 +8,19 @@
 #include <eigen3/Eigen/Core>
 
 Eigen::VectorXf load_bias(std::filesystem::path path) {
-    // !!!
+    return Eigen::VectorXf::Random(); // !!!
 }
 
 std::vector<Eigen::VectorXf> load_biases(std::filesystem::path path) {
-    // !!!
+    return {}; // !!!
 }
 
 Eigen::MatrixXf load_weights_matrix(std::filesystem::path path) {
-    // !!!
+    return Eigen::MatrixXf::Random(); // !!!
 }
 
 std::vector<Eigen::MatrixXf> load_weights_matrices(std::filesystem::path path) {
-    // !!!
+    return {}; // !!!
 }
 
 void save_bias(Eigen::VectorXf bias, std::filesystem::path path) {

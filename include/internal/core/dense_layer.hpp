@@ -4,7 +4,7 @@
 
 #include <eigen3/Eigen/Core>
 
-/** @brief A layer with a matrix to represent weights and a bias vector */
+/** @brief A layer with a matrix to represent weights and a bias vector. */
 class DenseLayer {
 private:
     const Eigen::MatrixXf weights_matrix;
@@ -12,8 +12,8 @@ private:
 
 public:
     /**
-     * @param weights_matrix The weights as a matrix
-     * @param bias The bias vector
+     * @param weights_matrix The weights as a matrix.
+     * @param bias The bias vector.
      */
     DenseLayer(const Eigen::MatrixXf& weights_matrix, 
         const Eigen::VectorXf& bias);

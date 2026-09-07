@@ -8,4 +8,5 @@ project(number_guesser)
 
 add_subdirectory(include)
 add_subdirectory(interface)
-# add_subdirectory(testing)
+
+add_subdirectory(testing)
