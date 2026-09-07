@@ -21,7 +21,8 @@ Eigen::VectorXf load_bias(const std::filesystem::path& path);
  * @throw FileReadError If file could not be read properly.
  * @throw NoValueOnFileError If there was no value to read.
 */
-std::vector<Eigen::VectorXf> load_biases(const std::filesystem::path& path);
+std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS> load_biases(
+    const std::filesystem::path& path);
 
 /** @brief Load weights matrix from file. 
  * @throw FileReadError If file could not be read properly.

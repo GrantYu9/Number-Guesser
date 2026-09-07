@@ -17,7 +17,8 @@ Eigen::VectorXf load_bias(const std::filesystem::path& path) {
     // !!!
 }
 
-std::vector<Eigen::VectorXf> load_biases(const std::filesystem::path& path) {
+std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS> load_biases(
+    const std::filesystem::path& path) {
     // !!!
 }
 
