@@ -1,9 +1,11 @@
 #include "exceptions.hpp"
+#include "globals.hpp"
 #include "persistence.hpp"
 
+#include <array>
 #include <filesystem>
 #include <fstream>
-#include <vector>
+
 
 #include <eigen3/Eigen/Core>
 
@@ -11,37 +13,40 @@ namespace {
     // !!!
 }
 
-Eigen::VectorXf load_bias(std::filesystem::path path) {
-    return Eigen::VectorXf::Random(); // !!!
-}
-
-std::vector<Eigen::VectorXf> load_biases(std::filesystem::path path) {
-    return {}; // !!!
-}
-
-Eigen::MatrixXf load_weights_matrix(std::filesystem::path path) {
-    return Eigen::MatrixXf::Random(); // !!!
-}
-
-std::vector<Eigen::MatrixXf> load_weights_matrices(std::filesystem::path path) {
-    return {}; // !!!
-}
-
-void save_bias(Eigen::VectorXf bias, std::filesystem::path path) {
+Eigen::VectorXf load_bias(const std::filesystem::path& path) {
     // !!!
 }
 
-void save_biases(std::vector<Eigen::VectorXf> biases, 
-    std::filesystem::path path) {
+std::vector<Eigen::VectorXf> load_biases(const std::filesystem::path& path) {
     // !!!
 }
 
-void save_weights_matrix(Eigen::MatrixXf weights_matrix, 
-    std::filesystem::path path) {
+Eigen::MatrixXf load_weights_matrix(const std::filesystem::path& path) {
     // !!!
 }
 
-void save_weights_matrices(std::vector<Eigen::MatrixXf> weights_matrices, 
-    std::filesystem::path path) {
+std::array<Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS> 
+    load_weights_matrices(const std::filesystem::path& path) {
+    // !!!
+}
+
+void save_bias(const Eigen::VectorXf& bias, const std::filesystem::path& path) {
+    // !!!
+}
+
+void save_biases(
+    const std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS>& biases, 
+    const std::filesystem::path& path) {
+    // !!!
+}
+
+void save_weights_matrix(const Eigen::MatrixXf& weights_matrix, 
+    const std::filesystem::path& path) {
+    // !!!
+}
+
+void save_weights_matrices(
+    const std::array<Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS>& 
+    weights_matrices, const std::filesystem::path& path) {
     // !!!
 }

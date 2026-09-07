@@ -20,5 +20,5 @@ public:
     
     /** @brief Takes in an input vector, transforms it with the weights matrix,
      * adds the bias vector onto the result, and returns it. */
-    Eigen::VectorXf modify(Eigen::VectorXf& input);
+    Eigen::VectorXf modify(const Eigen::VectorXf& input);
 };

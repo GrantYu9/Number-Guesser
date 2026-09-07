@@ -13,7 +13,7 @@ NeuralNetwork::NeuralNetwork(const DenseLayer& input_layer,
         output_layer(output_layer) {}
 
 std::array<float, Globals::NUMBER_OF_OUTPUTS> 
-    NeuralNetwork::guess(Eigen::VectorXf input) {
+    NeuralNetwork::guess(const Eigen::VectorXf& input) {
     // input = relu(input_layer.modify(input));
     
     // for (DenseLayer hidden_layer : hidden_layers) {

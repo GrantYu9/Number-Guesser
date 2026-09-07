@@ -34,5 +34,5 @@ public:
 
     /** @brief The entire forward pass. Attempts to guess the number that the
      * image vector represents and returns a vector of probabilities */
-    std::array<float, Globals::NUMBER_OF_OUTPUTS> guess(Eigen::VectorXf input);
+    std::array<float, Globals::NUMBER_OF_OUTPUTS> guess(const Eigen::VectorXf& input);
 };

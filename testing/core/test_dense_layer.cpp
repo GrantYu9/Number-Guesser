@@ -25,14 +25,14 @@ INSTANTIATE_TEST_SUITE_P(TestModifyZero, TestDenseLayerModify,
 
 INSTANTIATE_TEST_SUITE_P(TestModify2x2MatrixInt, TestDenseLayerModify,
     testing::Values(
-        // Positive numbers
+        /** @brief Positive numbers */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 0, 1, 1, 0).finished(), 
             (Eigen::VectorXf(2) << 1, 1).finished(), 
             (Eigen::VectorXf(2) << 2, 3).finished(), 
             (Eigen::VectorXf(2) << 4, 3).finished()
         },
-        // Negative numbers
+        /** @brief Negative numbers */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 0, -1, 1, 0).finished(), 
             (Eigen::VectorXf(2) << -1, -1).finished(), 
