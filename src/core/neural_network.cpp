@@ -7,12 +7,12 @@
 #include <array>
 
 NeuralNetwork::NeuralNetwork(const DenseLayer& input_layer, 
-        const std::array<DenseLayer, Global::NUMBER_OF_HIDDEN_LAYERS>& 
+        const std::array<DenseLayer, Globals::NUMBER_OF_HIDDEN_LAYERS>& 
         hidden_layers, const DenseLayer& output_layer) :
         input_layer(input_layer), hidden_layers(hidden_layers),
         output_layer(output_layer) {}
 
-std::array<float, Global::NUMBER_OF_OUTPUTS> 
+std::array<float, Globals::NUMBER_OF_OUTPUTS> 
     NeuralNetwork::guess(Eigen::VectorXf input) {
     // input = relu(input_layer.modify(input));
     
@@ -22,5 +22,5 @@ std::array<float, Global::NUMBER_OF_OUTPUTS>
 
     // return softmax(output_layer.modify(input));
 
-    return std::array<float, Global::NUMBER_OF_OUTPUTS>{0}; // !!!
+    return std::array<float, Globals::NUMBER_OF_OUTPUTS>{0}; // !!!
 }

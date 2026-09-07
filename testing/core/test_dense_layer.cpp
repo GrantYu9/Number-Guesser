@@ -42,13 +42,13 @@ INSTANTIATE_TEST_SUITE_P(TestModify2x2MatrixInt, TestDenseLayerModify,
     )
 );
 
-INSTANTIATE_TEST_SUITE_P(TestModify3x2MatrixInt, TestDenseLayerModify,
+INSTANTIATE_TEST_SUITE_P(TestModify2x3MatrixInt, TestDenseLayerModify,
     testing::Values(
         std::tuple{
-            (Eigen::MatrixXf(3, 2) << 0, 1, 1, 0, 0, 1).finished(),
-            (Eigen::VectorXf(3) << 1, 1, 1).finished(), 
-            (Eigen::VectorXf(2) << 2, 3).finished(), 
-            (Eigen::VectorXf(3) << 4, 3, 4).finished()
+            (Eigen::MatrixXf(2, 3) << 0, 1, 0, 1, 0, 1).finished(),
+            (Eigen::VectorXf(2) << 1, 1).finished(), 
+            (Eigen::VectorXf(3) << 2, 3, 4).finished(), 
+            (Eigen::VectorXf(2) << 4, 7).finished()
         }
     )
 );
