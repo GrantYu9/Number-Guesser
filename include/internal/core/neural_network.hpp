@@ -6,7 +6,6 @@
 #include "globals.hpp"
 
 #include <array>
-#include <vector>
 
 #include <eigen3/Eigen/Core>
 
@@ -16,9 +15,9 @@
  */
 class NeuralNetwork {
 private:
-    DenseLayer input_layer;
-    std::vector<DenseLayer> hidden_layers;
-    DenseLayer output_layer;
+    const DenseLayer input_layer;
+    const std::array<DenseLayer, Global::NUMBER_OF_HIDDEN_LAYERS> hidden_layers;
+    const DenseLayer output_layer;
 
 public:
     /** 
@@ -29,8 +28,9 @@ public:
      * @param output_layer Outputs the resultant vector as a vector of 10
      * probabilities.
      */
-    NeuralNetwork(DenseLayer input_layer, 
-        std::vector<DenseLayer> hidden_layers, DenseLayer output_layer);
+    NeuralNetwork(const DenseLayer& input_layer, 
+        const std::array<DenseLayer, Global::NUMBER_OF_HIDDEN_LAYERS>& 
+            hidden_layers, const DenseLayer& output_layer);
 
     /** @brief The entire forward pass. Attempts to guess the number that the
      * image vector represents and returns a vector of probabilities */

@@ -5,10 +5,10 @@
 #include <eigen3/Eigen/Core>
 
 #include <array>
-#include <vector>
 
-NeuralNetwork::NeuralNetwork(DenseLayer input_layer, 
-        std::vector<DenseLayer> hidden_layers, DenseLayer output_layer) :
+NeuralNetwork::NeuralNetwork(const DenseLayer& input_layer, 
+        const std::array<DenseLayer, Global::NUMBER_OF_HIDDEN_LAYERS>& 
+        hidden_layers, const DenseLayer& output_layer) :
         input_layer(input_layer), hidden_layers(hidden_layers),
         output_layer(output_layer) {}
 

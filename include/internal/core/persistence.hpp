@@ -13,19 +13,19 @@
  * @throw FileReadError If file could not be read properly.
  * @throw NoValueOnFileError If there was no value to read.
 */
-Eigen::VectorXf load_bias(std::filesystem::path path);
+Eigen::VectorXf load_bias(const std::filesystem::path& path);
 
 /** @brief Load biases from file. 
  * @throw FileReadError If file could not be read properly.
  * @throw NoValueOnFileError If there was no value to read.
 */
-std::vector<Eigen::VectorXf> load_biases(std::filesystem::path path);
+std::vector<Eigen::VectorXf> load_biases(const std::filesystem::path& path);
 
 /** @brief Load weights matrix from file. 
  * @throw FileReadError If file could not be read properly.
  * @throw NoValueOnFileError If there was no value to read.
 */
-Eigen::MatrixXf load_weights_matrix(std::filesystem::path path);
+Eigen::MatrixXf load_weights_matrix(std::filesystem::path path); // !!!
 
 /** @brief Load weights matrices from file.
  * @throw FileReadError If file could not be read properly.

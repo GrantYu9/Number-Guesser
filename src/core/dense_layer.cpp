@@ -2,9 +2,9 @@
 
 #include <eigen3/Eigen/Core>
 
-DenseLayer::DenseLayer(Eigen::MatrixXf weights_matrix, Eigen::VectorXf bias) : 
-    weights_matrix(weights_matrix), bias(bias) {}
+DenseLayer::DenseLayer(const Eigen::MatrixXf& weights_matrix, 
+    const Eigen::VectorXf& bias) : weights_matrix(weights_matrix), bias(bias) {}
 
-Eigen::VectorXf DenseLayer::modify(Eigen::VectorXf input) {
+Eigen::VectorXf DenseLayer::modify(Eigen::VectorXf& input) {
     // return (weights * input) + bias;
 }

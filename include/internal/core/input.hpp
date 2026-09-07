@@ -19,4 +19,4 @@
  * @returns The image as a normalized vector.
  * @throws ImageReadError If there was a problem attempting to read the image.
  */
-Eigen::VectorXf image_to_vector(std::filesystem::path input);
+Eigen::VectorXf image_to_vector(const std::filesystem::path& input);

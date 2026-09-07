@@ -7,17 +7,18 @@
 /** @brief A layer with a matrix to represent weights and a bias vector */
 class DenseLayer {
 private:
-    Eigen::MatrixXf weights_matrix;
-    Eigen::VectorXf bias;
+    const Eigen::MatrixXf weights_matrix;
+    const Eigen::VectorXf bias;
 
 public:
     /**
      * @param weights_matrix The weights as a matrix
      * @param bias The bias vector
      */
-    DenseLayer(Eigen::MatrixXf weights_matrix, Eigen::VectorXf bias);
+    DenseLayer(const Eigen::MatrixXf& weights_matrix, 
+        const Eigen::VectorXf& bias);
     
     /** @brief Takes in an input vector, transforms it with the weights matrix,
      * adds the bias vector onto the result, and returns it. */
-    Eigen::VectorXf modify(Eigen::VectorXf input);
+    Eigen::VectorXf modify(Eigen::VectorXf& input);
 };
