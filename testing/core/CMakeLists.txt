@@ -11,10 +11,14 @@ target_link_libraries(test_dense_layer GTest::gtest_main core)
 add_executable(test_input test_input.cpp)
 target_link_libraries(test_input GTest::gtest_main core)
 
+add_executable(test_persistence test_persistence.cpp)
+target_link_libraries(test_persistence GTest::gtest_main core)
+
 include(GoogleTest)
 
 gtest_discover_tests(
     test_activation_functions
     test_dense_layer
     test_input
+    test_persistence
 )

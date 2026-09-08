@@ -65,6 +65,6 @@ INSTANTIATE_TEST_SUITE_P(TestSoftmaxSumToOne, TestSoftmaxSumToOne,
         // Random
         Eigen::VectorXf::Random(Globals::NUMBER_OF_OUTPUTS),
         // Overflow guarding .The max value for a 32 bit float as per the IEEE 754 standard is on the order 10e38 which is just shy of e**89
-        (Eigen::VectorXf(Globals::NUMBER_OF_OUTPUTS) << 1, 2, 3, 90, 5, 6, 7, 8, 9, 6.7).finished()
+        (Eigen::VectorXf(Globals::NUMBER_OF_OUTPUTS) << 1, -2, 3, 90, 5, 6, 7, 8, 9, 6.7).finished()
     )
 );
