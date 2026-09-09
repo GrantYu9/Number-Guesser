@@ -6,8 +6,9 @@
 #include <tuple>
 
 class TestDenseLayerModify : public testing::TestWithParam<std::tuple<const Eigen::MatrixXf, const Eigen::VectorXf, Eigen::VectorXf, const Eigen::VectorXf>> {};
+
 TEST_P(TestDenseLayerModify, TestModify) {
-    auto [weights_matrix, bias, input, expected] = GetParam();
+    const auto& [weights_matrix, bias, input, expected] = GetParam();
 
     EXPECT_EQ(expected, DenseLayer(weights_matrix, bias).modify(input));
 };

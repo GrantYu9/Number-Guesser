@@ -7,9 +7,10 @@
 #include <array>
 #include <tuple>
 
-class TestReLU : public testing::TestWithParam<std::tuple<Eigen::VectorXf, Eigen::VectorXf>> {};
+class TestReLU : public testing::TestWithParam<std::tuple<const Eigen::VectorXf, const Eigen::VectorXf>> {};
+
 TEST_P(TestReLU, TestReLU) {
-    auto [input, expected] = GetParam();
+    const auto& [input, expected] = GetParam();
 
     EXPECT_EQ(expected, relu(input));
 };
@@ -42,20 +43,21 @@ INSTANTIATE_TEST_SUITE_P(TestReLUNegative, TestReLU,
 );
 
 class TestSoftmaxSumToOne : public testing::TestWithParam<Eigen::VectorXf> {};
+
 TEST_P(TestSoftmaxSumToOne, TestSoftmax) {
-    constexpr float EXPECTED = 1.0f;
-    constexpr float TOLERANCE = 1e-5f;
+    constexpr float expected = 1.0f;
+    constexpr float tolerance = 1e-5f;
 
-    Eigen::VectorXf input = GetParam();
+    const Eigen::VectorXf& input = GetParam();
 
-    std::array<float, Globals::NUMBER_OF_OUTPUTS> output = softmax(input);
+    const std::array<float, Globals::NUMBER_OF_OUTPUTS>& output = softmax(input);
 
     float sum = 0.0f;
     for (const float& probability : output) {
         sum += probability;
     }
 
-    EXPECT_NEAR(EXPECTED, sum, TOLERANCE);
+    EXPECT_NEAR(expected, sum, tolerance);
 };
 
 INSTANTIATE_TEST_SUITE_P(TestSoftmaxSumToOne, TestSoftmaxSumToOne,

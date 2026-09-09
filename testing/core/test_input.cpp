@@ -12,8 +12,9 @@ namespace {
 }
 
 class TestImageToVectorInvalidImage : public testing::TestWithParam<std::filesystem::path> {};
+
 TEST_P(TestImageToVectorInvalidImage, TestInvalidImage) {
-    const std::filesystem::path path = GetParam();
+    const std::filesystem::path& path = GetParam();
 
     EXPECT_THROW(image_to_vector(path), ImageReadError);
 };
@@ -30,11 +31,12 @@ INSTANTIATE_TEST_SUITE_P(TestInvalidImage, TestImageToVectorInvalidImage,
 );
 
 class TestImageToVectorImageResize : public testing::TestWithParam<std::filesystem::path> {};
-TEST_P(TestImageToVectorImageResize, TestImageResize) {
-    constexpr int EXPECTED = 784;
-    const std::filesystem::path path = GetParam();
 
-    EXPECT_EQ(EXPECTED, image_to_vector(path).size());
+TEST_P(TestImageToVectorImageResize, TestImageResize) {
+    constexpr int expected = 784;
+    const std::filesystem::path& path = GetParam();
+
+    EXPECT_EQ(expected, image_to_vector(path).size());
 };
 
 INSTANTIATE_TEST_SUITE_P(TestImageResize, TestImageToVectorImageResize,
