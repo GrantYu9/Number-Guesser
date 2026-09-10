@@ -13,14 +13,12 @@ NeuralNetwork::NeuralNetwork(const DenseLayer& input_layer,
         output_layer(output_layer) {}
 
 std::array<float, Globals::NUMBER_OF_OUTPUTS> 
-    NeuralNetwork::guess(const Eigen::VectorXf& input) {
-    // input = relu(input_layer.modify(input));
+    NeuralNetwork::guess(Eigen::VectorXf& input) const {
+    input = relu(input_layer.modify(input));
     
-    // for (DenseLayer hidden_layer : hidden_layers) {
-    //     input = relu(hidden_layer.modify(input));
-    // }
+    for (const DenseLayer& hidden_layer : hidden_layers) {
+        input = relu(hidden_layer.modify(input));
+    }
 
-    // return softmax(output_layer.modify(input));
-
-    return std::array<float, Globals::NUMBER_OF_OUTPUTS>{0}; // !!!
+    return softmax(output_layer.modify(input));
 }

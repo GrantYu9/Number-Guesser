@@ -30,9 +30,10 @@ public:
      */
     NeuralNetwork(const DenseLayer& input_layer, 
         const std::array<DenseLayer, Globals::NUMBER_OF_HIDDEN_LAYERS>& 
-            hidden_layers, const DenseLayer& output_layer);
+        hidden_layers, const DenseLayer& output_layer);
 
     /** @brief The entire forward pass. Attempts to guess the number that the
      * image vector represents and returns a vector of probabilities */
-    std::array<float, Globals::NUMBER_OF_OUTPUTS> guess(const Eigen::VectorXf& input);
+    std::array<float, Globals::NUMBER_OF_OUTPUTS> guess(Eigen::VectorXf& input) 
+        const;
 };
