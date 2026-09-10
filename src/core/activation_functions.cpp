@@ -15,7 +15,7 @@ Eigen::VectorXf relu(const Eigen::VectorXf& input) {
 }
 
 std::array<float, Globals::NUMBER_OF_OUTPUTS> softmax(const Eigen::VectorXf& input) {
-    assert(input.rows() == Globals::NUMBER_OF_OUTPUTS);
+    assert(static_cast<int>(input.rows()) == Globals::NUMBER_OF_OUTPUTS);
     
     const float MAX_VALUE = input.maxCoeff();
 
