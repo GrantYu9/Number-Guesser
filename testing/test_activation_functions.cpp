@@ -6,6 +6,7 @@
 
 #include <array>
 #include <tuple>
+
 class TestReLUVector : public testing::TestWithParam<std::tuple<const Eigen::VectorXf, const Eigen::VectorXf>> {};
 
 TEST_P(TestReLUVector, TestReLUVector) {

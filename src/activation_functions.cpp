@@ -42,8 +42,12 @@ Eigen::VectorXf softmax(const Eigen::VectorXf& input) {
     // }
 
     // return probabilities;
+
+    return Eigen::VectorXf::Random();
 }
 
 Eigen::MatrixXf softmax(Eigen::MatrixXf& input) {
     // !!!
+
+    return Eigen::MatrixXf::Random();
 }
