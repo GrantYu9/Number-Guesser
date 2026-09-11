@@ -8,10 +8,15 @@
 
 #include <array>
 
-/** @brief The ReLu activation function.
+/** @brief ReLu activation function. Vector version.
  * @see @ref https://en.wikipedia.org/wiki/Rectified_linear_unit
  */
 Eigen::VectorXf relu(const Eigen::VectorXf& input);
+
+/** @brief ReLu activation function. Matrix version. Operates column wise.
+ * @see @ref https://en.wikipedia.org/wiki/Rectified_linear_unit
+ */
+Eigen::MatrixXf relu(const Eigen::MatrixXf& input);
 
 /** @brief The softmax activation function. Vector version.
  * @returns A vector of probabilities.

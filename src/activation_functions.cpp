@@ -6,10 +6,19 @@
 
 #include <cassert>
 
-Eigen::VectorXf relu(const Eigen::VectorXf& input) {
+namespace {
     constexpr int RELU = 0;
+}
 
+Eigen::VectorXf relu(const Eigen::VectorXf& input) {
     return input.cwiseMax(RELU);
+}
+
+Eigen::MatrixXf relu(const Eigen::MatrixXf& input) {
+    // return input.cwiseMax(RELU);
+    // !!!
+
+    return Eigen::MatrixXf::Random();
 }
 
 // !!!

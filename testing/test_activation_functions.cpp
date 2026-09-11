@@ -6,41 +6,37 @@
 
 #include <array>
 #include <tuple>
+class TestReLUVector : public testing::TestWithParam<std::tuple<const Eigen::VectorXf, const Eigen::VectorXf>> {};
 
-class TestReLU : public testing::TestWithParam<std::tuple<const Eigen::VectorXf, const Eigen::VectorXf>> {};
-
-TEST_P(TestReLU, TestReLU) {
+TEST_P(TestReLUVector, TestReLUVector) {
     const auto& [input, expected] = GetParam();
 
     EXPECT_EQ(expected, relu(input));
 };
 
-INSTANTIATE_TEST_SUITE_P(TestReLUZero, TestReLU, 
+INSTANTIATE_TEST_SUITE_P(TestReLUZero, TestReLUVector, 
     testing::Values(
+        // Zero
         std::tuple{
             Eigen::VectorXf::Zero(3),
             Eigen::VectorXf::Zero(3)
-        }
-    )
-);
-
-INSTANTIATE_TEST_SUITE_P(TestReLUPositive, TestReLU, 
-    testing::Values(
+        },
+        // Positive
         std::tuple{
             (Eigen::VectorXf(3) << 2, 3, 4).finished(),
             (Eigen::VectorXf(3) << 2, 3, 4).finished()
-        }
-    )
-);
-
-INSTANTIATE_TEST_SUITE_P(TestReLUNegative, TestReLU, 
-    testing::Values(
+        },
+        // Negative
         std::tuple{
             (Eigen::VectorXf(3) << 2, -3, 4).finished(),
             (Eigen::VectorXf(3) << 2, 0, 4).finished()
         }
     )
 );
+
+// !!! relu matrix
+
+// !!! softmax vector
 
 // class TestSoftmaxSumToOne : public testing::TestWithParam<Eigen::VectorXf> {};
 
@@ -70,7 +66,5 @@ INSTANTIATE_TEST_SUITE_P(TestReLUNegative, TestReLU,
 //         (Eigen::VectorXf(Globals::NUMBER_OF_OUTPUTS) << 1, -2, 3, 90, 5, 6, 7, 8, 9, 6.7).finished()
 //     )
 // );
-
-// !!! softmax vector
 
 // !!! softmax matrix
