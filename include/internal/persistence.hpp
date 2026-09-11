@@ -42,7 +42,7 @@ Eigen::MatrixXf load_weights_matrix(const std::filesystem::path& path);
  * @details Encoding: {int row} {int columns} {{{float value} ...} ...}
  * @throw FileReadError If file could not be read properly.
 */
-std::array<Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS> 
+std::array<Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS>
     load_weights_matrices(const std::filesystem::path& path);
 
 /** @brief Save bias to file.
@@ -57,14 +57,15 @@ void save_bias(const std::filesystem::path& path, const Eigen::VectorXf& bias);
 */
 void save_biases(
     const std::filesystem::path& path,
-    const std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS>& 
-    biases);
+    const std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS>& biases
+);
 
 /** @brief Save weights matrix to file.
  * @details Encoding: {int row} {int columns} {{float value} ...}
  * @throw FileWriteError If we could not write to file.
  */
-void save_weights_matrix(const std::filesystem::path& path,
+void save_weights_matrix(
+    const std::filesystem::path& path,
     const Eigen::MatrixXf& weights_matrix);
 
 /** @brief Save weights matrices to file.

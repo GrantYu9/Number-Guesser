@@ -5,7 +5,6 @@
 #include "exceptions.hpp"
 
 #include <array>
-#include <cassert>
 #include <filesystem>
 
 #include <eigen3/Eigen/Core>
@@ -65,4 +64,17 @@ Eigen::VectorXf create_output(const unsigned char* input) {
     Eigen::VectorXf output = Eigen::Map<const Eigen::Matrix<unsigned char, Eigen::Dynamic, 1>>(input, IMAGE_PIXELS).cast<float>();
 
     return output / NORMALIZE;
+}
+
+Eigen::MatrixXf read_image_batch(const int position_indicator) {
+    // !!!
+
+    return Eigen::MatrixXf::Random();
+}
+
+std::array<int, Globals::BATCH_SIZE> read_label_batch(
+    const int position_indicator) {
+    // !!!
+
+    return {};
 }

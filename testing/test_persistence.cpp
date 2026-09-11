@@ -10,14 +10,11 @@
 #include <fstream>
 #include <functional>
 #include <ios>
-#include <stdexcept>
 #include <tuple>
-#include <variant>
 
 namespace {
     constexpr std::ios_base::openmode BINARY_WRITE_MODE = std::ios_base::out | std::ios_base::binary;
-    const std::filesystem::path ROOT = std::filesystem::path(__FILE__).parent_path().parent_path().parent_path();
-    const std::filesystem::path PERSISTENCE = ROOT / "data" / "persistence" / "testing";
+    const std::filesystem::path PERSISTENCE = Globals::ROOT / "data" / "persistence" / "testing";
     const std::filesystem::path INVALID_FILE_PATH = PERSISTENCE / "not_real.bin";
     const std::filesystem::path EMPTY_FILE = PERSISTENCE / "empty.bin";
     const std::filesystem::path COUNTING = PERSISTENCE / "counting.bin";
@@ -48,10 +45,6 @@ void write_matrix_to_file(std::ofstream& file, const Eigen::MatrixXf matrix);
 void write_vector_to_file(std::ofstream& file, const Eigen::VectorXf vector);
 void write_vectors_to_file(std::ofstream& file, const std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS>& vectors);
 void reset_file(std::ofstream& file);
-class FileWriteErrorTestVersion : public std::runtime_error {
-public:
-    FileWriteErrorTestVersion();
-};
 
 TEST(TestThrowFileReadErrorCounting, TestBias) {
     constexpr int rows = 3;
@@ -62,7 +55,7 @@ TEST(TestThrowFileReadErrorCounting, TestBias) {
     std::ofstream file(COUNTING);
 
     if (!file) {
-        throw FileWriteErrorTestVersion();
+        throw FileWriteError();
     }
 
     // Small
@@ -110,7 +103,7 @@ TEST(TestThrowFileReadErrorCounting, TestBiases) {
     std::ofstream file(COUNTING);
 
     if (!file) {
-        throw FileWriteErrorTestVersion();
+        throw FileWriteError();
     }
 
     // Small
@@ -154,7 +147,7 @@ TEST(TestThrowFileReadErrorCounting, TestWeightsMatrix) {
     std::ofstream file(COUNTING);
 
     if (!file) {
-        throw FileWriteErrorTestVersion();
+        throw FileWriteError();
     }
 
     // Small rows
@@ -220,7 +213,7 @@ TEST(TestThrowFileReadErrorCounting, TestWeightsMatrices) {
     std::ofstream file(COUNTING);
 
     if (!file) {
-        throw FileWriteErrorTestVersion();
+        throw FileWriteError();
     }
 
     // Small rows
@@ -294,8 +287,6 @@ void reset_file(std::ofstream& file) {
     constexpr int BEGINNING = 0;
     file.seekp(BEGINNING);
 }
-
-FileWriteErrorTestVersion::FileWriteErrorTestVersion(): std::runtime_error("Could not write to file. (test version)") {};
 
 TEST(TestThrowFileWriteError, TestBias) {
     EXPECT_THROW(save_bias(DIRECTORY, Eigen::VectorXf::Random(3)), FileWriteError);

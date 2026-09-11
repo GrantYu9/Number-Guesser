@@ -7,6 +7,5 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 project(number_guesser)
 
 add_subdirectory(include)
-add_subdirectory(interface)
-
+# add_subdirectory(interface)
 add_subdirectory(testing)

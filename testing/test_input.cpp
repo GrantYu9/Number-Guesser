@@ -1,4 +1,5 @@
 #include "exceptions.hpp"
+#include "globals.hpp"
 #include "input.hpp"
 
 #include <eigen3/Eigen/Core>
@@ -7,8 +8,7 @@
 #include <filesystem>
 
 namespace {
-    const std::filesystem::path ROOT = std::filesystem::path(__FILE__).parent_path().parent_path().parent_path();
-    const std::filesystem::path IMAGES = ROOT / "data" / "images" / "testing";
+    const std::filesystem::path IMAGES = Globals::ROOT / "data" / "images" / "testing";
 }
 
 class TestImageToVectorInvalidImage : public testing::TestWithParam<std::filesystem::path> {};
@@ -59,3 +59,7 @@ TEST(TestImageToVector, TestNormalize) {
 
     EXPECT_TRUE(output.minCoeff() >= -1.0f && output.maxCoeff() <= 1.0f);
 }
+
+// !!! read_image_batch
+
+// !!! read_label_batch
