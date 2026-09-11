@@ -4,8 +4,13 @@
 #include <eigen3/Eigen/Core>
 #include <gtest/gtest.h>
 
-#include <array>
 #include <tuple>
+
+namespace {
+    constexpr float EXPECTED_SOFTMAX_SUM = 1.0f;
+    constexpr int OVERFLOW_CHECK = 90;
+    constexpr float TOLERANCE = 1e-5f;
+}
 
 class TestReLUVector : public testing::TestWithParam<std::tuple<const Eigen::VectorXf, const Eigen::VectorXf>> {};
 
@@ -35,37 +40,97 @@ INSTANTIATE_TEST_SUITE_P(TestReLUZero, TestReLUVector,
     )
 );
 
-// !!! relu matrix
+class TestReLUMatrix : public testing::TestWithParam<std::tuple<const Eigen::MatrixXf, const Eigen::MatrixXf>> {};
 
-// !!! softmax vector
+TEST_P(TestReLUMatrix, TestReLUMatrix) {
+    const auto& [input, expected] = GetParam();
 
-// class TestSoftmaxSumToOne : public testing::TestWithParam<Eigen::VectorXf> {};
+    EXPECT_EQ(expected, relu(input));
+};
 
-// TEST_P(TestSoftmaxSumToOne, TestSoftmax) {
-//     constexpr float expected = 1.0f;
-//     constexpr float tolerance = 1e-5f;
+INSTANTIATE_TEST_SUITE_P(TestReLUMatrix, TestReLUMatrix,
+    testing::Values(
+        // Zero
+        std::tuple{
+            Eigen::MatrixXf::Zero(2, 2),
+            Eigen::MatrixXf::Zero(2, 2)
+        },
+        // Positive
+        std::tuple{
+            (Eigen::MatrixXf(2, 2) << 2, 3, 4, 5).finished(),
+            (Eigen::MatrixXf(2, 2) << 2, 3, 4, 5).finished()
+        },
+        // Negative
+        std::tuple{
+            (Eigen::MatrixXf(2, 2) << 2, -3, 4, -5).finished(),
+            (Eigen::MatrixXf(2, 2) << 2, 0, 4, 0).finished()
+        }
+    )
+);
 
-//     const Eigen::VectorXf& input = GetParam();
+class TestSoftmaxVector : public testing::TestWithParam<Eigen::VectorXf> {};
 
-//     const std::array<float, Globals::NUMBER_OF_OUTPUTS>& output = softmax(input);
+Eigen::VectorXf create_overflow_vector();
 
-//     float sum = 0.0f;
-//     for (const float& probability : output) {
-//         sum += probability;
-//     }
+TEST_P(TestSoftmaxVector, TestSoftmaxVector) {
+    Eigen::VectorXf input = GetParam();
 
-//     EXPECT_NEAR(expected, sum, tolerance);
-// };
+    const Eigen::VectorXf output = softmax(input);
 
-// INSTANTIATE_TEST_SUITE_P(TestSoftmaxSumToOne, TestSoftmaxSumToOne,
-//     testing::Values(
-//         // Zero
-//         Eigen::VectorXf::Zero(Globals::NUMBER_OF_OUTPUTS),
-//         // Random
-//         Eigen::VectorXf::Random(Globals::NUMBER_OF_OUTPUTS),
-//         // Overflow guarding .The max value for a 32 bit float as per the IEEE 754 standard is on the order 10e38 which is just shy of e**89
-//         (Eigen::VectorXf(Globals::NUMBER_OF_OUTPUTS) << 1, -2, 3, 90, 5, 6, 7, 8, 9, 6.7).finished()
-//     )
-// );
+    EXPECT_NEAR(EXPECTED_SOFTMAX_SUM, output.sum(), TOLERANCE);
+};
 
-// !!! softmax matrix
+INSTANTIATE_TEST_SUITE_P(TestSoftmaxVector, TestSoftmaxVector,
+    testing::Values(
+        // Zero
+        Eigen::VectorXf::Zero(Globals::NUMBER_OF_OUTPUTS),
+        // Random
+        Eigen::VectorXf::Random(Globals::NUMBER_OF_OUTPUTS),
+        // Overflow guading .The max value for a 32 bit float as per the IEEE 754 standard is on the order 10e38 which is just shy of e**89
+        create_overflow_vector()
+    )
+);
+
+Eigen::VectorXf create_overflow_vector() {
+    Eigen::VectorXf vector = Eigen::VectorXf::Random(Globals::NUMBER_OF_OUTPUTS);
+
+    vector(0) = OVERFLOW_CHECK;
+
+    return vector;
+}
+
+class TestSoftmaxMatrix : public testing::TestWithParam<Eigen::MatrixXf> {};
+
+Eigen::MatrixXf create_overflow_matrix();
+
+TEST_P(TestSoftmaxMatrix, TestSoftmaxMatrix) {
+    Eigen::MatrixXf input = GetParam();
+
+    const Eigen::MatrixXf output = softmax(input);
+
+    const Eigen::RowVectorXf sums = output.colwise().sum();
+    const int size = static_cast<int>(sums.size());
+
+    for (int i = 0; i < size; ++i) {
+        EXPECT_NEAR(EXPECTED_SOFTMAX_SUM, sums(i), TOLERANCE);
+    }
+};
+
+INSTANTIATE_TEST_SUITE_P(TestSoftmaxMatrix, TestSoftmaxMatrix,
+    testing::Values(
+        // Zero
+        Eigen::MatrixXf::Zero(Globals::NUMBER_OF_OUTPUTS, Globals::BATCH_SIZE),
+        // Random
+        Eigen::MatrixXf::Random(Globals::NUMBER_OF_OUTPUTS, Globals::BATCH_SIZE),
+        // Overflow guarding .The max value for a 32 bit float as per the IEEE 754 standard is on the order 10e38 which is just shy of e**89
+        create_overflow_matrix()
+    )
+);
+
+Eigen::MatrixXf create_overflow_matrix() {
+    Eigen::MatrixXf matrix = Eigen::MatrixXf::Random(Globals::NUMBER_OF_OUTPUTS, Globals::BATCH_SIZE);
+
+    matrix(0, 0) = OVERFLOW_CHECK;
+
+    return matrix;
+}

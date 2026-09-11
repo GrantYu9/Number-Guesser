@@ -6,6 +6,12 @@
 
 // DenseLayerProduction & DenseLayerTraining !!!
 
+/** @brief File specific constants. */
+namespace {
+    /** @brief The learning rate. */
+    constexpr float LEARNING_RATE = 1e-3f;
+}
+
 /** @brief A layer with a matrix to represent weights and a bias vector. 
  * @details For training, stores the input matrix that passed through it and
  * contains a weights gradient and bias gradient matrix and vector,

@@ -12,6 +12,15 @@
 
 #include <eigen3/Eigen/Core>
 
+/** @brief File specific constants. */
+namespace {
+    /** @brief Number of pixels the target image should be in length. Note 
+     * that the the target image is square. */
+    constexpr int IMAGE_LENGTH = 28;
+    /** @brief Number of pixels the target image should have. */
+    constexpr int IMAGE_PIXELS = 784;
+}
+
 /** @brief Attempt to convert an image at a file path into a vector. Uses 
  * greyscale.
  * @details This is achieved by taking the image and from left to right and top

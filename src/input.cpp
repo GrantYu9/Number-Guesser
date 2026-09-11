@@ -1,7 +1,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_RESIZE_IMPLEMENTATION
 
-#include "globals.hpp"
+#include "input.hpp"
 #include "exceptions.hpp"
 
 #include <array>
@@ -10,14 +10,6 @@
 #include <eigen3/Eigen/Core>
 #include "stb_image.h"
 #include "stb_image_resize2.h"
-
-namespace {
-    /** @brief Number of pixels the target image should be in length. Note 
-     * that the the target image is square. */
-    constexpr int IMAGE_LENGTH = 28;
-    /** @brief Number of pixels the target image should have. */
-    constexpr int IMAGE_PIXELS = 784;
-}
 
 Eigen::VectorXf create_output(const unsigned char* input);
 

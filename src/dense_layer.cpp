@@ -24,7 +24,6 @@ Eigen::MatrixXf DenseLayer::forward(const Eigen::MatrixXf& input) const {
 }
 
 void stochastic_gradient_descent() {
-    constexpr float learning_rate = 1e-3;
 
     // !!!
 }

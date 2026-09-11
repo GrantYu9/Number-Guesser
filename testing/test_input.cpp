@@ -1,5 +1,4 @@
 #include "exceptions.hpp"
-#include "globals.hpp"
 #include "input.hpp"
 
 #include <eigen3/Eigen/Core>

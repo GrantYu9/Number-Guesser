@@ -1,6 +1,5 @@
 #include "activation_functions.hpp"
 #include "exceptions.hpp"
-#include "globals.hpp"
 
 #include <eigen3/Eigen/Core>
 
@@ -15,39 +14,23 @@ Eigen::VectorXf relu(const Eigen::VectorXf& input) {
 }
 
 Eigen::MatrixXf relu(const Eigen::MatrixXf& input) {
-    // return input.cwiseMax(RELU);
-    // !!!
-
-    return Eigen::MatrixXf::Random();
+    return input.cwiseMax(RELU);
 }
 
-// !!!
-Eigen::VectorXf softmax(const Eigen::VectorXf& input) {
-    // assert(static_cast<int>(input.rows()) == Globals::NUMBER_OF_OUTPUTS);
-    
-    // const float MAX_VALUE = input.maxCoeff();
+Eigen::VectorXf softmax(Eigen::VectorXf& input) {
+    assert(static_cast<int>(input.rows()) == Globals::NUMBER_OF_OUTPUTS);
 
-    // std::array<float, Globals::NUMBER_OF_OUTPUTS> probabilities;
-    // float sum = 0.0f;
+    const Eigen::VectorXf input_scaled = input.array() - input.maxCoeff();
+    Eigen::VectorXf input_exponentiated = input_scaled.array().exp().matrix();
 
-    // for (int i = 0; i < Globals::NUMBER_OF_OUTPUTS; ++i) {
-    //     const float value = std::exp(input(i) - MAX_VALUE);
-
-    //     probabilities[i] = value;
-    //     sum += value;
-    // }
-
-    // for (float& value : probabilities) {
-    //     value /= sum;
-    // }
-
-    // return probabilities;
-
-    return Eigen::VectorXf::Random();
+    return input_exponentiated / input_exponentiated.sum();
 }
 
 Eigen::MatrixXf softmax(Eigen::MatrixXf& input) {
-    // !!!
+    assert(static_cast<int>(input.rows()) == Globals::NUMBER_OF_OUTPUTS);
 
-    return Eigen::MatrixXf::Random();
+    const Eigen::MatrixXf input_scaled = input.rowwise() - input.colwise().maxCoeff();
+    Eigen::MatrixXf input_exponentiated = input_scaled.array().exp().matrix();
+
+    return (input_exponentiated.array().rowwise() / input_exponentiated.array().colwise().sum()).matrix();
 }
