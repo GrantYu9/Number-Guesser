@@ -45,7 +45,7 @@ public:
 
     /** @brief Forward pass. Vector version.
      * @details Takes in an input vector, transforms it with the weights matrix,
-     * adds the bias ve ctor onto the result, and returns it. 
+     * adds the bias vector onto the result, and returns it. 
      */
     Eigen::VectorXf forward(const Eigen::VectorXf& input) const;
 

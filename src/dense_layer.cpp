@@ -18,9 +18,7 @@ Eigen::VectorXf DenseLayer::forward(const Eigen::VectorXf& input) const {
 }
 
 Eigen::MatrixXf DenseLayer::forward(const Eigen::MatrixXf& input) const {
-    // !!!
-
-    return Eigen::MatrixXf::Random();
+    return (weights_matrix * input).colwise() + bias;
 }
 
 void stochastic_gradient_descent() {
