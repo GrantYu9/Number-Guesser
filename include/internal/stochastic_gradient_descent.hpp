@@ -17,12 +17,12 @@ namespace {
  * @see https://en.wikipedia.org/wiki/Stochastic_gradient_descent
 */
 Eigen::MatrixXf stochastic_gradient_descent(
-    const Eigen::MatrixXf& weights_matrix, 
-    const Eigen::MatrixXf& gradients);
+    Eigen::MatrixXf& weights_matrix, 
+    Eigen::MatrixXf& gradients);
 
 /** @brief Returns the new bias after stochastic gradient descent. 
  * @see https://en.wikipedia.org/wiki/Stochastic_gradient_descent
 */
 Eigen::VectorXf stochastic_gradient_descent(
-    const Eigen::VectorXf& bias,
-    const Eigen::VectorXf& gradient);
+    Eigen::VectorXf& bias,
+    Eigen::VectorXf& gradient);

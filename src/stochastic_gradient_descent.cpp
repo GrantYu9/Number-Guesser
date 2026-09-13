@@ -4,18 +4,14 @@
 
 /** @brief Returns the new weight after stochastic gradient descent. */
 Eigen::MatrixXf stochastic_gradient_descent(
-    const Eigen::MatrixXf& weights_matrix, 
-    const Eigen::MatrixXf& gradients) {
-    // !!!
-
-    return Eigen::MatrixXf::Random();
+    Eigen::MatrixXf& weights_matrix, 
+    Eigen::MatrixXf& gradients) {
+    return weights_matrix - LEARNING_RATE * gradients;
 }
 
 /** @brief Returns the new bias after stochastic gradient descent. */
 Eigen::VectorXf stochastic_gradient_descent(
-    const Eigen::VectorXf& bias,
-    const Eigen::VectorXf& gradient) {
-    // !!!
-
-    return Eigen::MatrixXf::Random();
+    Eigen::VectorXf& bias,
+    Eigen::VectorXf& gradient) {
+    return bias - LEARNING_RATE * gradient;
 }
