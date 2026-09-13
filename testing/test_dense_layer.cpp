@@ -5,11 +5,11 @@
 
 #include <tuple>
 
-class TestDenseLayerBackward : public testing::TestWithParam<std::tuple<>> {};
+// class TestDenseLayerBackward : public testing::TestWithParam<std::tuple<>> {};
 
-TEST_P(TestDenseLayerBackward, TestDenseLayerBackward) {
-    // !!!
-}
+// TEST_P(TestDenseLayerBackward, TestDenseLayerBackward) {
+//     // !!!
+// }
 
 class TestDenseLayerForwardVector : public testing::TestWithParam<std::tuple<const Eigen::MatrixXf, const Eigen::VectorXf, Eigen::VectorXf, const Eigen::VectorXf>> {};
 

@@ -31,12 +31,11 @@ public:
         const Eigen::VectorXf& bias);
     
     /** @brief Backpropagation.
-     * @details From the error gradients, produces a set of weight gradients and
-     * a bias gradient unique to this layer and calls @ref
-     * stochastic_gradient_descent() to perform the gradient descent with the
-     * weights. 
-     * @returns A matrix of gradients for the next layer.
-     * to backpropagate.
+     * @details Calls several functions from @ref backpropagation.hpp to assist
+     * in creating a matrix of weight gradients, a bias gradients, and an matrix
+     * of error gradients for the next layer. Calls @ref
+     * stochastic_gradient_descent() to update the weights in this DenseLayer.
+     * @returns A matrix of error gradients for the next layer to backpropagate.
      * @see https://en.wikipedia.org/wiki/Backpropagation
      */
     Eigen::MatrixXf backward(const Eigen::MatrixXf& error_gradients);
@@ -54,7 +53,9 @@ public:
     Eigen::MatrixXf forward(const Eigen::MatrixXf& input) const;
 
     /** @brief Stochastic gradient descent.
-     * @details Modifies the weights and bias with the respective paratmers. 
+     * @details Calls several functions from @ref 
+     * stochastic_gradient_descent.hpp to create the new weights and bias and
+     * then modifies DenseLayer with those values.
      * @see https://en.wikipedia.org/wiki/Stochastic_gradient_descent
      */
     void stochastic_gradient_descent(
