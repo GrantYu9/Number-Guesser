@@ -18,7 +18,7 @@ TEST_P(TestReLUVector, TestReLUVector) {
     const auto& [input, expected] = GetParam();
 
     EXPECT_EQ(expected, relu(input));
-};
+}
 
 INSTANTIATE_TEST_SUITE_P(TestReLUZero, TestReLUVector, 
     testing::Values(
@@ -46,7 +46,7 @@ TEST_P(TestReLUMatrix, TestReLUMatrix) {
     const auto& [input, expected] = GetParam();
 
     EXPECT_EQ(expected, relu(input));
-};
+}
 
 INSTANTIATE_TEST_SUITE_P(TestReLUMatrix, TestReLUMatrix,
     testing::Values(
@@ -78,7 +78,7 @@ TEST_P(TestSoftmaxVector, TestSoftmaxVector) {
     const Eigen::VectorXf output = softmax(input);
 
     EXPECT_NEAR(EXPECTED_SOFTMAX_SUM, output.sum(), TOLERANCE);
-};
+}
 
 INSTANTIATE_TEST_SUITE_P(TestSoftmaxVector, TestSoftmaxVector,
     testing::Values(
@@ -114,7 +114,7 @@ TEST_P(TestSoftmaxMatrix, TestSoftmaxMatrix) {
     for (int i = 0; i < size; ++i) {
         EXPECT_NEAR(EXPECTED_SOFTMAX_SUM, sums(i), TOLERANCE);
     }
-};
+}
 
 INSTANTIATE_TEST_SUITE_P(TestSoftmaxMatrix, TestSoftmaxMatrix,
     testing::Values(

@@ -16,7 +16,7 @@ TEST_P(TestImageToVectorInvalidImage, TestInvalidImage) {
     const std::filesystem::path& path = GetParam();
 
     EXPECT_THROW(image_to_vector(path), ImageReadError);
-};
+}
 
 INSTANTIATE_TEST_SUITE_P(TestInvalidImage, TestImageToVectorInvalidImage,
     testing::Values(
@@ -36,7 +36,7 @@ TEST_P(TestImageToVectorImageResize, TestImageResize) {
     const std::filesystem::path& path = GetParam();
 
     EXPECT_EQ(expected, image_to_vector(path).size());
-};
+}
 
 INSTANTIATE_TEST_SUITE_P(TestImageResize, TestImageToVectorImageResize,
     testing::Values(

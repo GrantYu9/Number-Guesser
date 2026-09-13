@@ -17,7 +17,7 @@ TEST_P(TestDenseLayerForwardVector, TestDenseLayerForwardVector) {
     const auto& [weights_matrix, bias, input, expected] = GetParam();
 
     EXPECT_EQ(expected, DenseLayer(weights_matrix, bias).forward(input));
-};
+}
 
 INSTANTIATE_TEST_SUITE_P(TestForwardVector, TestDenseLayerForwardVector,
     testing::Values(
@@ -65,7 +65,7 @@ TEST_P(TestDenseLayerForwardMatrix, TestDenseLayerForwardMatrix) {
     const auto& [weights_matrix, bias, input, expected] = GetParam();
 
     EXPECT_EQ(expected, DenseLayer(weights_matrix, bias).forward(input));
-};
+}
 
 INSTANTIATE_TEST_SUITE_P(TestDenseLayerForwardMatrix, TestDenseLayerForwardMatrix,
     testing::Values(

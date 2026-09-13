@@ -29,7 +29,7 @@ TEST_P(TestThrowFileReadErrorImmediate, TestThrowFileReadErrorImmediate) {
     EXPECT_THROW(function(INVALID_FILE_PATH), FileReadError);
     EXPECT_THROW(function(EMPTY_FILE), FileReadError);
     EXPECT_THROW(function(DIRECTORY), FileReadError);
-};
+}
 
 INSTANTIATE_TEST_SUITE_P(TestThrowFileReadErrorImmediate, TestThrowFileReadErrorImmediate,
     testing::Values(

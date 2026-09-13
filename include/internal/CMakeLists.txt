@@ -1,12 +1,14 @@
 add_library(core INTERFACE)
 add_library(core_compiled
     ${CMAKE_SOURCE_DIR}/src/activation_functions.cpp
+    ${CMAKE_SOURCE_DIR}/src/backpropagation.cpp
     ${CMAKE_SOURCE_DIR}/src/dense_layer.cpp
     ${CMAKE_SOURCE_DIR}/src/exceptions.cpp
     ${CMAKE_SOURCE_DIR}/src/input.cpp
     ${CMAKE_SOURCE_DIR}/src/loss_functions.cpp
     ${CMAKE_SOURCE_DIR}/src/neural_network.cpp
     ${CMAKE_SOURCE_DIR}/src/persistence.cpp
+    ${CMAKE_SOURCE_DIR}/src/stochastic_gradient_descent.cpp
 )
 add_library(core_header_only INTERFACE)
 

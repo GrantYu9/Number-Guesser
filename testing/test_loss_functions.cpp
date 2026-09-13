@@ -12,14 +12,13 @@ namespace {
 
 Eigen::MatrixXf create_target_matrix();
 
-// !!! cross entropy error
 class TestCrossEntropyError : public testing::TestWithParam<std::tuple<const float, const Eigen::MatrixXf, const Eigen::MatrixXf>> {};
 
 TEST_P(TestCrossEntropyError, TestCrossEntropyError) {
     const auto& [expected, probabilities, targets] = GetParam();
 
     EXPECT_NEAR(expected, cross_entropy_loss_function_error(probabilities, targets), TOLERANCE);
-};
+}
 
 INSTANTIATE_TEST_SUITE_P(TestCrossEntropyError, TestCrossEntropyError,
     testing::Values(
@@ -56,7 +55,7 @@ TEST_P(TestCrossEntropyGradients, TestCrossEntropyGradients) {
     const auto& [expected, probabilities, targets] = GetParam();
 
     EXPECT_EQ(expected, cross_entropy_loss_gradients(probabilities, targets));
-};
+}
 
 INSTANTIATE_TEST_SUITE_P(TestCrossEntropyGradients, TestCrossEntropyGradients,
     testing::Values(
