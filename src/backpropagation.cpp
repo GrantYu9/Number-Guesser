@@ -9,15 +9,11 @@ Eigen::VectorXf produce_bias_gradient(const Eigen::MatrixXf& error_gradients) {
 Eigen::MatrixXf produce_next_error_gradients(
     const Eigen::MatrixXf& error_gradients,
     const Eigen::MatrixXf& weights_matrix) {
-    // !!!
-
-    return Eigen::MatrixXf::Random();
+    return weights_matrix.transpose() * error_gradients;
 }
 
 Eigen::MatrixXf produce_weights_gradients(
     const Eigen::MatrixXf& error_gradients, 
     const Eigen::MatrixXf& input_matrix) {
-    // !!!
-
-    return Eigen::MatrixXf::Random();
+    return error_gradients * input_matrix.transpose();
 }
