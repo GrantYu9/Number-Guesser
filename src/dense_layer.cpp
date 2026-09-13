@@ -7,7 +7,7 @@ DenseLayer::DenseLayer() = default;
 DenseLayer::DenseLayer(const Eigen::MatrixXf& weights_matrix, 
     const Eigen::VectorXf& bias) : weights_matrix(weights_matrix), bias(bias) {}
 
-Eigen::MatrixXf DenseLayer::backward(const Eigen::MatrixXf& error) {
+Eigen::MatrixXf DenseLayer::backward(const Eigen::MatrixXf& error_gradients) {
     // !!!
 
     return Eigen::MatrixXf::Random();
@@ -21,7 +21,9 @@ Eigen::MatrixXf DenseLayer::forward(const Eigen::MatrixXf& input) const {
     return (weights_matrix * input).colwise() + bias;
 }
 
-void stochastic_gradient_descent() {
+void stochastic_gradient_descent(
+    const Eigen::MatrixXf& weight_gradients,
+    const Eigen::VectorXf& bias_gradient) {
 
     // !!!
 }

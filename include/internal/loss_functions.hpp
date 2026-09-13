@@ -1,3 +1,7 @@
+/** @file loss_functions.hpp
+ * @details Provides loss functions.
+ */
+
 #pragma once
 
 #include <eigen3/Eigen/Core>

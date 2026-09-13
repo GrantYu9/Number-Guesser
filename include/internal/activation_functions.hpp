@@ -1,4 +1,6 @@
-/** @file activation_functions.hpp */
+/** @file activation_functions.hpp
+ * @brief Provides activation functions.
+ */
 
 #pragma once
 

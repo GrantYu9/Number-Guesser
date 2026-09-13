@@ -1,4 +1,6 @@
-/** @file neural_network.hpp */
+/** @file neural_network.hpp
+ * @brief Provides the NeuralNetwork class.
+ */
 
 #pragma once
 

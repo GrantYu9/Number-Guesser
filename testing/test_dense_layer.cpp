@@ -5,7 +5,11 @@
 
 #include <tuple>
 
-// !!! backward
+class TestDenseLayerBackward : public testing::TestWithParam<std::tuple<>> {};
+
+TEST_P(TestDenseLayerBackward, TestDenseLayerBackward) {
+    // !!!
+}
 
 class TestDenseLayerForwardVector : public testing::TestWithParam<std::tuple<const Eigen::MatrixXf, const Eigen::VectorXf, Eigen::VectorXf, const Eigen::VectorXf>> {};
 
@@ -102,5 +106,3 @@ INSTANTIATE_TEST_SUITE_P(TestDenseLayerForwardMatrix, TestDenseLayerForwardMatri
         }
     )
 );
-
-// !!! stochastic gradient descent
