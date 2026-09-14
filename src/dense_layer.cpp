@@ -36,12 +36,6 @@ Eigen::MatrixXf DenseLayer::forward_matrix(const Eigen::MatrixXf& input) {
     input_matrix = input;
     pre_activation = (weights_matrix * input).colwise() + bias;
 
-    // float* stuff = pre_activation.data();
-
-    // for (int i = 0 ; i < pre_activation.size(); ++i) {
-    //     std::cout << "pre_ac:" << stuff[i] << std::endl;
-    // }
-
     return pre_activation;
 }
 

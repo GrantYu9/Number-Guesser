@@ -10,7 +10,3 @@ target_link_libraries(initialization internal)
 
 add_executable(training training.cpp)
 target_link_libraries(training internal)
-
-# !!!
-add_executable(temp temp.cpp)
-target_link_libraries(temp internal)

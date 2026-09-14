@@ -10,7 +10,7 @@
 /** @brief File specific constants. */
 namespace StochasticGradientDescent {
     /** @brief The learning rate. */
-    constexpr float LEARNING_RATE = 1e-1f;
+    constexpr float LEARNING_RATE = 1e-3f;
 }
 
 /** @brief Returns the new bias after stochastic gradient descent. 

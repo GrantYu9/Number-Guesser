@@ -20,6 +20,9 @@ Eigen::VectorXf relu(const Eigen::VectorXf& input);
  */
 Eigen::MatrixXf relu(const Eigen::MatrixXf& input);
 
+/** @brief !!! */
+Eigen::MatrixXf relu_derivative(Eigen::MatrixXf& input);
+
 /** @brief The softmax activation function. Vector version.
  * @returns A vector of probabilities.
  * @invariant @ref input must be a vector that has @ref NUMBER_OF_OUTPUTS, or
