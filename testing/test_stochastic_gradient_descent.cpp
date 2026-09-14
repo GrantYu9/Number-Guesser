@@ -14,7 +14,7 @@ class TestStochasticGradientDescentMatrix : public testing::TestWithParam<std::t
 TEST_P(TestStochasticGradientDescentMatrix, TestStochasticGradientDescentMatrix) {
     auto [expected, weights_matrix, gradients] = GetParam();
 
-    Eigen::MatrixXf new_weights_matrix = stochastic_gradient_descent(weights_matrix, gradients);
+    Eigen::MatrixXf new_weights_matrix = produce_new_weights_matrix(weights_matrix, gradients);
 
     EXPECT_TRUE(expected == new_weights_matrix || new_weights_matrix.isApprox(expected, TOLERANCE));
 }
@@ -41,12 +41,12 @@ class TestStochasticGradientDescentVector : public testing::TestWithParam<std::t
 TEST_P(TestStochasticGradientDescentVector, TestStochasticGradientDescentVector) {
     auto [expected, bias, gradients] = GetParam();
 
-    Eigen::VectorXf new_bias = stochastic_gradient_descent(bias, gradients);
+    Eigen::VectorXf new_bias = produce_new_bias(bias, gradients);
 
     EXPECT_TRUE(expected == bias || new_bias.isApprox(expected, TOLERANCE));
 }
 
-INSTANTIATE_TEST_SUITE_P(TestStochasticGradientDescentMatrix, TestStochasticGradientDescentMatrix,
+INSTANTIATE_TEST_SUITE_P(TestStochasticGradientDescentVector, TestStochasticGradientDescentVector,
     testing::Values(
         // No change
         std::tuple{
