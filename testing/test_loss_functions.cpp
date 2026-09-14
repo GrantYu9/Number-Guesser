@@ -65,17 +65,11 @@ INSTANTIATE_TEST_SUITE_P(TestCrossEntropyGradients, TestCrossEntropyGradients,
             (Eigen::MatrixXf(2, 2) << 0.0f, 1.0f, 1.0f, 0.0f).finished(),
             create_target_matrix()
         },
-        // Test scaling
+        // Test scaling and floats
         std::tuple{
-            (Eigen::MatrixXf(2, 2) << -1.0f, 1.0f, 1.0f, -1.0f).finished(),
-            (Eigen::MatrixXf(2, 2) << -32.0f, 33.0f, 33.0f, -32.0f).finished(),
-            create_target_matrix()
-        },
-        // Floats
-        std::tuple{
-            (Eigen::MatrixXf(2, 2) << -0.25f, 0.5f, 0.5f, -1.0f / 64.0f).finished(),
-            (Eigen::MatrixXf(2, 2) << -8.0f, 17.0f, 17.0f, -0.5f).finished(),
-            create_target_matrix()
+            (Eigen::MatrixXf(3, 2) << -4.0f, 0.5f, 2.0f, 0.25f, -4.0f, 4.0f).finished(),
+            (Eigen::MatrixXf(3, 2) << -7.0f, 1.0f, 4.0f, 0.5f, -8.0f, 9.0f).finished(),
+            (Eigen::MatrixXf(3, 2) << 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f).finished()
         }
     )
 );

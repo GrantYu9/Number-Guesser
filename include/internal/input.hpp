@@ -33,17 +33,17 @@ namespace {
  */
 Eigen::VectorXf image_to_vector(const std::filesystem::path& input);
 
-/** @brief Reads and returns 64 images from position_indicator.
+/** @brief Reads and returns 32 images from position_indicator.
  * @details Reads from image file in ./data/images/training.
- * @returns Images as a matrix with 64 column vectors, each with 784 rows.
+ * @returns Images as a matrix with 32 column vectors, each with 784 rows.
  * @throws FileReadError If file could not be read.
  */
 Eigen::MatrixXf read_image_batch(const int position_indicator);
 
-/** @brief Reads and returns 64 labels from position_indiator.
+/** @brief Reads and returns 32 labels from position_indiator.
  * @details Reads from label file in ./data/images/training. The labels indicate
  * what the correct value was for the respective image.
- * @returns 64 labels.
+ * @returns 32 labels.
  * @throws FileReadError If file could not be read.
  */
 std::array<int, Globals::BATCH_SIZE> read_label_batch(

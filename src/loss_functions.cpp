@@ -1,4 +1,3 @@
-#include "globals.hpp"
 #include "loss_functions.hpp"
 
 #include <eigen3/Eigen/Core>
@@ -14,7 +13,7 @@ float cross_entropy_loss_function_error(
     const Eigen::MatrixXf& targets) {
     const Eigen::ArrayXXf probabilities_filtered = probabilities.array().max(
         BUFFER);
-    const int batch_size = static_cast<int>(targets.rows());
+    const float batch_size = static_cast<float>(targets.cols());
 
     return -(targets.array() == 1.0f).select(probabilities_filtered, 1.0f).
         log().sum() / batch_size;
@@ -29,5 +28,5 @@ Eigen::MatrixXf cross_entropy_loss_gradients(
     const Eigen::MatrixXf& probabilities,
     const Eigen::MatrixXf& targets) {
     Eigen::MatrixXf intermediate = probabilities - targets;
-    return intermediate / static_cast<float>(Globals::BATCH_SIZE);
+    return intermediate / static_cast<float>(targets.cols());
 }

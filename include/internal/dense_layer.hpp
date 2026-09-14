@@ -6,8 +6,6 @@
 
 #include <eigen3/Eigen/Core>
 
-// DenseLayerProduction & DenseLayerTraining !!!
-
 /** @brief A layer with a matrix to represent weights and a bias vector. 
  * @details For training, stores the input matrix that passed through it and
  * contains a weights gradient and bias gradient matrix and vector,
@@ -63,7 +61,9 @@ public:
         Eigen::VectorXf& bias_gradient,
         Eigen::MatrixXf& weight_gradients);
 
+    /** @brief Get the bias vector. */
     Eigen::VectorXf get_bias() const;
 
+    /** @brief Get the weights matrix. */
     Eigen::MatrixXf get_weights_matrix() const;
 };

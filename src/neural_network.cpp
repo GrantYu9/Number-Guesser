@@ -6,32 +6,57 @@
 
 #include <array>
 
+NeuralNetwork::NeuralNetwork() = default;
+
 NeuralNetwork::NeuralNetwork(const DenseLayer& input_layer, 
         const std::array<DenseLayer, Globals::NUMBER_OF_HIDDEN_LAYERS>& 
         hidden_layers, const DenseLayer& output_layer) :
         input_layer(input_layer), hidden_layers(hidden_layers),
         output_layer(output_layer) {}
 
-Eigen::MatrixXf NeuralNetwork::backward(Eigen::MatrixXf& input) {
-    // !!!
+Eigen::MatrixXf NeuralNetwork::backward(Eigen::MatrixXf& error_gradients) {
+    error_gradients = output_layer.backward(error_gradients);
 
-    return Eigen::MatrixXf::Random();
+    for (int i = Globals::NUMBER_OF_HIDDEN_LAYERS - 1; i >= 0; --i) {
+        error_gradients = hidden_layers[i].backward(error_gradients); 
+    }
+
+    return input_layer.backward(error_gradients);
 }
 
-Eigen::VectorXf NeuralNetwork::forward(Eigen::VectorXf& input) const {
-    // input = relu(input_layer.modify(input));
+Eigen::VectorXf NeuralNetwork::forward_vector(Eigen::VectorXf& input) const {
+    input = relu(input_layer.forward_vector(input));
     
-    // for (const DenseLayer& hidden_layer : hidden_layers) {
-    //     input = relu(hidden_layer.modify(input));
-    // }
+    for (const DenseLayer& hidden_layer : hidden_layers) {
+        input = relu(hidden_layer.forward_vector(input));
+    }
 
-    // return softmax(output_layer.modify(input));
+    Eigen::VectorXf probabilities = output_layer.forward_vector(input);
 
-    return Eigen::VectorXf::Random();
+    return softmax(probabilities);
 }
 
-Eigen::MatrixXf NeuralNetwork::forward(Eigen::MatrixXf& input) const {
-    // !!!
+Eigen::MatrixXf NeuralNetwork::forward_matrix(Eigen::MatrixXf& input) {
+    input = relu(input_layer.forward_matrix(input));
 
-    return Eigen::MatrixXf::Random();
+    for (DenseLayer& hidden_layer : hidden_layers) {
+        input = relu(hidden_layer.forward_matrix(input));
+    }
+
+    Eigen::MatrixXf probabilities = output_layer.forward_matrix(input);
+
+    return softmax(probabilities);
+}
+
+DenseLayer NeuralNetwork::get_input_layer() const {
+    return input_layer;
+}
+
+std::array<DenseLayer, Globals::NUMBER_OF_HIDDEN_LAYERS> 
+    NeuralNetwork::get_hidden_layers() const {
+    return hidden_layers;
+}
+
+DenseLayer NeuralNetwork::get_output_layer() const {
+    return output_layer;
 }
