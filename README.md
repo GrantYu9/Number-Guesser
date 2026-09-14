@@ -1,3 +1,10 @@
+## Table of Contents
+- [[##Dependencies|Dependencies]]
+    - [[###Core|Core]]
+    - [[###Optional|Optional]]
+- [[]]
+
+
 ## Depedencies
 ### Core
 - C++17 or newer
@@ -48,4 +55,5 @@ Inclusion of the testing directory is disabled by default. This can be renabled 
 
 ## Additional Tools Used
 - LLDB
+- Test driven development
 
