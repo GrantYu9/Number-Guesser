@@ -1,7 +1,7 @@
 ## Table of Contents
-- [[##Dependencies|Dependencies]]
-    - [[###Core|Core]]
-    - [[###Optional|Optional]]
+- [Dependencies](#depedencies)
+    - [Core](#core)
+    - [Optional](#optional)
 - [[]]
 
 
