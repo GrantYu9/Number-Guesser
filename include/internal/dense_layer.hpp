@@ -25,8 +25,8 @@ public:
      * @param bias The bias vector.
      */
     DenseLayer(
-        const Eigen::MatrixXf& weights_matrix, 
-        const Eigen::VectorXf& bias);
+        const Eigen::VectorXf& bias,
+        const Eigen::MatrixXf& weights_matrix);
     
     /** @brief Backpropagation.
      * @details Calls several functions from @ref backpropagation.hpp to assist

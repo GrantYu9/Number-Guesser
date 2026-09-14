@@ -7,10 +7,10 @@
 DenseLayer::DenseLayer() = default;
 
 DenseLayer::DenseLayer(
-    const Eigen::MatrixXf& weights_matrix, 
-    const Eigen::VectorXf& bias) : 
-    weights_matrix(weights_matrix), 
-    bias(bias) {}
+    const Eigen::VectorXf& bias,
+    const Eigen::MatrixXf& weights_matrix) : 
+    bias(bias),
+    weights_matrix(weights_matrix) {}
 
 Eigen::MatrixXf DenseLayer::backward(Eigen::MatrixXf& error_gradients) {
     Eigen::VectorXf bias_gradient = produce_bias_gradient(error_gradients);

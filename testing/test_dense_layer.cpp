@@ -17,7 +17,7 @@ TEST_P(TestDenseLayerBackward, TestDenseLayerBackward) {
     auto [bias_size, error_gradients, input_matrix_rows, intput_matrix_columns, weights_matrix] = GetParam();
 
     const Eigen::MatrixXf expected = produce_next_error_gradients(error_gradients, weights_matrix);
-    DenseLayer layer(weights_matrix, Eigen::VectorXf::Random(bias_size));
+    DenseLayer layer(Eigen::VectorXf::Random(bias_size), weights_matrix);
     Eigen::MatrixXf input_matrix = Eigen::MatrixXf::Random(input_matrix_rows, intput_matrix_columns);
     layer.forward_matrix(input_matrix);
     Eigen::MatrixXf next_error_gradients = layer.backward(error_gradients);
@@ -59,7 +59,7 @@ class TestDenseLayerForwardVector : public testing::TestWithParam<std::tuple<con
 TEST_P(TestDenseLayerForwardVector, TestDenseLayerForwardVector) {
     const auto& [weights_matrix, bias, input, expected] = GetParam();
 
-    EXPECT_EQ(expected, DenseLayer(weights_matrix, bias).forward_vector(input));
+    EXPECT_EQ(expected, DenseLayer(bias, weights_matrix).forward_vector(input));
 }
 
 INSTANTIATE_TEST_SUITE_P(TestForwardVector, TestDenseLayerForwardVector,
@@ -107,7 +107,7 @@ class TestDenseLayerForwardMatrix : public testing::TestWithParam<std::tuple<con
 TEST_P(TestDenseLayerForwardMatrix, TestDenseLayerForwardMatrix) {
     const auto& [weights_matrix, bias, input, expected] = GetParam();
 
-    EXPECT_EQ(expected, DenseLayer(weights_matrix, bias).forward_matrix(input));
+    EXPECT_EQ(expected, DenseLayer(bias, weights_matrix).forward_matrix(input));
 }
 
 INSTANTIATE_TEST_SUITE_P(TestDenseLayerForwardMatrix, TestDenseLayerForwardMatrix,
@@ -155,7 +155,7 @@ class TestStochasticGradientDescent : public testing::TestWithParam<std::tuple<E
 TEST_P(TestStochasticGradientDescent, TestStochasticGradientDescent) {
     auto [bias, bias_gradient, weights_matrix, weights_gradients] = GetParam();
 
-    DenseLayer layer(weights_matrix, bias);
+    DenseLayer layer(bias, weights_matrix);
     Eigen::VectorXf expected_new_bias = produce_new_bias(bias, bias_gradient);
     Eigen::MatrixXf expected_new_weights_matrix = produce_new_weights_matrix(weights_matrix, weights_gradients);
 

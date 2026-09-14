@@ -20,7 +20,7 @@ protected:
     void SetUp() override {
         const Eigen::MatrixXf input_layer_matrix = Eigen::MatrixXf::Random(Globals::INPUT_LAYER_ROWS, Globals::INPUT_LAYER_COLUMNS);
         const Eigen::VectorXf input_layer_bias = Eigen::VectorXf::Random(Globals::INPUT_LAYER_ROWS);
-        const DenseLayer input_layer(input_layer_matrix, input_layer_bias);
+        const DenseLayer input_layer(input_layer_bias, input_layer_matrix);
 
         std::array<Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS> hidden_layers_matrices;
         for (int i = 0; i < Globals::NUMBER_OF_HIDDEN_LAYERS; ++i) {
@@ -32,12 +32,12 @@ protected:
         }
         std::array<DenseLayer, Globals::NUMBER_OF_HIDDEN_LAYERS> hidden_layers;
         for (int i = 0; i < Globals::NUMBER_OF_HIDDEN_LAYERS; ++i) {
-            hidden_layers[i] = DenseLayer(hidden_layers_matrices[i], hidden_layers_biases[i]);
+            hidden_layers[i] = DenseLayer(hidden_layers_biases[i], hidden_layers_matrices[i]);
         }
 
         const Eigen::MatrixXf output_layer_matrix = Eigen::MatrixXf::Random(Globals::OUTPUT_LAYER_ROWS, Globals::OUTPUT_LAYER_COLUMNS);
         const Eigen::VectorXf output_layer_bias = Eigen::VectorXf::Random(Globals::OUTPUT_LAYER_ROWS);
-        const DenseLayer output_layer(output_layer_matrix, output_layer_bias);
+        const DenseLayer output_layer(output_layer_bias, output_layer_matrix);
 
         neural_network = NeuralNetwork(input_layer, hidden_layers, output_layer);
     }
