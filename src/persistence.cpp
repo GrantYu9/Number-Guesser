@@ -9,17 +9,10 @@
 
 #include <eigen3/Eigen/Core>
 
-namespace {
-    constexpr std::ios_base::openmode BINARY_READ_MODE = std::ios_base::in | 
-        std::ios_base::binary;
-    constexpr std::ios_base::openmode BINARY_WRITE_MODE = std::ios_base::out | 
-        std::ios_base::binary;
-}
-
 bool is_done(std::ifstream& file);
 
 Eigen::VectorXf load_bias(const std::filesystem::path& path) {
-    std::ifstream file(path, BINARY_READ_MODE);
+    std::ifstream file(path, Globals::BINARY_READ_MODE);
 
     if (!file || is_empty(path)) {
         throw FileReadError();
@@ -42,7 +35,7 @@ Eigen::VectorXf load_bias(const std::filesystem::path& path) {
 
 std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS> load_biases(
     const std::filesystem::path& path) {
-    std::ifstream file(path, BINARY_READ_MODE);
+    std::ifstream file(path, Globals::BINARY_READ_MODE);
 
     if (!file || is_empty(path)) {
         throw FileReadError();
@@ -72,7 +65,7 @@ std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS> load_biases(
 }
 
 Eigen::MatrixXf load_weights_matrix(const std::filesystem::path& path) {
-    std::ifstream file(path, BINARY_READ_MODE);
+    std::ifstream file(path, Globals::BINARY_READ_MODE);
 
     if (!file || is_empty(path)) {
         throw FileReadError();
@@ -97,7 +90,7 @@ Eigen::MatrixXf load_weights_matrix(const std::filesystem::path& path) {
 
 std::array<Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS> 
     load_weights_matrices(const std::filesystem::path& path) {
-    std::ifstream file(path, BINARY_READ_MODE);
+    std::ifstream file(path, Globals::BINARY_READ_MODE);
 
     if (!file || is_empty(path)) {
         throw FileReadError();
@@ -131,7 +124,7 @@ std::array<Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS>
 void save_bias(const std::filesystem::path& path, const Eigen::VectorXf& bias) {
     const int rows = static_cast<int>(bias.rows());
 
-    std::ofstream file(path, BINARY_WRITE_MODE);
+    std::ofstream file(path, Globals::BINARY_WRITE_MODE);
 
     if (!file) {
         throw FileWriteError();
@@ -151,7 +144,7 @@ void save_biases(const std::filesystem::path& path,
     const int rows = static_cast<int>(representative_vector.rows());
     const int write_amount = rows * sizeof(float);
 
-    std::ofstream file(path, BINARY_WRITE_MODE);
+    std::ofstream file(path, Globals::BINARY_WRITE_MODE);
 
     if (!file) {
         throw FileWriteError();
@@ -170,7 +163,7 @@ void save_weights_matrix(const std::filesystem::path& path,
     const int rows = static_cast<int>(weights_matrix.rows());
     const int columns = static_cast<int>(weights_matrix.cols());
 
-    std::ofstream file(path, BINARY_WRITE_MODE);
+    std::ofstream file(path, Globals::BINARY_WRITE_MODE);
 
     if (!file) {
         throw FileWriteError();
@@ -192,7 +185,7 @@ void save_weights_matrices(const std::filesystem::path& path,
     const int columns = static_cast<int>(representative_matrix.cols());
     const int write_amount = rows * columns * sizeof(float);
 
-    std::ofstream file(path, BINARY_WRITE_MODE);
+    std::ofstream file(path, Globals::BINARY_WRITE_MODE);
 
     if (!file) {
         throw FileWriteError();

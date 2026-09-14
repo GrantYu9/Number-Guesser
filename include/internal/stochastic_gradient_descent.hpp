@@ -8,7 +8,7 @@
 #include <eigen3/Eigen/Core>
 
 /** @brief File specific constants. */
-namespace {
+namespace StochasticGradientDescent {
     /** @brief The learning rate. */
     constexpr float LEARNING_RATE = 1e-3f;
 }

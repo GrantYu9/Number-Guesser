@@ -8,6 +8,12 @@
 namespace Globals {
     /** @brief Batch size. */
     constexpr int BATCH_SIZE = 32;
+    /** @brief Open the file in binary read mode. */
+    constexpr std::ios_base::openmode BINARY_READ_MODE = std::ios_base::in | 
+        std::ios_base::binary;
+    /** @brief Open the file in binary write mode. */
+    constexpr std::ios_base::openmode BINARY_WRITE_MODE = std::ios_base::out | 
+        std::ios_base::binary;
     /** @brief Number of rows the input layer matrix should have. */
     constexpr int INPUT_LAYER_ROWS = 128;
     /** @brief Number of columns the input layer matrix should have. */

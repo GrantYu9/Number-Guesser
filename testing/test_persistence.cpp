@@ -13,7 +13,6 @@
 #include <tuple>
 
 namespace {
-    constexpr std::ios_base::openmode BINARY_WRITE_MODE = std::ios_base::out | std::ios_base::binary;
     const std::filesystem::path PERSISTENCE = Globals::ROOT / "data" / "persistence" / "testing";
     const std::filesystem::path INVALID_FILE_PATH = PERSISTENCE / "not_real.bin";
     const std::filesystem::path EMPTY_FILE = PERSISTENCE / "empty.bin";
@@ -52,7 +51,7 @@ TEST(TestThrowFileReadErrorCounting, TestBias) {
     
     int bad_value;
 
-    std::ofstream file(COUNTING);
+    std::ofstream file(COUNTING, Globals::BINARY_WRITE_MODE);
 
     if (!file) {
         throw FileWriteError();
@@ -100,7 +99,7 @@ TEST(TestThrowFileReadErrorCounting, TestBiases) {
     
     int bad_value;
 
-    std::ofstream file(COUNTING);
+    std::ofstream file(COUNTING, Globals::BINARY_WRITE_MODE);
 
     if (!file) {
         throw FileWriteError();
@@ -144,7 +143,7 @@ TEST(TestThrowFileReadErrorCounting, TestWeightsMatrix) {
     
     int bad_value;
 
-    std::ofstream file(COUNTING);
+    std::ofstream file(COUNTING, Globals::BINARY_WRITE_MODE);
 
     if (!file) {
         throw FileWriteError();
@@ -210,7 +209,7 @@ TEST(TestThrowFileReadErrorCounting, TestWeightsMatrices) {
     
     int bad_value;
 
-    std::ofstream file(COUNTING);
+    std::ofstream file(COUNTING, Globals::BINARY_WRITE_MODE);
 
     if (!file) {
         throw FileWriteError();
