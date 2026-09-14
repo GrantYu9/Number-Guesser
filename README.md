@@ -2,8 +2,15 @@
 - [Dependencies](#depedencies)
     - [Core](#core)
     - [Optional](#optional)
-- [[]]
-
+- [Building & Using](#building--using)
+    - [Building](#building)
+        - [Short Version](#short-version)
+        - [Step by Step Guide](#step-by-step-guide)
+    - [Using](#using)
+- [Notes](#notes)
+    - [Compatible Image Types](#compatible-image-types)
+    - [Enabling Generation of Test Files](#enabling-generation-of-test-files)
+- [Additional Tools & Techniques Used](#additional-tools--techniques-used)
 
 ## Depedencies
 ### Core
@@ -53,7 +60,7 @@ Furthermore, this neural network will automatically resize images to fit a 28x28
 ### Enabling Generation of Test Files
 Inclusion of the testing directory is disabled by default. This can be renabled at one's leisure by uncommenting the appropriate line ./CMakeLists.txt.
 
-## Additional Tools Used
+## Additional Tools & Techniques Used
 - LLDB
 - Test driven development
 
