@@ -51,5 +51,5 @@ int main(void) {
     //     std::cout << i << ": " << answers[i] *  100 << "%\n";
     // }
 
-    // return 0;
+    return 0;
 }
