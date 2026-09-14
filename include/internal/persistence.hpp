@@ -12,7 +12,9 @@
 
 #pragma once
 
+#include "dense_layer.hpp"
 #include "globals.hpp"
+#include "neural_network.hpp"
 
 #include <array>
 #include <filesystem>
@@ -31,6 +33,18 @@ Eigen::VectorXf load_bias(const std::filesystem::path& path);
 */
 std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS> load_biases(
     const std::filesystem::path& path);
+
+/** @brief !!! */
+std::array<DenseLayer, Globals::NUMBER_OF_HIDDEN_LAYERS> load_hidden_layers();
+
+/** @brief !!! */
+DenseLayer load_input_layer();
+
+/** @brief !!! */
+DenseLayer load_output_layer();
+
+/** @brief !!! */
+NeuralNetwork load_neural_network();
 
 /** @brief Load weights matrix from file. 
  * @details Encoding: {int row} {int columns} {{float value} ...}
@@ -59,6 +73,19 @@ void save_biases(
     const std::filesystem::path& path,
     const std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS>& biases
 );
+
+/** @brief !!! */
+void save_hidden_layers(const std::array<DenseLayer, 
+    Globals::NUMBER_OF_HIDDEN_LAYERS>& hidden_layers);
+
+/** @brief !!! */
+void save_input_layer(const DenseLayer& input_layer);
+
+/** @brief !!! */
+void save_output_layer(const DenseLayer& output_layer);
+
+/** @brief !!! */
+void save_neural_network(const NeuralNetwork& neural_network);
 
 /** @brief Save weights matrix to file.
  * @details Encoding: {int row} {int columns} {{float value} ...}

@@ -136,6 +136,14 @@ TEST(TestThrowFileReadErrorCounting, TestBiases) {
     file.close();
 }
 
+// !!! load_hidden_layers();
+
+// !!! load_input_layer();
+
+// !!! load_output_layer();
+
+// !!! load_neural_network();
+
 TEST(TestThrowFileReadErrorCounting, TestWeightsMatrix) {
     constexpr int rows = 3;
     constexpr int columns = 3;
@@ -354,3 +362,11 @@ TEST(TestLoadAndSave, TestWeightsMatrices) {
 
     EXPECT_EQ(matrices, load_weights_matrices(path));
 }
+
+// !!! set_up_hidden_layers();
+
+// !!! set_up_input_layer();
+
+// !!! set_up_output_layer();
+
+// !!! set_up_neural_network();

@@ -21,8 +21,7 @@ namespace Input {
     /** @brief Size of a batch of images read in bytes. */
     constexpr int CHUNK_SIZE_IMAGE = 784 * Globals::BATCH_SIZE;
     /** @brief Size of a batch of labels read in bytes. */
-    constexpr int CHUNK_SIZE_LABEL = Globals::NUMBER_OF_OUTPUTS * 
-        Globals::BATCH_SIZE;
+    constexpr int CHUNK_SIZE_LABEL = Globals::BATCH_SIZE;
     /** @brief Number of pixels the target image should be in length. Note 
      * that the the target image is square. */
     constexpr int IMAGE_LENGTH = 28;

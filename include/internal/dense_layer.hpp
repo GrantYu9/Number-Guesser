@@ -15,6 +15,7 @@ class DenseLayer {
 private:
     Eigen::VectorXf bias;
     Eigen::MatrixXf input_matrix;
+    Eigen::MatrixXf pre_activation;
     Eigen::MatrixXf weights_matrix;
 
 public:
@@ -63,6 +64,9 @@ public:
 
     /** @brief Get the bias vector. */
     Eigen::VectorXf get_bias() const;
+
+    // !!!
+    Eigen::MatrixXf get_pre_activation() const;
 
     /** @brief Get the weights matrix. */
     Eigen::MatrixXf get_weights_matrix() const;

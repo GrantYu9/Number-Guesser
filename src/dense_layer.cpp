@@ -4,6 +4,8 @@
 
 #include <eigen3/Eigen/Core>
 
+#include <iostream> // !!!
+
 DenseLayer::DenseLayer() = default;
 
 DenseLayer::DenseLayer(
@@ -32,8 +34,15 @@ Eigen::VectorXf DenseLayer::forward_vector(const Eigen::VectorXf& input) const {
 
 Eigen::MatrixXf DenseLayer::forward_matrix(const Eigen::MatrixXf& input) {
     input_matrix = input;
+    pre_activation = (weights_matrix * input).colwise() + bias;
 
-    return (weights_matrix * input).colwise() + bias;
+    // float* stuff = pre_activation.data();
+
+    // for (int i = 0 ; i < pre_activation.size(); ++i) {
+    //     std::cout << "pre_ac:" << stuff[i] << std::endl;
+    // }
+
+    return pre_activation;
 }
 
 void DenseLayer::stochastic_gradient_descent(
@@ -47,6 +56,10 @@ void DenseLayer::stochastic_gradient_descent(
 
 Eigen::VectorXf DenseLayer::get_bias() const {
     return bias;
+}
+
+Eigen::MatrixXf DenseLayer::get_pre_activation() const {
+    return pre_activation;
 }
 
 Eigen::MatrixXf DenseLayer::get_weights_matrix() const {

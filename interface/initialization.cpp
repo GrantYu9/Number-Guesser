@@ -8,6 +8,11 @@
 #include <eigen3/Eigen/Core>
 
 #include <array>
+#include <cmath>
+
+namespace {
+    const float SCALE = std::sqrt(2.0f / 784.0f);
+}
 
 void set_up();
 void set_up_hidden_layers();
@@ -32,10 +37,10 @@ void set_up_hidden_layers() {
         weights_matrices;
     
     for (int i = 0; i < Globals::NUMBER_OF_HIDDEN_LAYERS; ++i) {
-        biases[i] = Eigen::VectorXf::Random(Globals::HIDDEN_LAYER_ROWS);
+        biases[i] = Eigen::VectorXf::Random(Globals::HIDDEN_LAYER_ROWS) * SCALE;
         weights_matrices[i] = Eigen::MatrixXf::Random(
             Globals::HIDDEN_LAYER_ROWS,
-            Globals::HIDDEN_LAYER_COLUMNS);
+            Globals::HIDDEN_LAYER_COLUMNS) * SCALE;
     }
 
     save_biases(Globals::BIASES_HIDDEN_LAYERS, biases);
@@ -44,9 +49,9 @@ void set_up_hidden_layers() {
 
 void set_up_inner_layer() {
     const Eigen::VectorXf bias = Eigen::VectorXf::Random(
-        Globals::INPUT_LAYER_ROWS);
+        Globals::INPUT_LAYER_ROWS) * SCALE;
     const Eigen::MatrixXf weights_matrix = Eigen::MatrixXf::Random(
-        Globals::INPUT_LAYER_ROWS, Globals::INPUT_LAYER_COLUMNS);
+        Globals::INPUT_LAYER_ROWS, Globals::INPUT_LAYER_COLUMNS) * SCALE;
 
     save_bias(Globals::BIAS_INPUT_LAYER, bias);
     save_weights_matrix(Globals::WEIGHTS_INPUT_LAYER, weights_matrix);
@@ -54,9 +59,9 @@ void set_up_inner_layer() {
 
 void set_up_outer_layer() {
     const Eigen::VectorXf bias = Eigen::VectorXf::Random(
-        Globals::OUTPUT_LAYER_ROWS);
+        Globals::OUTPUT_LAYER_ROWS) * SCALE;
     const Eigen::MatrixXf weights_matrix = Eigen::MatrixXf::Random(
-        Globals::OUTPUT_LAYER_ROWS, Globals::OUTPUT_LAYER_COLUMNS);
+        Globals::OUTPUT_LAYER_ROWS, Globals::OUTPUT_LAYER_COLUMNS) * SCALE;
 
     save_bias(Globals::BIAS_OUTPUT_LAYER, bias);
     save_weights_matrix(Globals::WEIGHTS_OUTPUT_LAYER, weights_matrix);

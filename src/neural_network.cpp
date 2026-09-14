@@ -18,9 +18,11 @@ Eigen::MatrixXf NeuralNetwork::backward(Eigen::MatrixXf& error_gradients) {
     error_gradients = output_layer.backward(error_gradients);
 
     for (int i = Globals::NUMBER_OF_HIDDEN_LAYERS - 1; i >= 0; --i) {
+        error_gradients = (error_gradients.array() * (hidden_layers[i].get_pre_activation().array() > 0).cast<float>().array()).matrix(); // !!!
         error_gradients = hidden_layers[i].backward(error_gradients); 
     }
 
+    error_gradients = (error_gradients.array() * (input_layer.get_pre_activation().array() > 0).cast<float>().array()).matrix(); // !!!
     return input_layer.backward(error_gradients);
 }
 
@@ -31,9 +33,9 @@ Eigen::VectorXf NeuralNetwork::forward_vector(Eigen::VectorXf& input) const {
         input = relu(hidden_layer.forward_vector(input));
     }
 
-    Eigen::VectorXf probabilities = output_layer.forward_vector(input);
+    input = output_layer.forward_vector(input);
 
-    return softmax(probabilities);
+    return softmax(input);
 }
 
 Eigen::MatrixXf NeuralNetwork::forward_matrix(Eigen::MatrixXf& input) {
