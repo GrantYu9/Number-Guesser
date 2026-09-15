@@ -57,7 +57,7 @@ The following assumes you are at `./bin/interface`.
 From root, run `open docs/html/index.html`.
 
 ### Generation
-From root, run:
+Clone the repository and from root, run:
 ```sh
 cd docs
 doxygen doxyfile
