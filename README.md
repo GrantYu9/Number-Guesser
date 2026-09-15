@@ -7,6 +7,9 @@
         - [Short Version](#short-version)
         - [Step by Step Guide](#step-by-step-guide)
     - [Using](#using)
+- [Documentation](#documentation)
+    - [Usage](#usage)
+    - [Generation](#generation)
 - [Notes](#notes)
     - [Compatible Image Types](#compatible-image-types)
     - [Enabling Generation of Test Files](#enabling-generation-of-test-files)
@@ -75,4 +78,4 @@ Inclusion of the testing directory is disabled by default. This can be renabled 
 ## Additional Tools & Techniques Used
 - LLDB
 - Test driven development
-
+- Unit testing
