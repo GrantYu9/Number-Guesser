@@ -1,3 +1,4 @@
-INPUT = ../src/backend
+INPUT = ../include/internal
 GENERATE_LATEX = NO
-RECURSIVE = YES
+OUTPUT_DIRECTORY = .
+PROJECT_NAME = number_guesser

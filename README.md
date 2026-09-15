@@ -21,6 +21,7 @@
 - stb-image and stb-image-resize2. It should be noted that these are included in the project already
 
 ### Optional
+- Doxygen
 - GoogleTest
 
 ## Building & Using
@@ -50,6 +51,17 @@ The following assumes you are at `./bin/interface`.
 2. Run `./console`.
 3. Follow the instructions. Input the path to the image relative to the current directory.
 4. Observe the percentages.
+
+## Documentation
+### Usage
+From root, run `open docs/html/index.html`.
+
+### Generation
+From root, run:
+```sh
+cd docs
+doxygen doxyfile
+```
 
 ## Notes
 ### Compatible Image Types
