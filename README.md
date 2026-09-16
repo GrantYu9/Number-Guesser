@@ -1,4 +1,5 @@
 ## Table of Contents
+- [Background](#background)
 - [Dependencies](#depedencies)
     - [Core](#core)
     - [Optional](#optional)
@@ -14,6 +15,9 @@
     - [Compatible Image Types](#compatible-image-types)
     - [Enabling Generation of Test Files](#enabling-generation-of-test-files)
 - [Additional Tools & Techniques Used](#additional-tools--techniques-used)
+
+## Background
+This is a multilayer perceptron classification neural network trained on images from the MNIST (Modified National Institute Standards & Technology) database with an input layer, an output layer, and three hidden layers. The input layer contains a 784 by 128 matrix, the hidden layers contain 128 by 128 matrices, and the output layer contains a 10 by 128 matrix. It uses ReLU as the activation function between layers, softmax as the activation function for the output layer, a cross entropy loss function to determine loss, and stochastic gradient descent to descend the gradients to minimize loss. Learning rates from 1e-1 to 1e-3 were used to find minimums.
 
 ## Depedencies
 ### Core
