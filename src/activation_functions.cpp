@@ -17,8 +17,6 @@ Eigen::MatrixXf relu(const Eigen::MatrixXf& input) {
     return input.cwiseMax(RELU);
 }
 
-Eigen::MatrixXf relu_derivative(Eigen::MatrixXf& input);
-
 Eigen::VectorXf softmax(Eigen::VectorXf& input) {
     assert(static_cast<int>(input.rows()) == Globals::NUMBER_OF_OUTPUTS);
 

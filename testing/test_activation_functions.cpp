@@ -68,7 +68,6 @@ INSTANTIATE_TEST_SUITE_P(TestReLUMatrix, TestReLUMatrix,
     )
 );
 
-// !!! relu derivative
 
 class TestSoftmaxVector : public testing::TestWithParam<Eigen::VectorXf> {};
 

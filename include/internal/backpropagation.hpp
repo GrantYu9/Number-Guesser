@@ -18,6 +18,9 @@ Eigen::MatrixXf produce_next_error_gradients(
     const Eigen::MatrixXf& error_gradients,
     const Eigen::MatrixXf& weights_matrix);
 
+/** @brief Returns the partial derivative of A=ReLU(Z) with respect to Z */
+Eigen::MatrixXf produce_relu_derivative(Eigen::MatrixXf& input);
+
 /** @brief Produces a matrix of weight gradients from a matrix of error
  * gradients and an input matrix. 
  * @see https://en.wikipedia.org/wiki/Backpropagation
