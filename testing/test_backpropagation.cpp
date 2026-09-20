@@ -72,6 +72,29 @@ INSTANTIATE_TEST_SUITE_P(TestProduceNextErrorGradients, TestProduceNextErrorGrad
     )
 );
 
+class TestProduceReLUDerivative : public testing::TestWithParam<std::tuple<const Eigen::MatrixXf, Eigen::MatrixXf>> {};
+
+TEST_P(TestProduceReLUDerivative, TestProduceReLUDerivative) {
+    auto [expected, input] = GetParam();
+
+    EXPECT_EQ(expected, produce_relu_derivative(input));
+}
+
+INSTANTIATE_TEST_SUITE_P(TestProduceReLUDerivative, TestProduceReLUDerivative,
+    testing::Values(
+        // Zero
+        std::tuple{
+            Eigen::MatrixXf::Zero(2, 2),
+            Eigen::MatrixXf::Zero(2, 2)
+        },
+        // Floats
+        std::tuple{
+            (Eigen::MatrixXf(2, 2) << 0.0f, 1.0f, 2.0f, 0.0f).finished(),
+            (Eigen::MatrixXf(2, 2) << -1.5f, 1.0f, 2.0f, 0.0f).finished(),
+        }
+    )
+);
+
 // !!! produce relu derivative
 
 class TestProduceWeightsGradients : public testing::TestWithParam<std::tuple<const Eigen::MatrixXf, const Eigen::MatrixXf, const Eigen::MatrixXf>> {};

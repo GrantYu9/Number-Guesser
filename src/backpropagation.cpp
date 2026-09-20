@@ -13,7 +13,7 @@ Eigen::MatrixXf produce_next_error_gradients(
 }
 
 Eigen::MatrixXf produce_relu_derivative(Eigen::MatrixXf& input) {
-    return Eigen::MatrixXf::Random(); // !!!
+    return (input.array() <= 0.0f).select(input, 1.0f).matrix();
 }
 
 Eigen::MatrixXf produce_weights_gradients(
