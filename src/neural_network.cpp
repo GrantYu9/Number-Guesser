@@ -1,4 +1,5 @@
 #include "activation_functions.hpp"
+#include "backpropagation.hpp"
 #include "dense_layer.hpp"
 #include "neural_network.hpp"
 
@@ -18,11 +19,13 @@ Eigen::MatrixXf NeuralNetwork::backward(Eigen::MatrixXf& error_gradients) {
     error_gradients = output_layer.backward(error_gradients);
 
     for (int i = Globals::NUMBER_OF_HIDDEN_LAYERS - 1; i >= 0; --i) {
-        error_gradients = (error_gradients.array() * (hidden_layers[i].get_pre_activation().array() > 0).cast<float>().array()).matrix(); // !!!
+        Eigen::MatrixXf pre_activation_output = hidden_layers[i].get_pre_activation();
+        error_gradients = error_gradients * produce_relu_derivative(pre_activation_output);
         error_gradients = hidden_layers[i].backward(error_gradients); 
     }
 
-    error_gradients = (error_gradients.array() * (input_layer.get_pre_activation().array() > 0).cast<float>().array()).matrix(); // !!!
+    Eigen::MatrixXf pre_activation_output = input_layer.get_pre_activation().array();
+    error_gradients = error_gradients * produce_relu_derivative(pre_activation_output);
     return input_layer.backward(error_gradients);
 }
 

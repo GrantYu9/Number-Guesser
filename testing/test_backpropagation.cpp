@@ -95,8 +95,6 @@ INSTANTIATE_TEST_SUITE_P(TestProduceReLUDerivative, TestProduceReLUDerivative,
     )
 );
 
-// !!! produce relu derivative
-
 class TestProduceWeightsGradients : public testing::TestWithParam<std::tuple<const Eigen::MatrixXf, const Eigen::MatrixXf, const Eigen::MatrixXf>> {};
 
 TEST_P(TestProduceWeightsGradients, TestProduceWeightsGradients) {
