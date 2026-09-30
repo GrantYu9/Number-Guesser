@@ -1,6 +1,7 @@
 /.vscode/
 /bin/
 /build/
+/logs/
 /notes/
 
 /.DS_STORE

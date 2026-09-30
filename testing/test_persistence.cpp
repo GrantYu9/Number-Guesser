@@ -136,14 +136,6 @@ TEST(TestThrowFileReadErrorCounting, TestBiases) {
     file.close();
 }
 
-// !!! load_hidden_layers();
-
-// !!! load_input_layer();
-
-// !!! load_output_layer();
-
-// !!! load_neural_network();
-
 TEST(TestThrowFileReadErrorCounting, TestWeightsMatrix) {
     constexpr int rows = 3;
     constexpr int columns = 3;
@@ -319,54 +311,115 @@ TEST(TestThrowFileWriteError, TestWeightsMatrices) {
     EXPECT_THROW(save_weights_matrices(DIRECTORY, weights_matrices), FileWriteError);
 }
 
-TEST(TestLoadAndSave, TestBias) {
+Eigen::VectorXf create_bias(const int rows);
+std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS> create_biases(const int rows);
+Eigen::MatrixXf create_weights_matrix(const int rows, const int columns);
+std::array<Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS> create_weights_matrices(const int rows, const int columns);
+
+TEST(TestSaveAndLoad, TestBias) {
     const std::filesystem::path path = PERSISTENCE / "load_and_save.bin";
-    const Eigen::VectorXf vector = Eigen::VectorXf::Random(3);
+    const Eigen::VectorXf vector = create_bias(3);
 
     save_bias(path, vector);
 
     EXPECT_EQ(vector, load_bias(path));
 }
 
-TEST(TestLoadAndSave, TestBiases) {
+TEST(TestSaveAndLoad, TestBiases) {
     const std::filesystem::path path = PERSISTENCE / "load_and_save.bin";
-    std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS> vectors;
+    const std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS> biases = create_biases(3);
 
-    for (int i = 0; i < Globals::NUMBER_OF_HIDDEN_LAYERS; ++i) {
-        vectors[i] = Eigen::VectorXf::Random(3);
-    }
+    save_biases(path, biases);
 
-    save_biases(path, vectors);
-
-    EXPECT_EQ(vectors, load_biases(path));
+    EXPECT_EQ(biases, load_biases(path));
 }
 
-TEST(TestLoadAndSave, TestWeightsMatrix) {
+TEST(TestSaveAndLoad, TestWeightsMatrix) {
     const std::filesystem::path path = PERSISTENCE / "load_and_save.bin";
-    const Eigen::MatrixXf matrix = Eigen::MatrixXf::Random(3, 2);
+    const Eigen::MatrixXf matrix = create_weights_matrix(3, 2);
 
     save_weights_matrix(path, matrix);
 
     EXPECT_EQ(matrix, load_weights_matrix(path));
 }
 
-TEST(TestLoadAndSave, TestWeightsMatrices) {
+TEST(TestSaveAndLoad, TestWeightsMatrices) {
     const std::filesystem::path path = PERSISTENCE / "load_and_save.bin";
-    std::array<Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS> matrices;
-
-    for (int i = 0; i < Globals::NUMBER_OF_HIDDEN_LAYERS; ++i) {
-        matrices[i] = Eigen::MatrixXf::Random(3, 2);
-    }
+    const std::array<Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS> matrices = create_weights_matrices(3, 2);
 
     save_weights_matrices(path, matrices);
 
     EXPECT_EQ(matrices, load_weights_matrices(path));
 }
 
-// !!! set_up_hidden_layers();
+TEST(TestSaveAndLoad, TestHiddenLayers) {
+    std::array<DenseLayer, Globals::NUMBER_OF_HIDDEN_LAYERS> hidden_layers;
 
-// !!! set_up_input_layer();
+    for (int i = 0; i < Globals::NUMBER_OF_HIDDEN_LAYERS; ++i) {
+        hidden_layers[i] = DenseLayer(create_bias(Globals::HIDDEN_LAYER_ROWS), create_weights_matrix(Globals::HIDDEN_LAYER_ROWS, Globals::HIDDEN_LAYER_COLUMNS));
+    }
 
-// !!! set_up_output_layer();
+    save_hidden_layers(hidden_layers);
 
-// !!! set_up_neural_network();
+    EXPECT_EQ(hidden_layers, load_hidden_layers());
+}
+
+TEST(TestSaveAndLoad, TestInputLayer) {
+    const DenseLayer input_layer = DenseLayer(create_bias(Globals::INPUT_LAYER_ROWS), create_weights_matrix(Globals::INPUT_LAYER_ROWS, Globals::INPUT_LAYER_COLUMNS));
+
+    save_input_layer(input_layer);
+
+    EXPECT_EQ(input_layer, load_input_layer());
+}
+
+TEST(TestSaveAndLoad, TestOutputLayer) {
+    const DenseLayer output_layer = DenseLayer(create_bias(Globals::OUTPUT_LAYER_ROWS), create_weights_matrix(Globals::OUTPUT_LAYER_ROWS, Globals::OUTPUT_LAYER_COLUMNS));
+
+    save_output_layer(output_layer);
+
+    EXPECT_EQ(output_layer, load_output_layer());
+}
+
+TEST(TestSaveAndLoad, TestNeuralNetwork) {
+    const DenseLayer input_layer = DenseLayer(create_bias(Globals::INPUT_LAYER_ROWS), create_weights_matrix(Globals::INPUT_LAYER_ROWS, Globals::INPUT_LAYER_COLUMNS));
+    const DenseLayer output_layer = DenseLayer(create_bias(Globals::OUTPUT_LAYER_ROWS), create_weights_matrix(Globals::OUTPUT_LAYER_ROWS, Globals::OUTPUT_LAYER_COLUMNS));
+    std::array<DenseLayer, Globals::NUMBER_OF_HIDDEN_LAYERS> hidden_layers;
+
+    for (int i = 0; i < Globals::NUMBER_OF_HIDDEN_LAYERS; ++i) {
+        hidden_layers[i] = DenseLayer(create_bias(Globals::HIDDEN_LAYER_ROWS), create_weights_matrix(Globals::HIDDEN_LAYER_ROWS, Globals::HIDDEN_LAYER_COLUMNS));
+    }
+
+    const NeuralNetwork neural_network = NeuralNetwork(input_layer, hidden_layers, output_layer);
+
+    save_neural_network(neural_network);
+
+    EXPECT_EQ(neural_network, load_neural_network);
+}
+
+Eigen::VectorXf create_bias(const int rows) {
+    return Eigen::VectorXf::Random(rows);
+}
+
+std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS> create_biases(const int rows) {
+    std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS> biases;
+
+    for (int i = 0; i < Globals::NUMBER_OF_HIDDEN_LAYERS; ++i) {
+        biases[i] = create_bias(rows);
+    }
+
+    return biases;
+}
+
+Eigen::MatrixXf create_weights_matrix(const int rows, const int columns) {
+    return Eigen::MatrixXf::Random(rows, columns);
+}
+
+std::array<Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS> create_weights_matrices(const int rows, const int columns) {
+    std::array<Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS> weights_matrices;
+
+    for (int i = 0; i < Globals::NUMBER_OF_HIDDEN_LAYERS; ++i) {
+        weights_matrices[i] = create_weights_matrix(rows, columns);
+    }
+
+    return weights_matrices;
+}

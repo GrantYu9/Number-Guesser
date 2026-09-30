@@ -34,16 +34,25 @@ Eigen::VectorXf load_bias(const std::filesystem::path& path);
 std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS> load_biases(
     const std::filesystem::path& path);
 
-/** @brief !!! */
+/** @brief Loads hidden layers from file.
+ * @throw FileReadError If there was a file read error.
+ */
 std::array<DenseLayer, Globals::NUMBER_OF_HIDDEN_LAYERS> load_hidden_layers();
 
-/** @brief !!! */
+/** @brief Loads the input layer from file.
+ * @throw FileReadError If there was a file read error.
+ */
 DenseLayer load_input_layer();
 
-/** @brief !!! */
+/** @brief Loads the output layer from file.
+ * @throw FileReadError If there was a file read error.
+ */
 DenseLayer load_output_layer();
 
-/** @brief !!! */
+/** @brief Loads the neural network from file.
+ * @details Loads the input layer, hidden layers, and output layer from file.
+ * @throw FileReadError If there was a file read error.
+ */
 NeuralNetwork load_neural_network();
 
 /** @brief Load weights matrix from file. 
@@ -74,17 +83,25 @@ void save_biases(
     const std::array<Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS>& biases
 );
 
-/** @brief !!! */
+/** @brief Saves hidden layers to file.
+ * @throws FileWriteError If there was a problem writing to file.
+ */
 void save_hidden_layers(const std::array<DenseLayer, 
     Globals::NUMBER_OF_HIDDEN_LAYERS>& hidden_layers);
 
-/** @brief !!! */
+/** @brief Saves input layer to file.
+ * @throws FileWriteError If there was a problem writing to file.
+ */
 void save_input_layer(const DenseLayer& input_layer);
 
-/** @brief !!! */
+/** @brief Saves output layer to file.
+ * @throws FileWriteError If there was a problem writing to file.
+ */
 void save_output_layer(const DenseLayer& output_layer);
 
-/** @brief !!! */
+/** @brief Saves neural network to file.
+ * @throws FileWriteError If there was a problem writing to file.
+ */
 void save_neural_network(const NeuralNetwork& neural_network);
 
 /** @brief Save weights matrix to file.
