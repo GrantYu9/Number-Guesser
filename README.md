@@ -17,7 +17,7 @@
 - [Additional Tools & Techniques Used](#additional-tools--techniques-used)
 
 ## Background
-This is a multilayer perceptron classification neural network with an input layer, an output layer, and three hidden layers. It was trained on images from the MNIST (Modified National Institute Standards & Technology) database, which has 60,000 28 by 28 white text on black background handwritten images, each containing a number. The input layer contains a 784 by 128 matrix, the hidden layers contain 128 by 128 matrices, and the output layer contains a 10 by 128 matrix. It uses ReLU as the activation function between layers, softmax as the activation function for the output layer, a cross entropy loss function to determine loss, and stochastic gradient descent to descend the gradients to minimize loss. Learning rates from 1e-1 to 1e-3 were used to find minimums.
+This is a multilayer perceptron classification neural network with an input layer, an output layer, and three hidden layers. It was trained on images from the MNIST (Modified National Institute Standards & Technology) database, which has 60,000 28 by 28 white text on black background handwritten images, each containing a number. The input layer contains a 784 by 128 matrix, the hidden layers contain 128 by 128 matrices, and the output layer contains a 10 by 128 matrix. It uses ReLU as the activation function between layers, softmax as the activation function for the output layer, a cross entropy loss function to determine loss, and stochastic gradient descent to descend the gradients to minimize loss. Learning rates from 1e-3 to 1e-4 were used to find minimums.
 
 ## Depedencies
 ### Core
@@ -30,6 +30,7 @@ This is a multilayer perceptron classification neural network with an input laye
 ### Optional
 - Doxygen
 - GoogleTest
+- spdlog
 
 ## Building & Using
 ### Building
@@ -78,8 +79,3 @@ Furthermore, this neural network will automatically resize images to fit a 28x28
 
 ### Enabling Generation of Test Files
 Inclusion of the testing directory is disabled by default. This can be renabled at one's leisure by uncommenting the appropriate line ./CMakeLists.txt.
-
-## Additional Tools & Techniques Used
-- LLDB
-- Test driven development
-- Unit testing
