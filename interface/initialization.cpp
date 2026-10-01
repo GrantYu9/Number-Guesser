@@ -11,9 +11,10 @@
 #include <cmath>
 
 namespace {
-    const float SCALE_HIDDEN = std::sqrt(2.0f / 128.0f);
-    const float SCALE_INPUT = std::sqrt(2.0f / 784.0f);
-    const float SCALE_OUTPUT = std::sqrt(2.0f / 10.0f);
+    constexpr float start = 1.0f;
+    const float SCALE_HIDDEN = std::sqrt(start / static_cast<float>(Globals::HIDDEN_LAYER_ROWS));
+    const float SCALE_INPUT = std::sqrt(start / static_cast<float>(Globals::INPUT_LAYER_ROWS));
+    const float SCALE_OUTPUT = std::sqrt(start / static_cast<float>(Globals::OUTPUT_LAYER_ROWS));
 }
 
 void set_up();

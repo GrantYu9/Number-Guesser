@@ -20,12 +20,12 @@ Eigen::MatrixXf NeuralNetwork::backward(Eigen::MatrixXf& error_gradients) {
 
     for (int i = Globals::NUMBER_OF_HIDDEN_LAYERS - 1; i >= 0; --i) {
         Eigen::MatrixXf pre_activation_output = hidden_layers[i].get_pre_activation();
-        error_gradients = error_gradients * produce_relu_derivative(pre_activation_output);
+        error_gradients = error_gradients.cwiseProduct(produce_relu_derivative(pre_activation_output));
         error_gradients = hidden_layers[i].backward(error_gradients); 
     }
 
     Eigen::MatrixXf pre_activation_output = input_layer.get_pre_activation().array();
-    error_gradients = error_gradients * produce_relu_derivative(pre_activation_output);
+    error_gradients = error_gradients.cwiseProduct(produce_relu_derivative(pre_activation_output));
     return input_layer.backward(error_gradients);
 }
 

@@ -42,6 +42,8 @@ namespace Globals {
     constexpr int NUMBER_OF_HIDDEN_LAYERS = 3;
     /** @brief Number of outputted probabilities. */
     constexpr int NUMBER_OF_OUTPUTS = 10;
+    /** @brief Number of training images. */
+    constexpr int NUMBER_OF_TRAINING_IMAGES = 6e+4;
     /** @brief Number of rows in the output layer matrix. */
     constexpr int OUTPUT_LAYER_ROWS = 10;
     /** @brief Number of columns in the output layer matrix. */

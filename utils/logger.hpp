@@ -13,23 +13,33 @@
 #include <memory>
 #include <string>
 
-/** @brief Helps log info. */
+/** @brief Helps log info. 
+ * @details Logs in the format "[xx:%M:%S] [%l] %v", has a max file size of
+ * 5 MB, and rotates between three files.
+*/
 class Logger {
 private:
     const std::filesystem::path logs = Globals::ROOT / "logs";
     const int megabyte = 1024 * 1024;
 
     const int max_file_size = 5 * megabyte;
-    const int max_num_files = 3;
-    const spdlog::level::level_enum minimum_log_level = spdlog::level::info;
-    const std::string pattern = "[%d %b %C] [%T] [%l] %v";
+    const int max_num_extra_files = 4;
+    const spdlog::level::level_enum minimum_log_level = spdlog::level::trace;
+    const std::string name = "67";
+    const std::string pattern = "[xx:%M:%S] [%l] %v";
 
     std::shared_ptr<spdlog::logger> logger;
 
 public:
-    Logger(const std::string& name, const std::filesystem::path& file_path);
+    /** @brief Constructs the logger with a certain path. */
+    Logger(const std::filesystem::path& file_path);
 
-    void log_error(const int error);
+    /** @brief Log the epoch. */
+    void log_epoch(const int epoch);
 
-    void log_percentages(Eigen::VectorXf probabilities);
+    /** @brief Logs a loss amount. */
+    void log_loss(const float loss);
+
+    /** @brief Logs percentage. */
+    void log_probability(const float probability);
 };
