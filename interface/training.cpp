@@ -5,6 +5,7 @@
 #include "dense_layer.hpp"
 #include "exceptions.hpp"
 #include "globals.hpp"
+#include "logger.hpp" // !!!
 #include "input.hpp"
 #include "loss_functions.hpp"
 #include "neural_network.hpp"
@@ -13,8 +14,6 @@
 #include <eigen3/Eigen/Core>
 
 #include <array>
-
-#include <iostream> // !!!
 
 int main(void) {
     constexpr int label_file_size = 60000 + Input::BYTE_OFFSET_TRAINING_LABELS;
@@ -32,7 +31,8 @@ int main(void) {
 
         Eigen::MatrixXf probabilities = neural_network.forward_matrix(images);
 
-        std::cout << cross_entropy_loss_function_error(probabilities, labels) << std::endl;
+        // !!!
+        // std::cout << cross_entropy_loss_function_error(probabilities, labels) << std::endl;
 
         Eigen::MatrixXf error_gradients = 
             cross_entropy_loss_gradients(probabilities, labels);

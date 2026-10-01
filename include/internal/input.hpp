@@ -56,6 +56,7 @@ namespace Input {
  */
 Eigen::VectorXf image_to_vector(const std::filesystem::path& input);
 
+// !!! Generalize this to any batch
 /** @brief Reads and returns 32 images from position_indicator.
  * @details Reads from image file in ./data/images/training.
  * @returns Images as a matrix with 32 column vectors, each with 784 rows.
@@ -63,6 +64,7 @@ Eigen::VectorXf image_to_vector(const std::filesystem::path& input);
  */
 Eigen::MatrixXf read_image_batch(const int position_indicator);
 
+// !!! Generalize this to any batch
 /** @brief Reads and returns 32 labels from position_indiator.
  * @details Reads from label file in ./data/images/training. The labels indicate
  * what the correct value was for the respective image.
