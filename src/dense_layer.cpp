@@ -4,8 +4,6 @@
 
 #include <eigen3/Eigen/Core>
 
-#include <iostream> // !!!
-
 DenseLayer::DenseLayer() = default;
 
 DenseLayer::DenseLayer(
