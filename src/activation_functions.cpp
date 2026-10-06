@@ -1,5 +1,4 @@
 #include "activation_functions.hpp"
-#include "exceptions.hpp"
 
 #include <eigen3/Eigen/Core>
 
