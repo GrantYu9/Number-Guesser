@@ -2,7 +2,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/testing)
 
 enable_testing()
 
-find_package(GTest)
+find_package(GTest REQUIRED)
 
 add_executable(test_activation_functions test_activation_functions.cpp)
 target_link_libraries(test_activation_functions GTest::gtest_main internal)

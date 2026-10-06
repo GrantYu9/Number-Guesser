@@ -21,7 +21,7 @@ Eigen::MatrixXf produce_next_error_gradients(
 /** @brief Returns the partial derivative of A=ReLU(Z) with respect to Z.
  * @see The ReLU activation functions in @ref activation_functions.hpp.
 */
-Eigen::MatrixXf produce_relu_derivative(Eigen::MatrixXf& input);
+Eigen::MatrixXf produce_relu_derivative(const Eigen::MatrixXf& input);
 
 /** @brief Produces a matrix of weight gradients from a matrix of error
  * gradients and an input matrix. 

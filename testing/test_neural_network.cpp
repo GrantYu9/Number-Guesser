@@ -7,7 +7,6 @@
 #include <gtest/gtest.h>
 
 #include <array>
-#include <cmath>
 
 namespace {
     constexpr float TOLERANCE = 1e-5f;

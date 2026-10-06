@@ -57,3 +57,10 @@ Eigen::MatrixXf DenseLayer::get_pre_activation() const {
 Eigen::MatrixXf DenseLayer::get_weights_matrix() const {
     return weights_matrix;
 }
+
+bool DenseLayer::operator==(const DenseLayer& other) const {
+    return bias == other.bias && 
+        input_matrix == other.input_matrix &&
+        pre_activation == other.pre_activation &&
+        weights_matrix == other.weights_matrix;
+}

@@ -10,7 +10,6 @@
 #include <fstream>
 #include <functional>
 #include <ios>
-#include <tuple>
 
 namespace {
     const std::filesystem::path PERSISTENCE = Globals::ROOT / "data" / "persistence" / "testing";
@@ -393,7 +392,7 @@ TEST(TestSaveAndLoad, TestNeuralNetwork) {
 
     save_neural_network(neural_network);
 
-    EXPECT_EQ(neural_network, load_neural_network);
+    EXPECT_EQ(neural_network, load_neural_network());
 }
 
 Eigen::VectorXf create_bias(const int rows) {

@@ -65,3 +65,9 @@ std::array<DenseLayer, Globals::NUMBER_OF_HIDDEN_LAYERS>
 DenseLayer NeuralNetwork::get_output_layer() const {
     return output_layer;
 }
+
+bool NeuralNetwork::operator==(const NeuralNetwork& other) const {
+    return input_layer == other.input_layer &&
+        hidden_layers == other.hidden_layers &&
+        output_layer == other.output_layer;
+}

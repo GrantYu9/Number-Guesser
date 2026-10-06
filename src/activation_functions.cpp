@@ -1,4 +1,5 @@
 #include "activation_functions.hpp"
+#include "globals.hpp"
 
 #include <eigen3/Eigen/Core>
 

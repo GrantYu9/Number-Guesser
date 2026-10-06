@@ -4,11 +4,7 @@
 
 #pragma once
 
-#include "globals.hpp"
-
 #include <eigen3/Eigen/Core>
-
-#include <array>
 
 /** @brief ReLu activation function. Vector version.
  * @see @ref https://en.wikipedia.org/wiki/Rectified_linear_unit

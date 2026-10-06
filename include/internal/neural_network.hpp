@@ -68,4 +68,9 @@ public:
 
     /** @brief Get the output layer. */
     DenseLayer get_output_layer() const;
+
+    /** @brief Determines equality between two NeuralNetwork objects.
+     * @details Ensures equality between private attributes.
+     */
+    bool operator==(const NeuralNetwork& other) const;
 };

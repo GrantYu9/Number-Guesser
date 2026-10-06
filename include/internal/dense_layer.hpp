@@ -65,9 +65,14 @@ public:
     /** @brief Get the bias vector. */
     Eigen::VectorXf get_bias() const;
 
-    // !!!
+    /** @brief Gets the pre activation matrix that was computed. */
     Eigen::MatrixXf get_pre_activation() const;
 
     /** @brief Get the weights matrix. */
     Eigen::MatrixXf get_weights_matrix() const;
+    
+    /** @brief Determines equality between two DenseLayer objects.
+     * @details Ensures equality between private attributes.
+     */
+    bool operator==(const DenseLayer& other) const;
 };
