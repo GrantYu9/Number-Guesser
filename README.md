@@ -77,5 +77,5 @@ The MNIST database features images with white text on black backgrounds. Most se
 
 Furthermore, this neural network will automatically resize images to fit a 28x28 pixel square, so you may feed images larger or smaller than that as you wish.
 
-### Enabling Generation of Test Files
-Inclusion of the testing directory is disabled by default. This can be renabled at one's leisure by uncommenting the appropriate line ./CMakeLists.txt.
+### Disabling Generation of Test Files
+Generation of test files is enabled by default in [`/CMakeLists.txt`](/CMakeLists.txt) via inclusion of the `/testing/` directory. This can be disabled in the appropriate line in the same `/CMakeLists.txt` file.
