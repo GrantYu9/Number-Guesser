@@ -29,7 +29,7 @@ INSTANTIATE_TEST_SUITE_P(TestStochasticGradientDescentMatrix, TestStochasticGrad
         },
         // Floats
         std::tuple{
-            (Eigen::MatrixXf(2, 2) << 0.5f, -0.3f, 0.25f, 0.9999f).finished(),
+            (Eigen::MatrixXf(2, 2) << 1 - 500.0f * StochasticGradientDescent::LEARNING_RATE, -(300.0f * StochasticGradientDescent::LEARNING_RATE), -(-250.0f * StochasticGradientDescent::LEARNING_RATE), 1.0f - 0.1f * StochasticGradientDescent::LEARNING_RATE).finished(),
             (Eigen::MatrixXf(2, 2) << 1.0f, 0.0f, 0.0f, 1.0f).finished(),
             (Eigen::MatrixXf(2, 2) << 500.0f, 300.0f, -250.0f, 0.1f).finished()
         }
@@ -56,7 +56,7 @@ INSTANTIATE_TEST_SUITE_P(TestStochasticGradientDescentVector, TestStochasticGrad
         },
         // Floats
         std::tuple{
-            (Eigen::VectorXf(4) << 0.5f, -0.3f, 0.25f, 0.9999f).finished(),
+            (Eigen::VectorXf(4) << 1 - 500.0f * StochasticGradientDescent::LEARNING_RATE, -(300.0f * StochasticGradientDescent::LEARNING_RATE), -(-250.0f * StochasticGradientDescent::LEARNING_RATE), 1.0f - 0.1f * StochasticGradientDescent::LEARNING_RATE).finished(),
             (Eigen::VectorXf(4) << 1.0f, 0.0f, 0.0f, 1.0f).finished(),
             (Eigen::VectorXf(4) << 500.0f, 300.0f, -250.0f, 0.1f).finished()
         }
