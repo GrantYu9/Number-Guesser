@@ -93,8 +93,8 @@ DenseLayer load_output_layer() {
 }
 
 NeuralNetwork load_neural_network() {
-    return NeuralNetwork(load_input_layer(), load_hidden_layers(), 
-        load_output_layer());
+    return NeuralNetwork(
+        load_input_layer(), load_hidden_layers(), load_output_layer());
 }
 
 Eigen::MatrixXf load_weights_matrix(const std::filesystem::path& path) {
@@ -134,8 +134,8 @@ std::array<Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS>
     file.read(reinterpret_cast<char*>(&rows), sizeof(rows));
     file.read(reinterpret_cast<char*>(&columns), sizeof(columns));
     const int read_amount = rows * columns * sizeof(float);
-    const int target_total_read_amount = Globals::NUMBER_OF_HIDDEN_LAYERS * 
-        read_amount;
+    const int target_total_read_amount = 
+        Globals::NUMBER_OF_HIDDEN_LAYERS * read_amount;
     std::array<Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS> output;
     int total_read_amount = 0;
     for (int i = 0; i < Globals::NUMBER_OF_HIDDEN_LAYERS; ++i) {
@@ -211,14 +211,14 @@ void save_hidden_layers(const std::array<DenseLayer,
 
 void save_input_layer(const DenseLayer& input_layer) {
     save_bias(Globals::BIAS_INPUT_LAYER, input_layer.get_bias());
-    save_weights_matrix(Globals::WEIGHTS_INPUT_LAYER, 
-        input_layer.get_weights_matrix());
+    save_weights_matrix(
+        Globals::WEIGHTS_INPUT_LAYER, input_layer.get_weights_matrix());
 }
 
 void save_output_layer(const DenseLayer& output_layer) {
     save_bias(Globals::BIAS_OUTPUT_LAYER, output_layer.get_bias());
-    save_weights_matrix(Globals::WEIGHTS_OUTPUT_LAYER, 
-        output_layer.get_weights_matrix());
+    save_weights_matrix(
+        Globals::WEIGHTS_OUTPUT_LAYER, output_layer.get_weights_matrix());
 }
 
 void save_neural_network(const NeuralNetwork& neural_network) {

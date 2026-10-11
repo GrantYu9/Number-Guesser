@@ -26,10 +26,9 @@ public:
      * @param bias The bias vector.
      */
     DenseLayer(
-        const Eigen::VectorXf& bias,
-        const Eigen::MatrixXf& weights_matrix);
+        const Eigen::VectorXf& bias, const Eigen::MatrixXf& weights_matrix);
     
-    /** @brief Backpropagation.
+    /** @brief Backpropogates.
      * @details Calls several functions from @ref backpropagation.hpp to assist
      * in creating a matrix of weight gradients, a bias gradients, and an matrix
      * of error gradients for the next layer. Calls @ref
@@ -39,28 +38,27 @@ public:
      */
     Eigen::MatrixXf backward(Eigen::MatrixXf& error_gradients);
 
-    /** @brief Forward pass. Vector version.
+    /** @brief Applies the forward pass.
      * @details Takes in an input vector, transforms it with the weights matrix,
      * adds the bias vector onto the result, and returns it. 
      */
     Eigen::VectorXf forward_vector(const Eigen::VectorXf& input) const;
 
-    /** @brief Forward pass. Matrix version.
+    /** @brief Applies the forward pass.
      * @details Takes in an input matrix, multiplies it with the weights matrix,
      * adds the bias vector column wise to the result, and returns it. Also
      * stores input.
      */
     Eigen::MatrixXf forward_matrix(const Eigen::MatrixXf& input);
 
-    /** @brief Stochastic gradient descent.
+    /** @brief Applies stochastic gradient descent.
      * @details Calls several functions from @ref 
      * stochastic_gradient_descent.hpp to create the new weights and bias and
      * then modifies DenseLayer with those values.
      * @see https://en.wikipedia.org/wiki/Stochastic_gradient_descent
      */
     void stochastic_gradient_descent(
-        Eigen::VectorXf& bias_gradient,
-        Eigen::MatrixXf& weight_gradients);
+        Eigen::VectorXf& bias_gradient, Eigen::MatrixXf& weight_gradients);
 
     /** @brief Get the bias vector. */
     Eigen::VectorXf get_bias() const;

@@ -9,10 +9,9 @@ namespace {
 }
 
 float cross_entropy_loss_function_error(
-    const Eigen::MatrixXf& probabilities,
-    const Eigen::MatrixXf& targets) {
-    const Eigen::ArrayXXf probabilities_filtered = probabilities.array().max(
-        BUFFER);
+    const Eigen::MatrixXf& probabilities, const Eigen::MatrixXf& targets) {
+    const Eigen::ArrayXXf probabilities_filtered = 
+        probabilities.array().max(BUFFER);
     const float batch_size = static_cast<float>(targets.cols());
 
     return -(targets.array() == 1.0f).select(probabilities_filtered, 1.0f).
@@ -25,8 +24,8 @@ float cross_entropy_loss_function_error(
  * @see https://www.geeksforgeeks.org/machine-learning/what-is-cross-entropy-loss-function/
  */
 Eigen::MatrixXf cross_entropy_loss_gradients(
-    const Eigen::MatrixXf& probabilities,
-    const Eigen::MatrixXf& targets) {
+    const Eigen::MatrixXf& probabilities, const Eigen::MatrixXf& targets) {
     Eigen::MatrixXf intermediate = probabilities - targets;
+
     return intermediate / static_cast<float>(targets.cols());
 }

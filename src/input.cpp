@@ -58,8 +58,9 @@ Eigen::VectorXf create_output(const unsigned char* input) {
     return output / Input::NORMALIZE;
 }
 
-Eigen::MatrixXf read_image_batch(const int position_indicator) {
-    std::ifstream file(Input::TRAINING_IMAGES, Globals::BINARY_READ_MODE);
+Eigen::MatrixXf read_image_batch(
+    const std::filesystem::path& file_path, const int position_indicator) {
+    std::ifstream file(file_path, Globals::BINARY_READ_MODE);
 
     if (!file) {
         throw FileReadError();
@@ -78,8 +79,9 @@ Eigen::MatrixXf read_image_batch(const int position_indicator) {
     return images / Input::NORMALIZE;
 }
 
-Eigen::MatrixXf read_label_batch(const int position_indicator) {
-    std::ifstream file(Input::TRAINING_LABELS, Globals::BINARY_READ_MODE);
+Eigen::MatrixXf read_label_batch(
+    const std::filesystem::path& file_path, const int position_indicator) {
+    std::ifstream file(file_path, Globals::BINARY_READ_MODE);
 
     if (!file) {
         throw FileReadError();

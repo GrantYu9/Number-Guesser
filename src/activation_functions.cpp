@@ -17,7 +17,7 @@ Eigen::MatrixXf relu(const Eigen::MatrixXf& input) {
     return input.cwiseMax(RELU);
 }
 
-Eigen::VectorXf softmax(Eigen::VectorXf& input) {
+Eigen::VectorXf softmax(const Eigen::VectorXf& input) {
     assert(static_cast<int>(input.rows()) == Globals::NUMBER_OF_OUTPUTS);
 
     const Eigen::VectorXf input_scaled = input.array() - input.maxCoeff();
@@ -26,11 +26,13 @@ Eigen::VectorXf softmax(Eigen::VectorXf& input) {
     return input_exponentiated / input_exponentiated.sum();
 }
 
-Eigen::MatrixXf softmax(Eigen::MatrixXf& input) {
+Eigen::MatrixXf softmax(const Eigen::MatrixXf& input) {
     assert(static_cast<int>(input.rows()) == Globals::NUMBER_OF_OUTPUTS);
 
-    const Eigen::MatrixXf input_scaled = input.rowwise() - input.colwise().maxCoeff();
+    const Eigen::MatrixXf input_scaled = 
+        input.rowwise() - input.colwise().maxCoeff();
     Eigen::MatrixXf input_exponentiated = input_scaled.array().exp().matrix();
 
-    return (input_exponentiated.array().rowwise() / input_exponentiated.array().colwise().sum()).matrix();
+    return (input_exponentiated.array().rowwise() / 
+        input_exponentiated.array().colwise().sum()).matrix();
 }

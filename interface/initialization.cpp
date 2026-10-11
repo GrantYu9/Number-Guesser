@@ -12,9 +12,12 @@
 
 namespace {
     constexpr float start = 1.0f;
-    const float SCALE_HIDDEN = std::sqrt(start / static_cast<float>(Globals::HIDDEN_LAYER_ROWS));
-    const float SCALE_INPUT = std::sqrt(start / static_cast<float>(Globals::INPUT_LAYER_ROWS));
-    const float SCALE_OUTPUT = std::sqrt(start / static_cast<float>(Globals::OUTPUT_LAYER_ROWS));
+    const float SCALE_HIDDEN = 
+        std::sqrt(start / static_cast<float>(Globals::HIDDEN_LAYER_ROWS));
+    const float SCALE_INPUT = 
+        std::sqrt(start / static_cast<float>(Globals::INPUT_LAYER_ROWS));
+    const float SCALE_OUTPUT = 
+        std::sqrt(start / static_cast<float>(Globals::OUTPUT_LAYER_ROWS));
 }
 
 void set_up();
@@ -40,14 +43,16 @@ void set_up_hidden_layers() {
         weights_matrices;
     
     for (int i = 0; i < Globals::NUMBER_OF_HIDDEN_LAYERS; ++i) {
-        biases[i] = Eigen::VectorXf::Random(Globals::HIDDEN_LAYER_ROWS) * SCALE_HIDDEN;
+        biases[i] = 
+        Eigen::VectorXf::Random(Globals::HIDDEN_LAYER_ROWS) * SCALE_HIDDEN;
         weights_matrices[i] = Eigen::MatrixXf::Random(
             Globals::HIDDEN_LAYER_ROWS,
             Globals::HIDDEN_LAYER_COLUMNS) * SCALE_HIDDEN;
     }
 
     save_biases(Globals::BIASES_HIDDEN_LAYERS, biases);
-    save_weights_matrices(Globals::WEIGHTS_HIDDEN_LAYERS, weights_matrices);
+    save_weights_matrices(
+        Globals::WEIGHTS_HIDDEN_LAYERS, weights_matrices);
 }
 
 void set_up_inner_layer() {
@@ -64,7 +69,8 @@ void set_up_outer_layer() {
     const Eigen::VectorXf bias = Eigen::VectorXf::Random(
         Globals::OUTPUT_LAYER_ROWS) * SCALE_OUTPUT;
     const Eigen::MatrixXf weights_matrix = Eigen::MatrixXf::Random(
-        Globals::OUTPUT_LAYER_ROWS, Globals::OUTPUT_LAYER_COLUMNS) * SCALE_OUTPUT;
+        Globals::OUTPUT_LAYER_ROWS, 
+        Globals::OUTPUT_LAYER_COLUMNS) * SCALE_OUTPUT;
 
     save_bias(Globals::BIAS_OUTPUT_LAYER, bias);
     save_weights_matrix(Globals::WEIGHTS_OUTPUT_LAYER, weights_matrix);

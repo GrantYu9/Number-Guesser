@@ -9,9 +9,10 @@
 
 NeuralNetwork::NeuralNetwork() = default;
 
-NeuralNetwork::NeuralNetwork(const DenseLayer& input_layer, 
-        const std::array<DenseLayer, Globals::NUMBER_OF_HIDDEN_LAYERS>& 
-        hidden_layers, const DenseLayer& output_layer) :
+NeuralNetwork::NeuralNetwork(
+    const DenseLayer& input_layer, 
+    const std::array<DenseLayer, Globals::NUMBER_OF_HIDDEN_LAYERS>& 
+    hidden_layers, const DenseLayer& output_layer) :
         input_layer(input_layer), hidden_layers(hidden_layers),
         output_layer(output_layer) {}
 
@@ -19,13 +20,17 @@ Eigen::MatrixXf NeuralNetwork::backward(Eigen::MatrixXf& error_gradients) {
     error_gradients = output_layer.backward(error_gradients);
 
     for (int i = Globals::NUMBER_OF_HIDDEN_LAYERS - 1; i >= 0; --i) {
-        Eigen::MatrixXf pre_activation_output = hidden_layers[i].get_pre_activation();
-        error_gradients = error_gradients.cwiseProduct(produce_relu_derivative(pre_activation_output));
+        Eigen::MatrixXf pre_activation_output = 
+            hidden_layers[i].get_pre_activation();
+        error_gradients = error_gradients.cwiseProduct(
+            produce_relu_derivative(pre_activation_output));
         error_gradients = hidden_layers[i].backward(error_gradients); 
     }
 
-    Eigen::MatrixXf pre_activation_output = input_layer.get_pre_activation().array();
-    error_gradients = error_gradients.cwiseProduct(produce_relu_derivative(pre_activation_output));
+    Eigen::MatrixXf pre_activation_output = 
+        input_layer.get_pre_activation().array();
+    error_gradients = error_gradients.cwiseProduct(
+        produce_relu_derivative(pre_activation_output));
     return input_layer.backward(error_gradients);
 }
 

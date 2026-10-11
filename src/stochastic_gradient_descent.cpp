@@ -13,6 +13,6 @@ Eigen::VectorXf produce_new_bias(
 Eigen::MatrixXf produce_new_weights_matrix(
     Eigen::MatrixXf& weights_matrix, 
     Eigen::MatrixXf& gradients) {
-    return weights_matrix - StochasticGradientDescent::LEARNING_RATE * 
-        gradients;
+    return 
+        weights_matrix - StochasticGradientDescent::LEARNING_RATE * gradients;
 }

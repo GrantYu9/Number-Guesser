@@ -2,8 +2,6 @@
  * @brief Where the neural network will be trained.
  */
 
-#include "dense_layer.hpp"
-#include "exceptions.hpp"
 #include "globals.hpp"
 #include "logger.hpp"
 #include "input.hpp"
@@ -13,14 +11,19 @@
 
 #include <eigen3/Eigen/Core>
 
-#include <array>
-
 int main(void) {
+    const std::filesystem::path training = 
+        Globals::ROOT / "data" / "images" / "training";
+    
+    const std::filesystem::path images_path = 
+        training / "train-images-idx3-ubyte";
     constexpr int label_file_size = 60000 + Input::BYTE_OFFSET_TRAINING_LABELS;
-    constexpr int label_iteration_end = label_file_size - 
-        Input::CHUNK_SIZE_LABEL;
-    const std::filesystem::path log_file_path = Globals::ROOT / "logs" / 
-        "training" / "training.log";
+    constexpr int label_iteration_end = 
+        label_file_size - Input::CHUNK_SIZE_LABEL;
+    const std::filesystem::path labels_path = 
+        training / "train-labels-idx1-ubyte";
+    const std::filesystem::path log_file_path = 
+        Globals::ROOT / "logs" / "training" / "training.log";
 
     Logger logger = Logger(log_file_path);
     int epoch = 0;
@@ -32,8 +35,8 @@ int main(void) {
     for (int position_labels = Input::BYTE_OFFSET_TRAINING_LABELS; 
         position_labels < label_iteration_end; 
         position_labels += Input::CHUNK_SIZE_LABEL) {
-        Eigen::MatrixXf images = read_image_batch(position_images);
-        Eigen::MatrixXf labels = read_label_batch(position_labels);
+        Eigen::MatrixXf images = read_image_batch(images_path, position_images);
+        Eigen::MatrixXf labels = read_label_batch(labels_path, position_labels);
 
         Eigen::MatrixXf probabilities = neural_network.forward_matrix(images);
 

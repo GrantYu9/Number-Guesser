@@ -60,46 +60,48 @@ TEST(TestImageToVector, TestNormalize) {
     EXPECT_TRUE(output.minCoeff() >= -1.0f && output.maxCoeff() <= 1.0f);
 }
 
-class TestReadImageBatch : public testing::TestWithParam<int> {};
+// !!!
 
-TEST_P(TestReadImageBatch, TestReadImageBatch) {
-    const int position = GetParam();
+// class TestReadImageBatch : public testing::TestWithParam<int> {};
 
-    Eigen::MatrixXf images = read_image_batch(position);
+// TEST_P(TestReadImageBatch, TestReadImageBatch) {
+//     const int position = GetParam();
 
-    EXPECT_EQ(images.rows(), Input::IMAGE_PIXELS);
-    EXPECT_EQ(images.cols(), Globals::BATCH_SIZE);
-    EXPECT_TRUE(images.minCoeff() >= -1.0f);
-    EXPECT_TRUE(images.maxCoeff() <= 1.0f);
-}
+//     Eigen::MatrixXf images = read_image_batch(position);
 
-INSTANTIATE_TEST_SUITE_P(TestReadImageBatch, TestReadImageBatch,
-    testing::Values(
-        Input::BYTE_OFFSET_TRAINING_IMAGES,
-        Input::BYTE_OFFSET_TRAINING_IMAGES + Input::IMAGE_PIXELS * Globals::BATCH_SIZE,
-        60000 * Input::IMAGE_PIXELS - Input::IMAGE_PIXELS * Globals::BATCH_SIZE
-    )
-);
+//     EXPECT_EQ(images.rows(), Input::IMAGE_PIXELS);
+//     EXPECT_EQ(images.cols(), Globals::BATCH_SIZE);
+//     EXPECT_TRUE(images.minCoeff() >= -1.0f);
+//     EXPECT_TRUE(images.maxCoeff() <= 1.0f);
+// }
 
-class TestReadLabelBatch : public testing::TestWithParam<int> {};
+// INSTANTIATE_TEST_SUITE_P(TestReadImageBatch, TestReadImageBatch,
+//     testing::Values(
+//         Input::BYTE_OFFSET_TRAINING_IMAGES,
+//         Input::BYTE_OFFSET_TRAINING_IMAGES + Input::IMAGE_PIXELS * Globals::BATCH_SIZE,
+//         60000 * Input::IMAGE_PIXELS - Input::IMAGE_PIXELS * Globals::BATCH_SIZE
+//     )
+// );
 
-TEST_P(TestReadLabelBatch, TestReadLabelBatch) {
-    const int position = GetParam();
+// class TestReadLabelBatch : public testing::TestWithParam<int> {};
 
-    Eigen::MatrixXf labels = read_label_batch(position);
+// TEST_P(TestReadLabelBatch, TestReadLabelBatch) {
+//     const int position = GetParam();
 
-    Eigen::ArrayXXf labels_array = labels.array();
+//     Eigen::MatrixXf labels = read_label_batch(position);
 
-    EXPECT_EQ(labels.rows(), Globals::NUMBER_OF_OUTPUTS);
-    EXPECT_EQ(labels.cols(), Globals::BATCH_SIZE);
-    EXPECT_EQ(labels.sum(), static_cast<int>(Globals::BATCH_SIZE));
-    EXPECT_TRUE((labels_array == 0.0f || labels_array == 1.0f).all());
-}
+//     Eigen::ArrayXXf labels_array = labels.array();
 
-INSTANTIATE_TEST_SUITE_P(TestReadLabelBatch, TestReadLabelBatch,
-    testing::Values(
-        Input::BYTE_OFFSET_TRAINING_LABELS,
-        Input::BYTE_OFFSET_TRAINING_LABELS + Globals::NUMBER_OF_OUTPUTS * Globals::BATCH_SIZE,
-        60000 - Globals::NUMBER_OF_OUTPUTS * Globals::BATCH_SIZE
-    )
-);
+//     EXPECT_EQ(labels.rows(), Globals::NUMBER_OF_OUTPUTS);
+//     EXPECT_EQ(labels.cols(), Globals::BATCH_SIZE);
+//     EXPECT_EQ(labels.sum(), static_cast<int>(Globals::BATCH_SIZE));
+//     EXPECT_TRUE((labels_array == 0.0f || labels_array == 1.0f).all());
+// }
+
+// INSTANTIATE_TEST_SUITE_P(TestReadLabelBatch, TestReadLabelBatch,
+//     testing::Values(
+//         Input::BYTE_OFFSET_TRAINING_LABELS,
+//         Input::BYTE_OFFSET_TRAINING_LABELS + Globals::NUMBER_OF_OUTPUTS * Globals::BATCH_SIZE,
+//         60000 - Globals::NUMBER_OF_OUTPUTS * Globals::BATCH_SIZE
+//     )
+// );

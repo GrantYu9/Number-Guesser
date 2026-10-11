@@ -3,13 +3,11 @@
  * guess what number does the image represent.
  */
 
-#include "dense_layer.hpp"
 #include "globals.hpp"
 #include "input.hpp"
 #include "neural_network.hpp"
 #include "persistence.hpp"
 
-#include <array>
 #include <filesystem>
 #include <iostream>
 #include <string>
@@ -26,7 +24,8 @@ int main(void) {
 
     const NeuralNetwork neural_network = load_neural_network();
 
-    const Eigen::VectorXf probabilities = neural_network.forward_vector(image);
+    const Eigen::VectorXf probabilities = 
+        neural_network.forward_vector(image);
 
     print_probablities(probabilities);
 
@@ -35,11 +34,12 @@ int main(void) {
 
 std::filesystem::path create_image_path() {
     std::string file_path_string;
+
     std::cout << "Please input a file path (ensure that it is in the same directory as this executable): ";
     std::cin >> file_path_string;
 
-    std::filesystem::path image_path = Globals::ROOT / "bin" / "interface" / 
-        file_path_string;
+    const std::filesystem::path image_path = 
+        Globals::ROOT / "bin" / "interface" / file_path_string;
 
     return image_path;
 }
