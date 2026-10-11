@@ -12,7 +12,7 @@ DenseLayer::DenseLayer(
     bias(bias),
     weights_matrix(weights_matrix) {}
 
-Eigen::MatrixXf DenseLayer::backward(Eigen::MatrixXf& error_gradients) {
+Eigen::MatrixXf DenseLayer::backward(const Eigen::MatrixXf& error_gradients) {
     Eigen::VectorXf bias_gradient = produce_bias_gradient(error_gradients);
     Eigen::MatrixXf next_error_gradients = produce_next_error_gradients(
         error_gradients,
@@ -38,8 +38,8 @@ Eigen::MatrixXf DenseLayer::forward_matrix(const Eigen::MatrixXf& input) {
 }
 
 void DenseLayer::stochastic_gradient_descent(
-    Eigen::VectorXf& bias_gradient,
-    Eigen::MatrixXf& weight_gradients) {
+    const Eigen::VectorXf& bias_gradient,
+    const Eigen::MatrixXf& weight_gradients) {
     bias = produce_new_bias(bias, bias_gradient);
     weights_matrix = produce_new_weights_matrix(
         weights_matrix, 

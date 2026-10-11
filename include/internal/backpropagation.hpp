@@ -28,5 +28,5 @@ Eigen::MatrixXf produce_relu_derivative(const Eigen::MatrixXf& input);
  * @see https://en.wikipedia.org/wiki/Backpropagation
  */
 Eigen::MatrixXf produce_weights_gradients(
-    const Eigen::MatrixXf& error_gradients,
+    const Eigen::MatrixXf& error_gradients, 
     const Eigen::MatrixXf& input_matrix);

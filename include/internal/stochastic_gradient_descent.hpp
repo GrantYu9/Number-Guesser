@@ -9,18 +9,18 @@
 
 /** @brief File specific constants. */
 namespace StochasticGradientDescent {
-/** @brief The learning rate. */
-constexpr float LEARNING_RATE = 1e-4f;
-}  // namespace StochasticGradientDescent
+    /** @brief The learning rate. */
+    constexpr float LEARNING_RATE = 1e-4f;
+}
 
 /** @brief Returns the new bias after stochastic gradient descent.
  * @see https://en.wikipedia.org/wiki/Stochastic_gradient_descent
  */
 Eigen::VectorXf produce_new_bias(
-    Eigen::VectorXf& bias, Eigen::VectorXf& gradient);
+    const Eigen::VectorXf& bias, const Eigen::VectorXf& gradient);
 
 /** @brief Returns the new weight after stochastic gradient descent.
  * @see https://en.wikipedia.org/wiki/Stochastic_gradient_descent
  */
 Eigen::MatrixXf produce_new_weights_matrix(
-    Eigen::MatrixXf& weights_matrix, Eigen::MatrixXf& gradients);
+    const Eigen::MatrixXf& weights_matrix, const Eigen::MatrixXf& gradients);

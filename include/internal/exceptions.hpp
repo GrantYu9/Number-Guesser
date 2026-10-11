@@ -17,7 +17,7 @@
 class FileReadError : public std::runtime_error {
 public:
     /** @brief Passes an error message to the super constructor. */
-    FileReadError();
+    explicit FileReadError();
 };
 
 /** @brief When we fail to write to a file. 
@@ -29,7 +29,7 @@ public:
 class FileWriteError : public std::runtime_error {
 public:
     /** @brief Passes an error message to the super constructor. */
-    FileWriteError();
+    explicit FileWriteError();
 };
 
 /** @brief When an image fails to be read properly. 
@@ -41,5 +41,5 @@ public:
 class ImageReadError : public std::runtime_error {
 public:
     /** @brief Passes an error message to the super constructor. */
-    ImageReadError();
+    explicit ImageReadError();
 };
