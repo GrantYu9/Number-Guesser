@@ -10,9 +10,8 @@ namespace Globals {
     const std::filesystem::path ROOT = std::filesystem::path(__FILE__).
         parent_path().parent_path().parent_path();
 
-    /** @brief MNIST folder. */
+    const std::filesystem::path LOGS = ROOT / "logs";
     const std::filesystem::path MNIST = ROOT / "data" / "mnist";
-    /** @brief Persistence folder. */
     const std::filesystem::path PERSISTENCE = 
         ROOT / "data" / "persistence" / "console";
     
