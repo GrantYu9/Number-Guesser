@@ -12,16 +12,10 @@
 #include <eigen3/Eigen/Core>
 
 int main(void) {
-    const std::filesystem::path training = 
-        Globals::ROOT / "data" / "images" / "training";
-    
-    const std::filesystem::path images_path = 
-        training / "train-images-idx3-ubyte";
-    constexpr int label_file_size = 60000 + Input::BYTE_OFFSET_TRAINING_LABELS;
+    constexpr int label_file_size = 60000 + Input::BYTE_OFFSET_LABELS;
     constexpr int label_iteration_end = 
         label_file_size - Input::CHUNK_SIZE_LABEL;
-    const std::filesystem::path labels_path = 
-        training / "train-labels-idx1-ubyte";
+
     const std::filesystem::path log_file_path = 
         Globals::ROOT / "logs" / "training" / "training.log";
 
@@ -29,14 +23,16 @@ int main(void) {
     int epoch = 0;
 
     NeuralNetwork neural_network = load_neural_network();
-    int position_images = Input::BYTE_OFFSET_TRAINING_IMAGES;
+    int position_images = Input::BYTE_OFFSET_IMAGES;
 
 
-    for (int position_labels = Input::BYTE_OFFSET_TRAINING_LABELS; 
+    for (int position_labels = Input::BYTE_OFFSET_LABELS; 
         position_labels < label_iteration_end; 
         position_labels += Input::CHUNK_SIZE_LABEL) {
-        Eigen::MatrixXf images = read_image_batch(images_path, position_images);
-        Eigen::MatrixXf labels = read_label_batch(labels_path, position_labels);
+        Eigen::MatrixXf images = 
+            read_image_batch(Globals::TRAINING_IMAGES_PATH, position_images);
+        Eigen::MatrixXf labels = 
+            read_label_batch(Globals::TRAINING_LABELS_PATH, position_labels);
 
         Eigen::MatrixXf probabilities = neural_network.forward_matrix(images);
 

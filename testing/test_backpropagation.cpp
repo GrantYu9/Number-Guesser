@@ -21,17 +21,16 @@ TEST_P(TestProduceBiasGradient, TestProduceBiasGradient) {
 
 INSTANTIATE_TEST_SUITE_P(TestProduceBiasGradient, TestProduceBiasGradient,
     testing::Values(
-        // Zero gradient
         std::tuple{
             Eigen::VectorXf::Zero(2),
             Eigen::MatrixXf::Zero(2, 2)
         },
-        // Some gradient
+        /** @brief Test when there is some arbitrary amount of gradient. */
         std::tuple{
             (Eigen::VectorXf(3) << 1.0f, 1.0f, -1.0f).finished(),
             (Eigen::MatrixXf(3, 2) << -1.0f, 2.0f, -3.0f, 4.0f, 5.0f, -6.0f).finished()
         },
-        // Floats
+        /** @brief Test when the gradient has decimals. */
         std::tuple{
             (Eigen::VectorXf(3) << -0.17f, 1.5f, -1.5f).finished(),
             (Eigen::MatrixXf(3, 2) << -1.5f, 1.33f, -2.0f, 3.5f, 6.0f, -7.5f).finished()
@@ -51,19 +50,20 @@ TEST_P(TestProduceNextErrorGradients, TestProduceNextErrorGradients) {
 
 INSTANTIATE_TEST_SUITE_P(TestProduceNextErrorGradients, TestProduceNextErrorGradients,
     testing::Values(
-        // Zero
         std::tuple{
             Eigen::MatrixXf::Zero(2, 2),
             Eigen::MatrixXf::Zero(2, 2),
             Eigen::MatrixXf::Zero(2, 2)
         },
-        // Order and transpose
+        /** @brief Tests if the core logic of the implementation is right.
+         * @details Tests if the correct transpose is taken and if the order of multiplication is correct.
+         */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 6.0f, 8.0f, -3.0f, 4.0f).finished(),
             (Eigen::MatrixXf(3, 2) << 1.0f, 2.0f, -3.0f, 4.0f, 5.0f, 6.0f).finished(),
             (Eigen::MatrixXf(3, 2) << 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f).finished()
         },
-        // Floats
+        /** @brief Test when the gradient has decimals. */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 4.5f, 1.5f, 2.25f, -9.0f).finished(),
             (Eigen::MatrixXf(2, 2) << 3.0f, 1.0f, -1.5f, 6.0f).finished(),
@@ -82,12 +82,11 @@ TEST_P(TestProduceReLUDerivative, TestProduceReLUDerivative) {
 
 INSTANTIATE_TEST_SUITE_P(TestProduceReLUDerivative, TestProduceReLUDerivative,
     testing::Values(
-        // Zero
         std::tuple{
             Eigen::MatrixXf::Zero(2, 2),
             Eigen::MatrixXf::Zero(2, 2)
         },
-        // Floats
+        /** @brief Test when the gradient has decimals. */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 0.0f, 1.0f, 1.0f, 0.0f).finished(),
             (Eigen::MatrixXf(2, 2) << -1.5f, 1.0f, 2.0f, 0.0f).finished(),
@@ -107,19 +106,20 @@ TEST_P(TestProduceWeightsGradients, TestProduceWeightsGradients) {
 
 INSTANTIATE_TEST_SUITE_P(TestProduceWeightsGradients, TestProduceWeightsGradients,
     testing::Values(
-        // Zero
         std::tuple{
             Eigen::MatrixXf::Zero(2, 2),
             Eigen::MatrixXf::Zero(2, 2),
             Eigen::MatrixXf::Zero(2, 2)
         },
-        // Order and transpose
+        /** @brief Tests if the core logic of the implementation is right.
+         * @details Tests if the correct transpose is taken and if the order of multiplication is correct.
+         */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 6.0f, 8.0f, -3.0f, 4.0f).finished(),
             (Eigen::MatrixXf(2, 3) << 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f).finished(),
             (Eigen::MatrixXf(2, 3) << 1.0f, -3.0f, 5.0f, 2.0f, 4.0f, 6.0f).finished()
         },
-        // Floats
+        /** @brief Test when the gradient has decimals. */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 4.5f, 1.5f, 2.25f, -9.0f).finished(),
             (Eigen::MatrixXf(2, 2) << 1.5f, 0.0f, 0.0f, -1.5f).finished(),

@@ -76,3 +76,10 @@ bool NeuralNetwork::operator==(const NeuralNetwork& other) const {
         hidden_layers == other.hidden_layers &&
         output_layer == other.output_layer;
 }
+
+    // Test for when the row count is undersized.
+    // Test for when the column count is undersized.
+    // Test for when the row count is oversized.
+    // Test for when the column count is oversized.
+// Test for when there is a data type mismatch.
+// Test for when there is a multiplicity mismatch.

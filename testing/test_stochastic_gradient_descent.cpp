@@ -21,13 +21,13 @@ TEST_P(TestStochasticGradientDescentMatrix, TestStochasticGradientDescentMatrix)
 
 INSTANTIATE_TEST_SUITE_P(TestStochasticGradientDescentMatrix, TestStochasticGradientDescentMatrix,
     testing::Values(
-        // No change
+        /** @brief Test when there is no change. */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 1.0f, 0.0f, 0.0f, 1.0f).finished(),
             (Eigen::MatrixXf(2, 2) << 1.0f, 0.0f, 0.0f, 1.0f).finished(),
             Eigen::MatrixXf::Zero(2, 2)
         },
-        // Floats
+        /** @brief Test with decimals. */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 1 - 500.0f * StochasticGradientDescent::LEARNING_RATE, -(300.0f * StochasticGradientDescent::LEARNING_RATE), -(-250.0f * StochasticGradientDescent::LEARNING_RATE), 1.0f - 0.1f * StochasticGradientDescent::LEARNING_RATE).finished(),
             (Eigen::MatrixXf(2, 2) << 1.0f, 0.0f, 0.0f, 1.0f).finished(),
@@ -48,13 +48,13 @@ TEST_P(TestStochasticGradientDescentVector, TestStochasticGradientDescentVector)
 
 INSTANTIATE_TEST_SUITE_P(TestStochasticGradientDescentVector, TestStochasticGradientDescentVector,
     testing::Values(
-        // No change
+        /** @brief Test when there is no change. */
         std::tuple{
             (Eigen::VectorXf(2) << 1.0f, 0.0f).finished(),
             (Eigen::VectorXf(2) << 1.0f, 0.0f).finished(),
             Eigen::VectorXf::Zero(2)
         },
-        // Floats
+        /** @brief Test with decimals. */
         std::tuple{
             (Eigen::VectorXf(4) << 1 - 500.0f * StochasticGradientDescent::LEARNING_RATE, -(300.0f * StochasticGradientDescent::LEARNING_RATE), -(-250.0f * StochasticGradientDescent::LEARNING_RATE), 1.0f - 0.1f * StochasticGradientDescent::LEARNING_RATE).finished(),
             (Eigen::VectorXf(4) << 1.0f, 0.0f, 0.0f, 1.0f).finished(),

@@ -56,21 +56,21 @@ TEST(TestThrowFileReadErrorCounting, TestBias) {
         throw FileWriteError();
     }
 
-    // Small
+    // Test for when the count is undersized.
     bad_value = rows - 1;
     file.write(reinterpret_cast<const char*>(&bad_value), sizeof(bad_value));
     write_vector_to_file(file, vector);
     EXPECT_THROW(load_bias(COUNTING), FileReadError);
     reset_file(file);
 
-    // Big
+    // Test for when the count is oversized.
     bad_value = rows + 1;
     file.write(reinterpret_cast<const char*>(&bad_value), sizeof(bad_value));
     write_vector_to_file(file, vector);
     EXPECT_THROW(load_bias(COUNTING), FileReadError);
     reset_file(file);
 
-    // Data type mismatch
+    // Test for when there is a data type mismatch.  
     constexpr int columns = 1;
     file.write(reinterpret_cast<const char*>(&rows), sizeof(rows));
     file.write(reinterpret_cast<const char*>(&columns), sizeof(columns));
@@ -78,7 +78,7 @@ TEST(TestThrowFileReadErrorCounting, TestBias) {
     EXPECT_THROW(load_bias(COUNTING), FileReadError);
     reset_file(file);
 
-    // Multiplicity mismatch
+    // Test for when there is a multiplicity mismatch.
     file.write(reinterpret_cast<const char*>(&rows), sizeof(rows));
     write_vector_to_file(file, vector);
     write_vector_to_file(file, vector);
@@ -104,21 +104,21 @@ TEST(TestThrowFileReadErrorCounting, TestBiases) {
         throw FileWriteError();
     }
 
-    // Small
+    // Test for when the count is undersized.
     bad_value = rows - 1;
     file.write(reinterpret_cast<const char*>(&bad_value), sizeof(bad_value));
     write_vectors_to_file(file, biases);
     EXPECT_THROW(load_biases(COUNTING), FileReadError);
     reset_file(file);
 
-    // Big
+    // Test for when the count is oversized.
     bad_value = rows + 1;
     file.write(reinterpret_cast<const char*>(&bad_value), sizeof(bad_value));
     write_vectors_to_file(file, biases);
     EXPECT_THROW(load_biases(COUNTING), FileReadError);
     reset_file(file);
 
-    // Data type mismatch
+    // Test for when there is a data type mismatch.
     constexpr int columns = 1;
     file.write(reinterpret_cast<const char*>(&rows), sizeof(rows));
     file.write(reinterpret_cast<const char*>(&columns), sizeof(columns));
@@ -126,7 +126,7 @@ TEST(TestThrowFileReadErrorCounting, TestBiases) {
     EXPECT_THROW(load_biases(COUNTING), FileReadError);
     reset_file(file);
 
-    // Multiplicity mismatch
+    // Test for when there is a multiplicity mismatch.
     file.write(reinterpret_cast<const char*>(&rows), sizeof(rows));
     write_vector_to_file(file, biases[0]);
     EXPECT_THROW(load_biases(COUNTING), FileReadError);
@@ -148,7 +148,7 @@ TEST(TestThrowFileReadErrorCounting, TestWeightsMatrix) {
         throw FileWriteError();
     }
 
-    // Small rows
+    // Test for when the row count is undersized.
     bad_value = rows - 1;
     file.write(reinterpret_cast<const char*>(&bad_value), sizeof(bad_value));
     file.write(reinterpret_cast<const char*>(&columns), sizeof(columns));
@@ -156,7 +156,7 @@ TEST(TestThrowFileReadErrorCounting, TestWeightsMatrix) {
     EXPECT_THROW(load_weights_matrix(COUNTING), FileReadError);
     reset_file(file);
 
-    // Small columns
+    // Test for when the column count is undersized.
     bad_value = columns - 1;
     file.write(reinterpret_cast<const char*>(&rows), sizeof(rows));
     file.write(reinterpret_cast<const char*>(&bad_value), sizeof(bad_value));
@@ -164,7 +164,7 @@ TEST(TestThrowFileReadErrorCounting, TestWeightsMatrix) {
     EXPECT_THROW(load_weights_matrix(COUNTING), FileReadError);
     reset_file(file);
 
-    // Big rows
+    // Test for when the row count is oversized.
     bad_value = rows + 1;
     file.write(reinterpret_cast<const char*>(&bad_value), sizeof(bad_value));
     file.write(reinterpret_cast<const char*>(&columns), sizeof(columns));
@@ -172,7 +172,7 @@ TEST(TestThrowFileReadErrorCounting, TestWeightsMatrix) {
     EXPECT_THROW(load_weights_matrix(COUNTING), FileReadError);
     reset_file(file);
 
-    // Big columns
+    // Test for when the column count is oversized.
     bad_value = columns + 1;
     file.write(reinterpret_cast<const char*>(&rows), sizeof(rows));
     file.write(reinterpret_cast<const char*>(&bad_value), sizeof(bad_value));
@@ -180,13 +180,13 @@ TEST(TestThrowFileReadErrorCounting, TestWeightsMatrix) {
     EXPECT_THROW(load_weights_matrix(COUNTING), FileReadError);
     reset_file(file);
 
-    // Data type mismatch
+    // Test for when there is a data type mismatch.
     file.write(reinterpret_cast<const char*>(&rows), sizeof(rows));
     write_matrix_to_file(file, weights_matrix);
     EXPECT_THROW(load_weights_matrix(COUNTING), FileReadError);
     reset_file(file);
 
-    // Multiplicity mismatch
+    // Test for when there is a multiplicity mismatch.
     file.write(reinterpret_cast<const char*>(&rows), sizeof(rows));
     file.write(reinterpret_cast<const char*>(&columns), sizeof(columns));
     write_matrix_to_file(file, weights_matrix);
@@ -214,7 +214,7 @@ TEST(TestThrowFileReadErrorCounting, TestWeightsMatrices) {
         throw FileWriteError();
     }
 
-    // Small rows
+    // Test for when the row count is undersized.
     bad_value = rows - 1;
     file.write(reinterpret_cast<const char*>(&bad_value), sizeof(bad_value));
     file.write(reinterpret_cast<const char*>(&columns), sizeof(columns));
@@ -222,7 +222,7 @@ TEST(TestThrowFileReadErrorCounting, TestWeightsMatrices) {
     EXPECT_THROW(load_weights_matrices(COUNTING), FileReadError);
     reset_file(file);
 
-    // Small columns
+    // Test for when the column count is undersized.
     bad_value = columns - 1;
     file.write(reinterpret_cast<const char*>(&rows), sizeof(rows));
     file.write(reinterpret_cast<const char*>(&bad_value), sizeof(bad_value));
@@ -230,7 +230,7 @@ TEST(TestThrowFileReadErrorCounting, TestWeightsMatrices) {
     EXPECT_THROW(load_weights_matrices(COUNTING), FileReadError);
     reset_file(file);
 
-    // Big rows
+    // Test for when the row count is oversized.
     bad_value = rows + 1;
     file.write(reinterpret_cast<const char*>(&bad_value), sizeof(bad_value));
     file.write(reinterpret_cast<const char*>(&columns), sizeof(columns));
@@ -238,7 +238,7 @@ TEST(TestThrowFileReadErrorCounting, TestWeightsMatrices) {
     EXPECT_THROW(load_biases(COUNTING), FileReadError);
     reset_file(file);
 
-    // Big columns
+    // Test for when the column count is oversized.
     bad_value = rows + 1;
     file.write(reinterpret_cast<const char*>(&rows), sizeof(rows));
     file.write(reinterpret_cast<const char*>(&bad_value), sizeof(bad_value));
@@ -246,13 +246,13 @@ TEST(TestThrowFileReadErrorCounting, TestWeightsMatrices) {
     EXPECT_THROW(load_biases(COUNTING), FileReadError);
     reset_file(file);
 
-    // Data type mismatch
+    // Test for when there is a data type mismatch.
     file.write(reinterpret_cast<const char*>(&rows), sizeof(rows));
     write_matrices_to_file(file, matrices);
     EXPECT_THROW(load_biases(COUNTING), FileReadError);
     reset_file(file);
 
-    // Multiplicity mismatch
+    // Test for when there is a multiplicity mismatch.
     file.write(reinterpret_cast<const char*>(&rows), sizeof(rows));
     write_matrix_to_file(file, matrices[0]);
     EXPECT_THROW(load_biases(COUNTING), FileReadError);

@@ -9,25 +9,22 @@ namespace Globals {
     /** @brief Project root. */
     const std::filesystem::path ROOT = std::filesystem::path(__FILE__).
         parent_path().parent_path().parent_path();
+
+    /** @brief MNIST folder. */
+    const std::filesystem::path MNIST = ROOT / "data" / "mnist";
     /** @brief Persistence folder. */
-    const std::filesystem::path PERSISTENCE = ROOT / "data" / "persistence" / 
-        "console";
+    const std::filesystem::path PERSISTENCE = 
+        ROOT / "data" / "persistence" / "console";
     
-    /** @brief Batch size. */
     constexpr int BATCH_SIZE = 32;
-    /** @brief Bias for input layer. */
     const std::filesystem::path BIAS_INPUT_LAYER = PERSISTENCE / "input_layer" /
         "bias.bin";
-    /** @brief Bias for output layer. */
     const std::filesystem::path BIAS_OUTPUT_LAYER = PERSISTENCE / "output_layer"
         / "bias.bin";
-    /** @brief Biases for hidden layers. */
     const std::filesystem::path BIASES_HIDDEN_LAYERS = PERSISTENCE / 
         "hidden_layers" / "biases.bin";
-    /** @brief Open the file in binary read mode. */
     constexpr std::ios_base::openmode BINARY_READ_MODE = std::ios_base::in | 
         std::ios_base::binary;
-    /** @brief Open the file in binary write mode. */
     constexpr std::ios_base::openmode BINARY_WRITE_MODE = std::ios_base::out | 
         std::ios_base::binary;
     /** @brief Number of rows the input layer matrix should have. */
@@ -38,23 +35,27 @@ namespace Globals {
     constexpr int HIDDEN_LAYER_ROWS = 128;
     /** @brief Number of columns the hidden layer matrices should have. */
     constexpr int HIDDEN_LAYER_COLUMNS = 128;
-    /** @brief Number of hidden layers. */
     constexpr int NUMBER_OF_HIDDEN_LAYERS = 3;
     /** @brief Number of outputted probabilities. */
     constexpr int NUMBER_OF_OUTPUTS = 10;
-    /** @brief Number of training images. */
+    constexpr int NUMBER_OF_TESTING_IMAGES = 1e+4;
     constexpr int NUMBER_OF_TRAINING_IMAGES = 6e+4;
     /** @brief Number of rows in the output layer matrix. */
     constexpr int OUTPUT_LAYER_ROWS = 10;
     /** @brief Number of columns in the output layer matrix. */
     constexpr int OUTPUT_LAYER_COLUMNS = 128;
-    /** @brief Weights for hidden layers. */
+    const std::filesystem::path TESTING_IMAGES_PATH = 
+        MNIST / "testing" / "t10k-images-idx3-ubyte";
+    const std::filesystem::path TESTING_LABELS_PATH = 
+        MNIST / "testing" / "t10k-labels-idx1-ubyte";
+    const std::filesystem::path TRAINING_IMAGES_PATH = 
+        MNIST / "training" / "train-images-idx3-ubyte";
+    const std::filesystem::path TRAINING_LABELS_PATH = 
+        MNIST / "training" / "train-labels-idx1-ubyte";
     const std::filesystem::path WEIGHTS_HIDDEN_LAYERS = PERSISTENCE /
         "hidden_layers" / "weights.bin";
-    /** @brief Weights for input layer. */
     const std::filesystem::path WEIGHTS_INPUT_LAYER = PERSISTENCE /
         "input_layer" / "weights.bin";
-    /** @brief Weights for input layer. */
     const std::filesystem::path WEIGHTS_OUTPUT_LAYER = PERSISTENCE /
         "output_layer" / "weights.bin";
 }

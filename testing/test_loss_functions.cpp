@@ -22,25 +22,25 @@ TEST_P(TestCrossEntropyError, TestCrossEntropyError) {
 
 INSTANTIATE_TEST_SUITE_P(TestCrossEntropyError, TestCrossEntropyError,
     testing::Values(
-        // No error
+        /** @brief Test for when there is no error. */
         std::tuple{
             0.0f,
             (Eigen::MatrixXf(2, 2) << 0.0f, 1.0f, 1.0f, 0.0f).finished(),
             create_target_matrix()
         },
-        // Some error
+        /** @brief Test for when there is an even amount of error. */
         std::tuple{
             -std::log(0.5f),
             (Eigen::MatrixXf(2, 2) << 0.5f, 0.5f, 0.5f, 0.5f).finished(),
             create_target_matrix()
         },
-        // Avoiding ln(0)
+        /** @brief Test if there is clamping to avoid ln(0). */
         std::tuple{
             -std::log(1e-37f),
             (Eigen::MatrixXf(2, 2) << 1.0f, 0.0f, 0.0f, 1.0f).finished(),
             create_target_matrix()
         },
-        // Some right, some wrong
+        /** @brief Test for when some guesses are right and some are wrong. */
         std::tuple{
             -(std::log(0.25f) + std::log(0.75f)) / 2.0f,
             (Eigen::MatrixXf(2, 2) << 0.75f, 0.75f, 0.25f, 0.25f).finished(),
@@ -59,13 +59,13 @@ TEST_P(TestCrossEntropyGradients, TestCrossEntropyGradients) {
 
 INSTANTIATE_TEST_SUITE_P(TestCrossEntropyGradients, TestCrossEntropyGradients,
     testing::Values(
-        // No gradient
+        /** @brief Test for when there is no gradient. */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 0.0f, 0.0f, 0.0f, 0.0f).finished(),
             (Eigen::MatrixXf(2, 2) << 0.0f, 1.0f, 1.0f, 0.0f).finished(),
             create_target_matrix()
         },
-        // Test scaling and floats
+        /** @brief Test for if there is scaling and for behaviour with floats. */
         std::tuple{
             (Eigen::MatrixXf(3, 2) << -4.0f, 0.5f, 2.0f, 0.25f, -4.0f, 4.0f).finished(),
             (Eigen::MatrixXf(3, 2) << -7.0f, 1.0f, 4.0f, 0.5f, -8.0f, 9.0f).finished(),

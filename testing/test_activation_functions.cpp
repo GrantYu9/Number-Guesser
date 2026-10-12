@@ -22,20 +22,19 @@ TEST_P(TestReLUVector, TestReLUVector) {
 
 INSTANTIATE_TEST_SUITE_P(TestReLUZero, TestReLUVector, 
     testing::Values(
-        // Zero
         std::tuple{
             Eigen::VectorXf::Zero(3),
             Eigen::VectorXf::Zero(3)
         },
-        // Positive
+        /** @brief Test when input matrix has positive values. */
         std::tuple{
-            (Eigen::VectorXf(3) << 2, 3, 4).finished(),
-            (Eigen::VectorXf(3) << 2, 3, 4).finished()
+            (Eigen::VectorXf(3) << 2.0f, 3.0f, 4.0f).finished(),
+            (Eigen::VectorXf(3) << 2.0f, 3.0f, 4.0f).finished()
         },
-        // Negative
+        /** @brief Test when input matrix has some negative values. */
         std::tuple{
-            (Eigen::VectorXf(3) << 2, -3, 4).finished(),
-            (Eigen::VectorXf(3) << 2, 0, 4).finished()
+            (Eigen::VectorXf(3) << 2.0f, -3.0f, 4.0f).finished(),
+            (Eigen::VectorXf(3) << 2.0f, 0.0f, 4.0f).finished()
         }
     )
 );
@@ -50,17 +49,16 @@ TEST_P(TestReLUMatrix, TestReLUMatrix) {
 
 INSTANTIATE_TEST_SUITE_P(TestReLUMatrix, TestReLUMatrix,
     testing::Values(
-        // Zero
         std::tuple{
             Eigen::MatrixXf::Zero(2, 2),
             Eigen::MatrixXf::Zero(2, 2)
         },
-        // Positive
+        /** @brief Test when input matrix has positive values. */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 2, 3, 4, 5).finished(),
             (Eigen::MatrixXf(2, 2) << 2, 3, 4, 5).finished()
         },
-        // Negative
+        /** @brief Test when input matrix has some negative values. */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 2, -3, 4, -5).finished(),
             (Eigen::MatrixXf(2, 2) << 2, 0, 4, 0).finished()
@@ -83,11 +81,11 @@ TEST_P(TestSoftmaxVector, TestSoftmaxVector) {
 
 INSTANTIATE_TEST_SUITE_P(TestSoftmaxVector, TestSoftmaxVector,
     testing::Values(
-        // Zero
         Eigen::VectorXf::Zero(Globals::NUMBER_OF_OUTPUTS),
-        // Random
         Eigen::VectorXf::Random(Globals::NUMBER_OF_OUTPUTS),
-        // Overflow guading .The max value for a 32 bit float as per the IEEE 754 standard is on the order 10e38 which is just shy of e**89
+        /** @brief Tests if the implementation guards against overflows.
+         * @note The max value for a 32 bit float as per the IEEE 754 standard is on the order 10e38 which is just shy of e**89
+         */
         create_overflow_vector()
     )
 );
@@ -119,11 +117,11 @@ TEST_P(TestSoftmaxMatrix, TestSoftmaxMatrix) {
 
 INSTANTIATE_TEST_SUITE_P(TestSoftmaxMatrix, TestSoftmaxMatrix,
     testing::Values(
-        // Zero
         Eigen::MatrixXf::Zero(Globals::NUMBER_OF_OUTPUTS, Globals::BATCH_SIZE),
-        // Random
         Eigen::MatrixXf::Random(Globals::NUMBER_OF_OUTPUTS, Globals::BATCH_SIZE),
-        // Overflow guarding .The max value for a 32 bit float as per the IEEE 754 standard is on the order 10e38 which is just shy of e**89
+        /** @brief Tests if the implementation guards against overflows.
+         * @note The max value for a 32 bit float as per the IEEE 754 standard is on the order 10e38 which is just shy of e**89
+         */
         create_overflow_matrix()
     )
 );

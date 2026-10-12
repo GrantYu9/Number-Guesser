@@ -13,10 +13,10 @@
 
 /** @brief File specific constants. */
 namespace Input {
-    /** @brief Byte offset for the label file in the training set. */
-    constexpr int BYTE_OFFSET_TRAINING_LABELS = 8;
-    /** @brief Byte offset for the image file in the training set. */
-    constexpr int BYTE_OFFSET_TRAINING_IMAGES = 16;
+    /** @brief Byte offset for label files. */
+    constexpr int BYTE_OFFSET_LABELS = 8;
+    /** @brief Byte offset for image files. */
+    constexpr int BYTE_OFFSET_IMAGES = 16;
     /** @brief Size of a batch of images read in bytes. */
     constexpr int CHUNK_SIZE_IMAGE = 784 * Globals::BATCH_SIZE;
     /** @brief Size of a batch of labels read in bytes. */

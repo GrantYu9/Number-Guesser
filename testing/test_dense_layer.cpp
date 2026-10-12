@@ -27,7 +27,6 @@ TEST_P(TestDenseLayerBackward, TestDenseLayerBackward) {
 
 INSTANTIATE_TEST_SUITE_P(TestDenseLayerBackward, TestDenseLayerBackward,
     testing::Values(
-        // Zero
         std::tuple{
             2,
             Eigen::MatrixXf::Zero(2, 2),
@@ -35,7 +34,9 @@ INSTANTIATE_TEST_SUITE_P(TestDenseLayerBackward, TestDenseLayerBackward,
             2,
             Eigen::MatrixXf::Zero(2, 2)
         },
-        // Order and transpose
+        /** @brief Tests if the core logic of the implementation is right.
+         * @details Tests if the correct transpose is taken and if the order of multiplication is correct.
+         */
         std::tuple{
             3,
             (Eigen::MatrixXf(3, 2) << 1.0f, 2.0f, -3.0f, 4.0f, 5.0f, 6.0f).finished(),
@@ -43,7 +44,7 @@ INSTANTIATE_TEST_SUITE_P(TestDenseLayerBackward, TestDenseLayerBackward,
             2,
             (Eigen::MatrixXf(3, 2) << 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f).finished()
         },
-        // Floats
+        /** @brief Test when the gradient has decimals. */
         std::tuple{
             2,
             (Eigen::MatrixXf(2, 2) << 3.0f, 1.0f, -1.5f, 6.0f).finished(),
@@ -64,35 +65,34 @@ TEST_P(TestDenseLayerForwardVector, TestDenseLayerForwardVector) {
 
 INSTANTIATE_TEST_SUITE_P(TestForwardVector, TestDenseLayerForwardVector,
     testing::Values(
-        // Zero
         std::tuple{
             Eigen::MatrixXf::Zero(2, 2), 
             Eigen::VectorXf::Zero(2), 
             Eigen::VectorXf::Zero(2), 
             Eigen::VectorXf::Zero(2)
         },
-        // Positive integers
+        /** @brief Test when there are positive values. */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 0, 1, 1, 0).finished(), 
             (Eigen::VectorXf(2) << 1, 1).finished(), 
             (Eigen::VectorXf(2) << 2, 3).finished(), 
             (Eigen::VectorXf(2) << 4, 3).finished()
         },
-        // Negative integers
+        /** @brief Test when there are negative values. */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 0, -1, 1, 0).finished(), 
             (Eigen::VectorXf(2) << -1, -1).finished(), 
             (Eigen::VectorXf(2) << 2, 3).finished(), 
             (Eigen::VectorXf(2) << -4, 1).finished()
         },
-        // 2x3 matrix
+        /** @brief Test for a 2 by 3 matrix. */
         std::tuple{
             (Eigen::MatrixXf(2, 3) << 0, 1, 0, 1, 0, 1).finished(),
             (Eigen::VectorXf(2) << 1, 1).finished(), 
             (Eigen::VectorXf(3) << 2, 3, 4).finished(), 
             (Eigen::VectorXf(2) << 4, 7).finished()
         },
-        // Floats
+        /** @Test when there are decimals. */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 0, 1.5, 1.5, 0).finished(),
             (Eigen::VectorXf(2) << 1.33, 1.33).finished(), 
@@ -112,35 +112,34 @@ TEST_P(TestDenseLayerForwardMatrix, TestDenseLayerForwardMatrix) {
 
 INSTANTIATE_TEST_SUITE_P(TestDenseLayerForwardMatrix, TestDenseLayerForwardMatrix,
     testing::Values(
-        // Zero
         std::tuple{
             Eigen::MatrixXf::Zero(2, 2), 
             Eigen::VectorXf::Zero(2), 
             Eigen::MatrixXf::Zero(2, 2), 
             Eigen::MatrixXf::Zero(2, 2)
         },
-        // Positive integers
+        /** @brief Test when there are positive values. */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 0, 1, 1, 0).finished(), 
             (Eigen::VectorXf(2) << 1, 1).finished(), 
             (Eigen::MatrixXf(2, 2) << 2, 4, 3, 5).finished(), 
             (Eigen::MatrixXf(2, 2) << 4, 6, 3, 5).finished()
         },
-        // Negative integers
+        /** @brief Test when there are negative values. */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 0, -1, 1, 0).finished(), 
             (Eigen::VectorXf(2) << 1, 1).finished(), 
             (Eigen::MatrixXf(2, 2) << 2, 4, 3, 5).finished(), 
             (Eigen::MatrixXf(2, 2) << -2, -4, 3, 5).finished()
         },
-        // 2x3 matrix
+        /** @brief Test for a 2 by 3 matrix. */
         std::tuple{
             (Eigen::MatrixXf(2, 3) << 0, 1, 0, 1, 0, 1).finished(),
             (Eigen::VectorXf(2) << 1, 1).finished(), 
             (Eigen::MatrixXf(3, 2) << 2, 3, 4, 5, 6, 7).finished(), 
             (Eigen::MatrixXf(2, 2) << 5, 6, 9, 11).finished()
         },
-        // Floats
+        /** @brief Test when there are decimals. */
         std::tuple{
             (Eigen::MatrixXf(2, 2) << 0, 1.5, 1.5, 0).finished(),
             (Eigen::VectorXf(2) << 1.33, 1.33).finished(), 
@@ -170,14 +169,14 @@ TEST_P(TestStochasticGradientDescent, TestStochasticGradientDescent) {
 
 INSTANTIATE_TEST_SUITE_P(TestStochasticGradientDescent, TestStochasticGradientDescent,
     testing::Values(
-        // No changes
+        /** @brief Test when the gradient indicates no change. */
         std::tuple{
             (Eigen::VectorXf(2) << 1.0f, -1.0f).finished(),
             Eigen::VectorXf::Zero(2),
             (Eigen::MatrixXf(2, 2) << 1.0f, 0.0f, -1.0f, 0.0f).finished(),
             Eigen::MatrixXf::Zero(2, 2)
         },
-        // Floats
+        /** @brief Test when there are decimals. */
         std::tuple{
             (Eigen::VectorXf(2) << 1.0f, -1.0f).finished(),
             (Eigen::VectorXf(2) << 0.2f, -300.0f).finished(),
