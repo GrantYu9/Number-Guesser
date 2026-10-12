@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>number_guesser: /Users/grantyu/Workbench/Projects/guesser/include/internal/stochastic_gradient_descent.hpp Source File</title>
+<title>number_guesser: /Users/grantyu/Desktop/Workbench/Projects/guesser/include/internal/stochastic_gradient_descent.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -119,21 +119,19 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('stochastic__gr
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span></div>
 <div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespace_stochastic_gradient_descent.html">   11</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_stochastic_gradient_descent.html">StochasticGradientDescent</a> {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespace_stochastic_gradient_descent.html#a22d8a378b74f27cb499f62af5f5b2379">   13</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="namespace_stochastic_gradient_descent.html#a22d8a378b74f27cb499f62af5f5b2379">LEARNING_RATE</a> = 1e-3f;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespace_stochastic_gradient_descent.html#a22d8a378b74f27cb499f62af5f5b2379">   13</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="namespace_stochastic_gradient_descent.html#a22d8a378b74f27cb499f62af5f5b2379">LEARNING_RATE</a> = 1e-4f;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>}</div>
 </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="stochastic__gradient__descent_8hpp.html#a04dd571eba02dd3dab008402cd92df3c">   19</a></span>Eigen::VectorXf <a class="code hl_function" href="stochastic__gradient__descent_8hpp.html#a04dd571eba02dd3dab008402cd92df3c">produce_new_bias</a>(</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    Eigen::VectorXf&amp; bias,</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    Eigen::VectorXf&amp; gradient);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="stochastic__gradient__descent_8hpp.html#a2c2916a9f3eb545a861e8f55930d9fab">   26</a></span>Eigen::MatrixXf <a class="code hl_function" href="stochastic__gradient__descent_8hpp.html#a2c2916a9f3eb545a861e8f55930d9fab">produce_new_weights_matrix</a>(</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    Eigen::MatrixXf&amp; weights_matrix, </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    Eigen::MatrixXf&amp; gradients);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="stochastic__gradient__descent_8hpp.html#a04d10eca3ba02894fd6dc84674f3cda2">   19</a></span>Eigen::VectorXf <a class="code hl_function" href="stochastic__gradient__descent_8hpp.html#a04d10eca3ba02894fd6dc84674f3cda2">produce_new_bias</a>(</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">const</span> Eigen::VectorXf&amp; bias, <span class="keyword">const</span> Eigen::VectorXf&amp; gradient);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="stochastic__gradient__descent_8hpp.html#afe2289276a5bb15e30eecc660044003b">   25</a></span>Eigen::MatrixXf <a class="code hl_function" href="stochastic__gradient__descent_8hpp.html#afe2289276a5bb15e30eecc660044003b">produce_new_weights_matrix</a>(</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">const</span> Eigen::MatrixXf&amp; weights_matrix, <span class="keyword">const</span> Eigen::MatrixXf&amp; gradients);</div>
 <div class="ttc" id="anamespace_stochastic_gradient_descent_html"><div class="ttname"><a href="namespace_stochastic_gradient_descent.html">StochasticGradientDescent</a></div><div class="ttdoc">File specific constants.</div><div class="ttdef"><b>Definition</b> stochastic_gradient_descent.hpp:11</div></div>
 <div class="ttc" id="anamespace_stochastic_gradient_descent_html_a22d8a378b74f27cb499f62af5f5b2379"><div class="ttname"><a href="namespace_stochastic_gradient_descent.html#a22d8a378b74f27cb499f62af5f5b2379">StochasticGradientDescent::LEARNING_RATE</a></div><div class="ttdeci">constexpr float LEARNING_RATE</div><div class="ttdoc">The learning rate.</div><div class="ttdef"><b>Definition</b> stochastic_gradient_descent.hpp:13</div></div>
-<div class="ttc" id="astochastic__gradient__descent_8hpp_html_a04dd571eba02dd3dab008402cd92df3c"><div class="ttname"><a href="stochastic__gradient__descent_8hpp.html#a04dd571eba02dd3dab008402cd92df3c">produce_new_bias</a></div><div class="ttdeci">Eigen::VectorXf produce_new_bias(Eigen::VectorXf &amp;bias, Eigen::VectorXf &amp;gradient)</div><div class="ttdoc">Returns the new bias after stochastic gradient descent.</div></div>
-<div class="ttc" id="astochastic__gradient__descent_8hpp_html_a2c2916a9f3eb545a861e8f55930d9fab"><div class="ttname"><a href="stochastic__gradient__descent_8hpp.html#a2c2916a9f3eb545a861e8f55930d9fab">produce_new_weights_matrix</a></div><div class="ttdeci">Eigen::MatrixXf produce_new_weights_matrix(Eigen::MatrixXf &amp;weights_matrix, Eigen::MatrixXf &amp;gradients)</div><div class="ttdoc">Returns the new weight after stochastic gradient descent.</div></div>
+<div class="ttc" id="astochastic__gradient__descent_8hpp_html_a04d10eca3ba02894fd6dc84674f3cda2"><div class="ttname"><a href="stochastic__gradient__descent_8hpp.html#a04d10eca3ba02894fd6dc84674f3cda2">produce_new_bias</a></div><div class="ttdeci">Eigen::VectorXf produce_new_bias(const Eigen::VectorXf &amp;bias, const Eigen::VectorXf &amp;gradient)</div><div class="ttdoc">Returns the new bias after stochastic gradient descent.</div></div>
+<div class="ttc" id="astochastic__gradient__descent_8hpp_html_afe2289276a5bb15e30eecc660044003b"><div class="ttname"><a href="stochastic__gradient__descent_8hpp.html#afe2289276a5bb15e30eecc660044003b">produce_new_weights_matrix</a></div><div class="ttdeci">Eigen::MatrixXf produce_new_weights_matrix(const Eigen::MatrixXf &amp;weights_matrix, const Eigen::MatrixXf &amp;gradients)</div><div class="ttdoc">Returns the new weight after stochastic gradient descent.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['read_5fimage_5fbatch_0',['read_image_batch',['../input_8hpp.html#a9e00af9ee6e46cf38986aa0d5b2df240',1,'input.hpp']]],
-  ['read_5flabel_5fbatch_1',['read_label_batch',['../input_8hpp.html#af113f4b64203fc6b9408db707f447ffb',1,'input.hpp']]],
-  ['relu_2',['relu',['../activation__functions_8hpp.html#a95430ebb29e415ffe39fdc2897715bf8',1,'relu(const Eigen::VectorXf &amp;input):&#160;activation_functions.hpp'],['../activation__functions_8hpp.html#aaaaeefe6cb9dd57f532212add288fa4c',1,'relu(const Eigen::MatrixXf &amp;input):&#160;activation_functions.hpp']]],
-  ['relu_5fderivative_3',['relu_derivative',['../activation__functions_8hpp.html#a92f79549c7c4e3b19d8cdc645de214c6',1,'activation_functions.hpp']]]
+  ['produce_5fbias_5fgradient_0',['produce_bias_gradient',['../backpropagation_8hpp.html#aa0a135f2eab98f6e7266a0797e5b1c2f',1,'backpropagation.hpp']]],
+  ['produce_5fnew_5fbias_1',['produce_new_bias',['../stochastic__gradient__descent_8hpp.html#a04d10eca3ba02894fd6dc84674f3cda2',1,'stochastic_gradient_descent.hpp']]],
+  ['produce_5fnew_5fweights_5fmatrix_2',['produce_new_weights_matrix',['../stochastic__gradient__descent_8hpp.html#afe2289276a5bb15e30eecc660044003b',1,'stochastic_gradient_descent.hpp']]],
+  ['produce_5fnext_5ferror_5fgradients_3',['produce_next_error_gradients',['../backpropagation_8hpp.html#a6684c421ed74c986148610057c6133e7',1,'backpropagation.hpp']]],
+  ['produce_5frelu_5fderivative_4',['produce_relu_derivative',['../backpropagation_8hpp.html#a4183db9c656d7a89c3c18d5dae8908ad',1,'backpropagation.hpp']]],
+  ['produce_5fweights_5fgradients_5',['produce_weights_gradients',['../backpropagation_8hpp.html#a9634c5219ea8eba8d709d545e63fdad7',1,'backpropagation.hpp']]]
 ];

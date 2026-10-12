@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>number_guesser: /Users/grantyu/Workbench/Projects/guesser/include/internal/dense_layer.hpp Source File</title>
+<title>number_guesser: /Users/grantyu/Desktop/Workbench/Projects/guesser/include/internal/dense_layer.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -126,37 +126,39 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dense__layer_8
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    Eigen::MatrixXf weights_matrix;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    DenseLayer();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">explicit</span> DenseLayer();</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_dense_layer.html#a747cd86b6d15485989b69e7024ecc25f">   28</a></span>    <a class="code hl_function" href="class_dense_layer.html#a747cd86b6d15485989b69e7024ecc25f">DenseLayer</a>(</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keyword">const</span> Eigen::VectorXf&amp; bias,</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">const</span> Eigen::MatrixXf&amp; weights_matrix);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_dense_layer.html#adc8036a8404bb938e0b3d766c8cd1ded">   40</a></span>    Eigen::MatrixXf <a class="code hl_function" href="class_dense_layer.html#adc8036a8404bb938e0b3d766c8cd1ded">backward</a>(Eigen::MatrixXf&amp; error_gradients);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_dense_layer.html#a8c4131e7149210ea0ff5395853d5dbeb">   46</a></span>    Eigen::VectorXf <a class="code hl_function" href="class_dense_layer.html#a8c4131e7149210ea0ff5395853d5dbeb">forward_vector</a>(<span class="keyword">const</span> Eigen::VectorXf&amp; input) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_dense_layer.html#af806a0b71ea113826049abd9922deb18">   53</a></span>    Eigen::MatrixXf <a class="code hl_function" href="class_dense_layer.html#af806a0b71ea113826049abd9922deb18">forward_matrix</a>(<span class="keyword">const</span> Eigen::MatrixXf&amp; input);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="class_dense_layer.html#aea05f9332a3bbdb65541d13dbceebef2">   61</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_dense_layer.html#aea05f9332a3bbdb65541d13dbceebef2">stochastic_gradient_descent</a>(</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        Eigen::VectorXf&amp; bias_gradient,</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        Eigen::MatrixXf&amp; weight_gradients);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_dense_layer.html#ac35dd8dbf919d82b43c9748e48fcf2b9">   66</a></span>    Eigen::VectorXf <a class="code hl_function" href="class_dense_layer.html#ac35dd8dbf919d82b43c9748e48fcf2b9">get_bias</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">// !!!</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    Eigen::MatrixXf get_pre_activation() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_dense_layer.html#aefda7da2d6867336aeddfeedc76991cf">   72</a></span>    Eigen::MatrixXf <a class="code hl_function" href="class_dense_layer.html#aefda7da2d6867336aeddfeedc76991cf">get_weights_matrix</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>};</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_dense_layer.html#a747cd86b6d15485989b69e7024ecc25f">   28</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_dense_layer.html#a747cd86b6d15485989b69e7024ecc25f">DenseLayer</a>(</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keyword">const</span> Eigen::VectorXf&amp; bias, <span class="keyword">const</span> Eigen::MatrixXf&amp; weights_matrix);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_dense_layer.html#ab3aab9a36de0625e144e869d56496699">   39</a></span>    Eigen::MatrixXf <a class="code hl_function" href="class_dense_layer.html#ab3aab9a36de0625e144e869d56496699">backward</a>(<span class="keyword">const</span> Eigen::MatrixXf&amp; error_gradients);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_dense_layer.html#a8c4131e7149210ea0ff5395853d5dbeb">   45</a></span>    Eigen::VectorXf <a class="code hl_function" href="class_dense_layer.html#a8c4131e7149210ea0ff5395853d5dbeb">forward_vector</a>(<span class="keyword">const</span> Eigen::VectorXf&amp; input) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_dense_layer.html#af806a0b71ea113826049abd9922deb18">   52</a></span>    Eigen::MatrixXf <a class="code hl_function" href="class_dense_layer.html#af806a0b71ea113826049abd9922deb18">forward_matrix</a>(<span class="keyword">const</span> Eigen::MatrixXf&amp; input);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="class_dense_layer.html#a7282d49e507e1c51afaadd0a4449a32c">   60</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_dense_layer.html#a7282d49e507e1c51afaadd0a4449a32c">stochastic_gradient_descent</a>(</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keyword">const</span> Eigen::VectorXf&amp; bias_gradient, </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keyword">const</span> Eigen::MatrixXf&amp; weight_gradients);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="class_dense_layer.html#ac35dd8dbf919d82b43c9748e48fcf2b9">   65</a></span>    Eigen::VectorXf <a class="code hl_function" href="class_dense_layer.html#ac35dd8dbf919d82b43c9748e48fcf2b9">get_bias</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="class_dense_layer.html#a6d5204fe8efdc9d1026c2ffcfc83e8a5">   68</a></span>    Eigen::MatrixXf <a class="code hl_function" href="class_dense_layer.html#a6d5204fe8efdc9d1026c2ffcfc83e8a5">get_pre_activation</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_dense_layer.html#aefda7da2d6867336aeddfeedc76991cf">   71</a></span>    Eigen::MatrixXf <a class="code hl_function" href="class_dense_layer.html#aefda7da2d6867336aeddfeedc76991cf">get_weights_matrix</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_dense_layer.html#ac1879b9eb0409a16d4043594557e7ae5">   76</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_dense_layer.html#ac1879b9eb0409a16d4043594557e7ae5">operator==</a>(<span class="keyword">const</span> DenseLayer&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>};</div>
 </div>
+<div class="ttc" id="aclass_dense_layer_html_a6d5204fe8efdc9d1026c2ffcfc83e8a5"><div class="ttname"><a href="class_dense_layer.html#a6d5204fe8efdc9d1026c2ffcfc83e8a5">DenseLayer::get_pre_activation</a></div><div class="ttdeci">Eigen::MatrixXf get_pre_activation() const</div><div class="ttdoc">Gets the pre activation matrix that was computed.</div></div>
+<div class="ttc" id="aclass_dense_layer_html_a7282d49e507e1c51afaadd0a4449a32c"><div class="ttname"><a href="class_dense_layer.html#a7282d49e507e1c51afaadd0a4449a32c">DenseLayer::stochastic_gradient_descent</a></div><div class="ttdeci">void stochastic_gradient_descent(const Eigen::VectorXf &amp;bias_gradient, const Eigen::MatrixXf &amp;weight_gradients)</div><div class="ttdoc">Applies stochastic gradient descent.</div></div>
 <div class="ttc" id="aclass_dense_layer_html_a747cd86b6d15485989b69e7024ecc25f"><div class="ttname"><a href="class_dense_layer.html#a747cd86b6d15485989b69e7024ecc25f">DenseLayer::DenseLayer</a></div><div class="ttdeci">DenseLayer(const Eigen::VectorXf &amp;bias, const Eigen::MatrixXf &amp;weights_matrix)</div></div>
-<div class="ttc" id="aclass_dense_layer_html_a8c4131e7149210ea0ff5395853d5dbeb"><div class="ttname"><a href="class_dense_layer.html#a8c4131e7149210ea0ff5395853d5dbeb">DenseLayer::forward_vector</a></div><div class="ttdeci">Eigen::VectorXf forward_vector(const Eigen::VectorXf &amp;input) const</div><div class="ttdoc">Forward pass. Vector version.</div></div>
+<div class="ttc" id="aclass_dense_layer_html_a8c4131e7149210ea0ff5395853d5dbeb"><div class="ttname"><a href="class_dense_layer.html#a8c4131e7149210ea0ff5395853d5dbeb">DenseLayer::forward_vector</a></div><div class="ttdeci">Eigen::VectorXf forward_vector(const Eigen::VectorXf &amp;input) const</div><div class="ttdoc">Applies the forward pass.</div></div>
+<div class="ttc" id="aclass_dense_layer_html_ab3aab9a36de0625e144e869d56496699"><div class="ttname"><a href="class_dense_layer.html#ab3aab9a36de0625e144e869d56496699">DenseLayer::backward</a></div><div class="ttdeci">Eigen::MatrixXf backward(const Eigen::MatrixXf &amp;error_gradients)</div><div class="ttdoc">Backpropogates.</div></div>
+<div class="ttc" id="aclass_dense_layer_html_ac1879b9eb0409a16d4043594557e7ae5"><div class="ttname"><a href="class_dense_layer.html#ac1879b9eb0409a16d4043594557e7ae5">DenseLayer::operator==</a></div><div class="ttdeci">bool operator==(const DenseLayer &amp;other) const</div><div class="ttdoc">Determines equality between two DenseLayer objects.</div></div>
 <div class="ttc" id="aclass_dense_layer_html_ac35dd8dbf919d82b43c9748e48fcf2b9"><div class="ttname"><a href="class_dense_layer.html#ac35dd8dbf919d82b43c9748e48fcf2b9">DenseLayer::get_bias</a></div><div class="ttdeci">Eigen::VectorXf get_bias() const</div><div class="ttdoc">Get the bias vector.</div></div>
-<div class="ttc" id="aclass_dense_layer_html_adc8036a8404bb938e0b3d766c8cd1ded"><div class="ttname"><a href="class_dense_layer.html#adc8036a8404bb938e0b3d766c8cd1ded">DenseLayer::backward</a></div><div class="ttdeci">Eigen::MatrixXf backward(Eigen::MatrixXf &amp;error_gradients)</div><div class="ttdoc">Backpropagation.</div></div>
-<div class="ttc" id="aclass_dense_layer_html_aea05f9332a3bbdb65541d13dbceebef2"><div class="ttname"><a href="class_dense_layer.html#aea05f9332a3bbdb65541d13dbceebef2">DenseLayer::stochastic_gradient_descent</a></div><div class="ttdeci">void stochastic_gradient_descent(Eigen::VectorXf &amp;bias_gradient, Eigen::MatrixXf &amp;weight_gradients)</div><div class="ttdoc">Stochastic gradient descent.</div></div>
 <div class="ttc" id="aclass_dense_layer_html_aefda7da2d6867336aeddfeedc76991cf"><div class="ttname"><a href="class_dense_layer.html#aefda7da2d6867336aeddfeedc76991cf">DenseLayer::get_weights_matrix</a></div><div class="ttdeci">Eigen::MatrixXf get_weights_matrix() const</div><div class="ttdoc">Get the weights matrix.</div></div>
-<div class="ttc" id="aclass_dense_layer_html_af806a0b71ea113826049abd9922deb18"><div class="ttname"><a href="class_dense_layer.html#af806a0b71ea113826049abd9922deb18">DenseLayer::forward_matrix</a></div><div class="ttdeci">Eigen::MatrixXf forward_matrix(const Eigen::MatrixXf &amp;input)</div><div class="ttdoc">Forward pass. Matrix version.</div></div>
+<div class="ttc" id="aclass_dense_layer_html_af806a0b71ea113826049abd9922deb18"><div class="ttname"><a href="class_dense_layer.html#af806a0b71ea113826049abd9922deb18">DenseLayer::forward_matrix</a></div><div class="ttdeci">Eigen::MatrixXf forward_matrix(const Eigen::MatrixXf &amp;input)</div><div class="ttdoc">Applies the forward pass.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

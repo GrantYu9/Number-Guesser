@@ -119,21 +119,18 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('namespace_glob
 Variables</h2></td></tr>
 <tr class="memitem:a11d8cd17b991a804904bc931e9be8a70" id="r_a11d8cd17b991a804904bc931e9be8a70"><td class="memItemLeft">const std::filesystem::path&#160;</td><td class="memItemRight"><a class="el" href="#a11d8cd17b991a804904bc931e9be8a70">ROOT</a></td></tr>
 <tr class="memdesc:a11d8cd17b991a804904bc931e9be8a70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Project root.  <br /></td></tr>
+<tr class="memitem:a8948e23293fdec6a68e888142152bb7f" id="r_a8948e23293fdec6a68e888142152bb7f"><td class="memItemLeft"><a id="a8948e23293fdec6a68e888142152bb7f" name="a8948e23293fdec6a68e888142152bb7f"></a>
+const std::filesystem::path&#160;</td><td class="memItemRight"><b>MNIST</b> = <a class="el" href="#a11d8cd17b991a804904bc931e9be8a70">ROOT</a> / &quot;data&quot; / &quot;mnist&quot;</td></tr>
+<tr class="memdesc:a8948e23293fdec6a68e888142152bb7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">MNIST folder. <br /></td></tr>
 <tr class="memitem:aff5470b674bf03836e31fa7d4171f948" id="r_aff5470b674bf03836e31fa7d4171f948"><td class="memItemLeft">const std::filesystem::path&#160;</td><td class="memItemRight"><a class="el" href="#aff5470b674bf03836e31fa7d4171f948">PERSISTENCE</a></td></tr>
 <tr class="memdesc:aff5470b674bf03836e31fa7d4171f948"><td class="mdescLeft">&#160;</td><td class="mdescRight">Persistence folder.  <br /></td></tr>
 <tr class="memitem:ab109bb6ec4b0cb9424593286b16a9f9b" id="r_ab109bb6ec4b0cb9424593286b16a9f9b"><td class="memItemLeft"><a id="ab109bb6ec4b0cb9424593286b16a9f9b" name="ab109bb6ec4b0cb9424593286b16a9f9b"></a>
 constexpr int&#160;</td><td class="memItemRight"><b>BATCH_SIZE</b> = 32</td></tr>
-<tr class="memdesc:ab109bb6ec4b0cb9424593286b16a9f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Batch size. <br /></td></tr>
 <tr class="memitem:af41de2fb34981532fa3c1d87a18bc888" id="r_af41de2fb34981532fa3c1d87a18bc888"><td class="memItemLeft">const std::filesystem::path&#160;</td><td class="memItemRight"><a class="el" href="#af41de2fb34981532fa3c1d87a18bc888">BIAS_INPUT_LAYER</a></td></tr>
-<tr class="memdesc:af41de2fb34981532fa3c1d87a18bc888"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bias for input layer.  <br /></td></tr>
 <tr class="memitem:a97202ae884d37f0ce69e6a74cc1bac93" id="r_a97202ae884d37f0ce69e6a74cc1bac93"><td class="memItemLeft">const std::filesystem::path&#160;</td><td class="memItemRight"><a class="el" href="#a97202ae884d37f0ce69e6a74cc1bac93">BIAS_OUTPUT_LAYER</a></td></tr>
-<tr class="memdesc:a97202ae884d37f0ce69e6a74cc1bac93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bias for output layer.  <br /></td></tr>
 <tr class="memitem:af3058ad593b1fad9549280e0b54c7bb8" id="r_af3058ad593b1fad9549280e0b54c7bb8"><td class="memItemLeft">const std::filesystem::path&#160;</td><td class="memItemRight"><a class="el" href="#af3058ad593b1fad9549280e0b54c7bb8">BIASES_HIDDEN_LAYERS</a></td></tr>
-<tr class="memdesc:af3058ad593b1fad9549280e0b54c7bb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Biases for hidden layers.  <br /></td></tr>
 <tr class="memitem:a0722b065cbc2d220654a9cf7c23dd0bd" id="r_a0722b065cbc2d220654a9cf7c23dd0bd"><td class="memItemLeft">constexpr std::ios_base::openmode&#160;</td><td class="memItemRight"><a class="el" href="#a0722b065cbc2d220654a9cf7c23dd0bd">BINARY_READ_MODE</a></td></tr>
-<tr class="memdesc:a0722b065cbc2d220654a9cf7c23dd0bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open the file in binary read mode.  <br /></td></tr>
 <tr class="memitem:a8dc5b3ca44ececaaa1e15168af788a88" id="r_a8dc5b3ca44ececaaa1e15168af788a88"><td class="memItemLeft">constexpr std::ios_base::openmode&#160;</td><td class="memItemRight"><a class="el" href="#a8dc5b3ca44ececaaa1e15168af788a88">BINARY_WRITE_MODE</a></td></tr>
-<tr class="memdesc:a8dc5b3ca44ececaaa1e15168af788a88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open the file in binary write mode.  <br /></td></tr>
 <tr class="memitem:a5b5019977cdea1218882cc982811f199" id="r_a5b5019977cdea1218882cc982811f199"><td class="memItemLeft"><a id="a5b5019977cdea1218882cc982811f199" name="a5b5019977cdea1218882cc982811f199"></a>
 constexpr int&#160;</td><td class="memItemRight"><b>INPUT_LAYER_ROWS</b> = 128</td></tr>
 <tr class="memdesc:a5b5019977cdea1218882cc982811f199"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of rows the input layer matrix should have. <br /></td></tr>
@@ -148,22 +145,26 @@ constexpr int&#160;</td><td class="memItemRight"><b>HIDDEN_LAYER_COLUMNS</b> = 1
 <tr class="memdesc:aaf79eee9f20ebf8b99e32c25c711d9ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of columns the hidden layer matrices should have. <br /></td></tr>
 <tr class="memitem:a003559c2b1302c2a3b037d3b0945e25c" id="r_a003559c2b1302c2a3b037d3b0945e25c"><td class="memItemLeft"><a id="a003559c2b1302c2a3b037d3b0945e25c" name="a003559c2b1302c2a3b037d3b0945e25c"></a>
 constexpr int&#160;</td><td class="memItemRight"><b>NUMBER_OF_HIDDEN_LAYERS</b> = 3</td></tr>
-<tr class="memdesc:a003559c2b1302c2a3b037d3b0945e25c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of hidden layers. <br /></td></tr>
 <tr class="memitem:a2d1a89826f6a4d16308331661ad25e03" id="r_a2d1a89826f6a4d16308331661ad25e03"><td class="memItemLeft"><a id="a2d1a89826f6a4d16308331661ad25e03" name="a2d1a89826f6a4d16308331661ad25e03"></a>
 constexpr int&#160;</td><td class="memItemRight"><b>NUMBER_OF_OUTPUTS</b> = 10</td></tr>
 <tr class="memdesc:a2d1a89826f6a4d16308331661ad25e03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of outputted probabilities. <br /></td></tr>
+<tr class="memitem:ac391b1d9ae209e16471e0a9f62187749" id="r_ac391b1d9ae209e16471e0a9f62187749"><td class="memItemLeft"><a id="ac391b1d9ae209e16471e0a9f62187749" name="ac391b1d9ae209e16471e0a9f62187749"></a>
+constexpr int&#160;</td><td class="memItemRight"><b>NUMBER_OF_TESTING_IMAGES</b> = 1e+4</td></tr>
+<tr class="memitem:a963fc1291df7ef773383b11f0e46f40c" id="r_a963fc1291df7ef773383b11f0e46f40c"><td class="memItemLeft"><a id="a963fc1291df7ef773383b11f0e46f40c" name="a963fc1291df7ef773383b11f0e46f40c"></a>
+constexpr int&#160;</td><td class="memItemRight"><b>NUMBER_OF_TRAINING_IMAGES</b> = 6e+4</td></tr>
 <tr class="memitem:ad049d1c028d0df411c7e7b32375113b0" id="r_ad049d1c028d0df411c7e7b32375113b0"><td class="memItemLeft"><a id="ad049d1c028d0df411c7e7b32375113b0" name="ad049d1c028d0df411c7e7b32375113b0"></a>
 constexpr int&#160;</td><td class="memItemRight"><b>OUTPUT_LAYER_ROWS</b> = 10</td></tr>
 <tr class="memdesc:ad049d1c028d0df411c7e7b32375113b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of rows in the output layer matrix. <br /></td></tr>
 <tr class="memitem:ada545a691b483a0e314db6a3e085cb3a" id="r_ada545a691b483a0e314db6a3e085cb3a"><td class="memItemLeft"><a id="ada545a691b483a0e314db6a3e085cb3a" name="ada545a691b483a0e314db6a3e085cb3a"></a>
 constexpr int&#160;</td><td class="memItemRight"><b>OUTPUT_LAYER_COLUMNS</b> = 128</td></tr>
 <tr class="memdesc:ada545a691b483a0e314db6a3e085cb3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of columns in the output layer matrix. <br /></td></tr>
+<tr class="memitem:a1f45af4c5e844a3a3e22daacb1422795" id="r_a1f45af4c5e844a3a3e22daacb1422795"><td class="memItemLeft">const std::filesystem::path&#160;</td><td class="memItemRight"><a class="el" href="#a1f45af4c5e844a3a3e22daacb1422795">TESTING_IMAGES_PATH</a></td></tr>
+<tr class="memitem:a2e35fd6849a0d214d03477779981bfc8" id="r_a2e35fd6849a0d214d03477779981bfc8"><td class="memItemLeft">const std::filesystem::path&#160;</td><td class="memItemRight"><a class="el" href="#a2e35fd6849a0d214d03477779981bfc8">TESTING_LABELS_PATH</a></td></tr>
+<tr class="memitem:a3a58fc13b42af099c3e23751746c3057" id="r_a3a58fc13b42af099c3e23751746c3057"><td class="memItemLeft">const std::filesystem::path&#160;</td><td class="memItemRight"><a class="el" href="#a3a58fc13b42af099c3e23751746c3057">TRAINING_IMAGES_PATH</a></td></tr>
+<tr class="memitem:a65c67efcae01a98d601963aacbbd65ff" id="r_a65c67efcae01a98d601963aacbbd65ff"><td class="memItemLeft">const std::filesystem::path&#160;</td><td class="memItemRight"><a class="el" href="#a65c67efcae01a98d601963aacbbd65ff">TRAINING_LABELS_PATH</a></td></tr>
 <tr class="memitem:adaa7d34e1351357410b3f99e6e10f280" id="r_adaa7d34e1351357410b3f99e6e10f280"><td class="memItemLeft">const std::filesystem::path&#160;</td><td class="memItemRight"><a class="el" href="#adaa7d34e1351357410b3f99e6e10f280">WEIGHTS_HIDDEN_LAYERS</a></td></tr>
-<tr class="memdesc:adaa7d34e1351357410b3f99e6e10f280"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weights for hidden layers.  <br /></td></tr>
 <tr class="memitem:a990d954b39448d01c491ac2e315b1e16" id="r_a990d954b39448d01c491ac2e315b1e16"><td class="memItemLeft">const std::filesystem::path&#160;</td><td class="memItemRight"><a class="el" href="#a990d954b39448d01c491ac2e315b1e16">WEIGHTS_INPUT_LAYER</a></td></tr>
-<tr class="memdesc:a990d954b39448d01c491ac2e315b1e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weights for input layer.  <br /></td></tr>
 <tr class="memitem:aa3e5334e697c089eaa78c404fb268efc" id="r_aa3e5334e697c089eaa78c404fb268efc"><td class="memItemLeft">const std::filesystem::path&#160;</td><td class="memItemRight"><a class="el" href="#aa3e5334e697c089eaa78c404fb268efc">WEIGHTS_OUTPUT_LAYER</a></td></tr>
-<tr class="memdesc:aa3e5334e697c089eaa78c404fb268efc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weights for input layer.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A namespace that offers global constants. </p>
@@ -181,10 +182,8 @@ constexpr int&#160;</td><td class="memItemRight"><b>OUTPUT_LAYER_COLUMNS</b> = 1
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">                                         = <a class="code hl_variable" href="#aff5470b674bf03836e31fa7d4171f948">PERSISTENCE</a> / <span class="stringliteral">&quot;input_layer&quot;</span> /</div>
 <div class="line"><span class="stringliteral">&quot;bias.bin&quot;</span></div>
-<div class="ttc" id="anamespace_globals_html_aff5470b674bf03836e31fa7d4171f948"><div class="ttname"><a href="#aff5470b674bf03836e31fa7d4171f948">Globals::PERSISTENCE</a></div><div class="ttdeci">const std::filesystem::path PERSISTENCE</div><div class="ttdoc">Persistence folder.</div><div class="ttdef"><b>Definition</b> globals.hpp:13</div></div>
+<div class="ttc" id="anamespace_globals_html_aff5470b674bf03836e31fa7d4171f948"><div class="ttname"><a href="#aff5470b674bf03836e31fa7d4171f948">Globals::PERSISTENCE</a></div><div class="ttdeci">const std::filesystem::path PERSISTENCE</div><div class="ttdoc">Persistence folder.</div><div class="ttdef"><b>Definition</b> globals.hpp:16</div></div>
 </div><!-- fragment -->
-<p>Bias for input layer. </p>
-
 </div>
 </div>
 <a id="a97202ae884d37f0ce69e6a74cc1bac93" name="a97202ae884d37f0ce69e6a74cc1bac93"></a>
@@ -201,8 +200,6 @@ constexpr int&#160;</td><td class="memItemRight"><b>OUTPUT_LAYER_COLUMNS</b> = 1
 <b>Initial value:</b><div class="fragment"><div class="line">                                          = <a class="code hl_variable" href="#aff5470b674bf03836e31fa7d4171f948">PERSISTENCE</a> / <span class="stringliteral">&quot;output_layer&quot;</span></div>
 <div class="line">/ <span class="stringliteral">&quot;bias.bin&quot;</span></div>
 </div><!-- fragment -->
-<p>Bias for output layer. </p>
-
 </div>
 </div>
 <a id="af3058ad593b1fad9549280e0b54c7bb8" name="af3058ad593b1fad9549280e0b54c7bb8"></a>
@@ -219,8 +216,6 @@ constexpr int&#160;</td><td class="memItemRight"><b>OUTPUT_LAYER_COLUMNS</b> = 1
 <b>Initial value:</b><div class="fragment"><div class="line">                                             = <a class="code hl_variable" href="#aff5470b674bf03836e31fa7d4171f948">PERSISTENCE</a> / </div>
 <div class="line"><span class="stringliteral">&quot;hidden_layers&quot;</span> / <span class="stringliteral">&quot;biases.bin&quot;</span></div>
 </div><!-- fragment -->
-<p>Biases for hidden layers. </p>
-
 </div>
 </div>
 <a id="a0722b065cbc2d220654a9cf7c23dd0bd" name="a0722b065cbc2d220654a9cf7c23dd0bd"></a>
@@ -245,8 +240,6 @@ constexpr int&#160;</td><td class="memItemRight"><b>OUTPUT_LAYER_COLUMNS</b> = 1
 <b>Initial value:</b><div class="fragment"><div class="line">                                               = std::ios_base::in | </div>
 <div class="line">std::ios_base::binary</div>
 </div><!-- fragment -->
-<p>Open the file in binary read mode. </p>
-
 </div>
 </div>
 <a id="a8dc5b3ca44ececaaa1e15168af788a88" name="a8dc5b3ca44ececaaa1e15168af788a88"></a>
@@ -271,8 +264,6 @@ constexpr int&#160;</td><td class="memItemRight"><b>OUTPUT_LAYER_COLUMNS</b> = 1
 <b>Initial value:</b><div class="fragment"><div class="line">                                                = std::ios_base::out | </div>
 <div class="line">std::ios_base::binary</div>
 </div><!-- fragment -->
-<p>Open the file in binary write mode. </p>
-
 </div>
 </div>
 <a id="aff5470b674bf03836e31fa7d4171f948" name="aff5470b674bf03836e31fa7d4171f948"></a>
@@ -286,8 +277,8 @@ constexpr int&#160;</td><td class="memItemRight"><b>OUTPUT_LAYER_COLUMNS</b> = 1
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">                                    = <a class="code hl_variable" href="#a11d8cd17b991a804904bc931e9be8a70">ROOT</a> / <span class="stringliteral">&quot;data&quot;</span> / <span class="stringliteral">&quot;persistence&quot;</span> / </div>
-<div class="line"><span class="stringliteral">&quot;console&quot;</span></div>
+<b>Initial value:</b><div class="fragment"><div class="line">                                    = </div>
+<div class="line"><a class="code hl_variable" href="#a11d8cd17b991a804904bc931e9be8a70">ROOT</a> / <span class="stringliteral">&quot;data&quot;</span> / <span class="stringliteral">&quot;persistence&quot;</span> / <span class="stringliteral">&quot;console&quot;</span></div>
 <div class="ttc" id="anamespace_globals_html_a11d8cd17b991a804904bc931e9be8a70"><div class="ttname"><a href="#a11d8cd17b991a804904bc931e9be8a70">Globals::ROOT</a></div><div class="ttdeci">const std::filesystem::path ROOT</div><div class="ttdoc">Project root.</div><div class="ttdef"><b>Definition</b> globals.hpp:10</div></div>
 </div><!-- fragment -->
 <p>Persistence folder. </p>
@@ -305,11 +296,76 @@ constexpr int&#160;</td><td class="memItemRight"><b>OUTPUT_LAYER_COLUMNS</b> = 1
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">                             = std::filesystem::path(<span class="stringliteral">&quot;/Users/grantyu/Workbench/Projects/guesser/include/internal/globals.hpp&quot;</span>).</div>
+<b>Initial value:</b><div class="fragment"><div class="line">                             = std::filesystem::path(<span class="stringliteral">&quot;/Users/grantyu/Desktop/Workbench/Projects/guesser/include/internal/globals.hpp&quot;</span>).</div>
 <div class="line">parent_path().parent_path().parent_path()</div>
 </div><!-- fragment -->
 <p>Project root. </p>
 
+</div>
+</div>
+<a id="a1f45af4c5e844a3a3e22daacb1422795" name="a1f45af4c5e844a3a3e22daacb1422795"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f45af4c5e844a3a3e22daacb1422795">&#9670;&#160;</a></span>TESTING_IMAGES_PATH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::filesystem::path Globals::TESTING_IMAGES_PATH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">                                            = </div>
+<div class="line"><a class="code hl_variable" href="#a8948e23293fdec6a68e888142152bb7f">MNIST</a> / <span class="stringliteral">&quot;testing&quot;</span> / <span class="stringliteral">&quot;t10k-images-idx3-ubyte&quot;</span></div>
+<div class="ttc" id="anamespace_globals_html_a8948e23293fdec6a68e888142152bb7f"><div class="ttname"><a href="#a8948e23293fdec6a68e888142152bb7f">Globals::MNIST</a></div><div class="ttdeci">const std::filesystem::path MNIST</div><div class="ttdoc">MNIST folder.</div><div class="ttdef"><b>Definition</b> globals.hpp:14</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2e35fd6849a0d214d03477779981bfc8" name="a2e35fd6849a0d214d03477779981bfc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e35fd6849a0d214d03477779981bfc8">&#9670;&#160;</a></span>TESTING_LABELS_PATH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::filesystem::path Globals::TESTING_LABELS_PATH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">                                            = </div>
+<div class="line"><a class="code hl_variable" href="#a8948e23293fdec6a68e888142152bb7f">MNIST</a> / <span class="stringliteral">&quot;testing&quot;</span> / <span class="stringliteral">&quot;t10k-labels-idx1-ubyte&quot;</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a3a58fc13b42af099c3e23751746c3057" name="a3a58fc13b42af099c3e23751746c3057"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a58fc13b42af099c3e23751746c3057">&#9670;&#160;</a></span>TRAINING_IMAGES_PATH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::filesystem::path Globals::TRAINING_IMAGES_PATH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">                                             = </div>
+<div class="line"><a class="code hl_variable" href="#a8948e23293fdec6a68e888142152bb7f">MNIST</a> / <span class="stringliteral">&quot;training&quot;</span> / <span class="stringliteral">&quot;train-images-idx3-ubyte&quot;</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a65c67efcae01a98d601963aacbbd65ff" name="a65c67efcae01a98d601963aacbbd65ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65c67efcae01a98d601963aacbbd65ff">&#9670;&#160;</a></span>TRAINING_LABELS_PATH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::filesystem::path Globals::TRAINING_LABELS_PATH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">                                             = </div>
+<div class="line"><a class="code hl_variable" href="#a8948e23293fdec6a68e888142152bb7f">MNIST</a> / <span class="stringliteral">&quot;training&quot;</span> / <span class="stringliteral">&quot;train-labels-idx1-ubyte&quot;</span></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="adaa7d34e1351357410b3f99e6e10f280" name="adaa7d34e1351357410b3f99e6e10f280"></a>
@@ -326,8 +382,6 @@ constexpr int&#160;</td><td class="memItemRight"><b>OUTPUT_LAYER_COLUMNS</b> = 1
 <b>Initial value:</b><div class="fragment"><div class="line">                                              = <a class="code hl_variable" href="#aff5470b674bf03836e31fa7d4171f948">PERSISTENCE</a> /</div>
 <div class="line"><span class="stringliteral">&quot;hidden_layers&quot;</span> / <span class="stringliteral">&quot;weights.bin&quot;</span></div>
 </div><!-- fragment -->
-<p>Weights for hidden layers. </p>
-
 </div>
 </div>
 <a id="a990d954b39448d01c491ac2e315b1e16" name="a990d954b39448d01c491ac2e315b1e16"></a>
@@ -344,8 +398,6 @@ constexpr int&#160;</td><td class="memItemRight"><b>OUTPUT_LAYER_COLUMNS</b> = 1
 <b>Initial value:</b><div class="fragment"><div class="line">                                            = <a class="code hl_variable" href="#aff5470b674bf03836e31fa7d4171f948">PERSISTENCE</a> /</div>
 <div class="line"><span class="stringliteral">&quot;input_layer&quot;</span> / <span class="stringliteral">&quot;weights.bin&quot;</span></div>
 </div><!-- fragment -->
-<p>Weights for input layer. </p>
-
 </div>
 </div>
 <a id="aa3e5334e697c089eaa78c404fb268efc" name="aa3e5334e697c089eaa78c404fb268efc"></a>
@@ -362,8 +414,6 @@ constexpr int&#160;</td><td class="memItemRight"><b>OUTPUT_LAYER_COLUMNS</b> = 1
 <b>Initial value:</b><div class="fragment"><div class="line">                                             = <a class="code hl_variable" href="#aff5470b674bf03836e31fa7d4171f948">PERSISTENCE</a> /</div>
 <div class="line"><span class="stringliteral">&quot;output_layer&quot;</span> / <span class="stringliteral">&quot;weights.bin&quot;</span></div>
 </div><!-- fragment -->
-<p>Weights for input layer. </p>
-
 </div>
 </div>
 </div><!-- contents -->

@@ -117,17 +117,17 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('namespace_inpu
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a8104cf0961095d2d208c8ca01c19cecb" id="r_a8104cf0961095d2d208c8ca01c19cecb"><td class="memItemLeft"><a id="a8104cf0961095d2d208c8ca01c19cecb" name="a8104cf0961095d2d208c8ca01c19cecb"></a>
-constexpr int&#160;</td><td class="memItemRight"><b>BYTE_OFFSET_TRAINING_LABELS</b> = 8</td></tr>
-<tr class="memdesc:a8104cf0961095d2d208c8ca01c19cecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Byte offset for the label file in the training set. <br /></td></tr>
-<tr class="memitem:a2334c449cf10433307684b74d510b841" id="r_a2334c449cf10433307684b74d510b841"><td class="memItemLeft"><a id="a2334c449cf10433307684b74d510b841" name="a2334c449cf10433307684b74d510b841"></a>
-constexpr int&#160;</td><td class="memItemRight"><b>BYTE_OFFSET_TRAINING_IMAGES</b> = 16</td></tr>
-<tr class="memdesc:a2334c449cf10433307684b74d510b841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Byte offset for the image file in the training set. <br /></td></tr>
+<tr class="memitem:a967be48410ac6dd5cfc65efe21545577" id="r_a967be48410ac6dd5cfc65efe21545577"><td class="memItemLeft"><a id="a967be48410ac6dd5cfc65efe21545577" name="a967be48410ac6dd5cfc65efe21545577"></a>
+constexpr int&#160;</td><td class="memItemRight"><b>BYTE_OFFSET_LABELS</b> = 8</td></tr>
+<tr class="memdesc:a967be48410ac6dd5cfc65efe21545577"><td class="mdescLeft">&#160;</td><td class="mdescRight">Byte offset for label files. <br /></td></tr>
+<tr class="memitem:a3b26d612ae89815d4b071ac5e4b5dd34" id="r_a3b26d612ae89815d4b071ac5e4b5dd34"><td class="memItemLeft"><a id="a3b26d612ae89815d4b071ac5e4b5dd34" name="a3b26d612ae89815d4b071ac5e4b5dd34"></a>
+constexpr int&#160;</td><td class="memItemRight"><b>BYTE_OFFSET_IMAGES</b> = 16</td></tr>
+<tr class="memdesc:a3b26d612ae89815d4b071ac5e4b5dd34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Byte offset for image files. <br /></td></tr>
 <tr class="memitem:a82b1c8f99daa93ed8882e655b9592d7e" id="r_a82b1c8f99daa93ed8882e655b9592d7e"><td class="memItemLeft"><a id="a82b1c8f99daa93ed8882e655b9592d7e" name="a82b1c8f99daa93ed8882e655b9592d7e"></a>
-constexpr int&#160;</td><td class="memItemRight"><b>CHUNK_SIZE_IMAGE</b> = 784 * <a class="el" href="namespace_globals.html#ab109bb6ec4b0cb9424593286b16a9f9b">Globals::BATCH_SIZE</a></td></tr>
+constexpr int&#160;</td><td class="memItemRight"><b>CHUNK_SIZE_IMAGE</b> = 784 * Globals::BATCH_SIZE</td></tr>
 <tr class="memdesc:a82b1c8f99daa93ed8882e655b9592d7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of a batch of images read in bytes. <br /></td></tr>
 <tr class="memitem:a2dabb99386b1d7a79d180e6ca06672bd" id="r_a2dabb99386b1d7a79d180e6ca06672bd"><td class="memItemLeft"><a id="a2dabb99386b1d7a79d180e6ca06672bd" name="a2dabb99386b1d7a79d180e6ca06672bd"></a>
-constexpr int&#160;</td><td class="memItemRight"><b>CHUNK_SIZE_LABEL</b> = <a class="el" href="namespace_globals.html#ab109bb6ec4b0cb9424593286b16a9f9b">Globals::BATCH_SIZE</a></td></tr>
+constexpr int&#160;</td><td class="memItemRight"><b>CHUNK_SIZE_LABEL</b> = Globals::BATCH_SIZE</td></tr>
 <tr class="memdesc:a2dabb99386b1d7a79d180e6ca06672bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of a batch of labels read in bytes. <br /></td></tr>
 <tr class="memitem:a286cf856b1acf562147121e5078c0082" id="r_a286cf856b1acf562147121e5078c0082"><td class="memItemLeft"><a id="a286cf856b1acf562147121e5078c0082" name="a286cf856b1acf562147121e5078c0082"></a>
 constexpr int&#160;</td><td class="memItemRight"><b>IMAGE_LENGTH</b> = 28</td></tr>
@@ -144,73 +144,10 @@ constexpr uint32_t&#160;</td><td class="memItemRight"><b>MAGIC_NUMBER_TRAINING_L
 <tr class="memitem:a360b50c63e016930f1764f0cbec1d058" id="r_a360b50c63e016930f1764f0cbec1d058"><td class="memItemLeft"><a id="a360b50c63e016930f1764f0cbec1d058" name="a360b50c63e016930f1764f0cbec1d058"></a>
 constexpr float&#160;</td><td class="memItemRight"><b>NORMALIZE</b> = 255.0f</td></tr>
 <tr class="memdesc:a360b50c63e016930f1764f0cbec1d058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number to normalize with. <br /></td></tr>
-<tr class="memitem:ae55c4415e87f0804159366d031715374" id="r_ae55c4415e87f0804159366d031715374"><td class="memItemLeft">const std::filesystem::path&#160;</td><td class="memItemRight"><a class="el" href="#ae55c4415e87f0804159366d031715374">TRAINING</a></td></tr>
-<tr class="memdesc:ae55c4415e87f0804159366d031715374"><td class="mdescLeft">&#160;</td><td class="mdescRight">File path to the training set.  <br /></td></tr>
-<tr class="memitem:a3a47e4a606469ead182702fbb8defd9c" id="r_a3a47e4a606469ead182702fbb8defd9c"><td class="memItemLeft">const std::filesystem::path&#160;</td><td class="memItemRight"><a class="el" href="#a3a47e4a606469ead182702fbb8defd9c">TRAINING_IMAGES</a></td></tr>
-<tr class="memdesc:a3a47e4a606469ead182702fbb8defd9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">File path to the image file in the training set.  <br /></td></tr>
-<tr class="memitem:a9e044e885c0309942ee37a3e9942d0ac" id="r_a9e044e885c0309942ee37a3e9942d0ac"><td class="memItemLeft">const std::filesystem::path&#160;</td><td class="memItemRight"><a class="el" href="#a9e044e885c0309942ee37a3e9942d0ac">TRAINING_LABELS</a></td></tr>
-<tr class="memdesc:a9e044e885c0309942ee37a3e9942d0ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">File path to the label file in the training set.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>File specific constants. </p>
-</div><a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="ae55c4415e87f0804159366d031715374" name="ae55c4415e87f0804159366d031715374"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae55c4415e87f0804159366d031715374">&#9670;&#160;</a></span>TRAINING</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::filesystem::path Input::TRAINING</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">                                 = <a class="code hl_variable" href="namespace_globals.html#a11d8cd17b991a804904bc931e9be8a70">Globals::ROOT</a> / <span class="stringliteral">&quot;data&quot;</span> / <span class="stringliteral">&quot;images&quot;</span> / </div>
-<div class="line"><span class="stringliteral">&quot;training&quot;</span></div>
-<div class="ttc" id="anamespace_globals_html_a11d8cd17b991a804904bc931e9be8a70"><div class="ttname"><a href="namespace_globals.html#a11d8cd17b991a804904bc931e9be8a70">Globals::ROOT</a></div><div class="ttdeci">const std::filesystem::path ROOT</div><div class="ttdoc">Project root.</div><div class="ttdef"><b>Definition</b> globals.hpp:10</div></div>
-</div><!-- fragment -->
-<p>File path to the training set. </p>
-
-</div>
-</div>
-<a id="a3a47e4a606469ead182702fbb8defd9c" name="a3a47e4a606469ead182702fbb8defd9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a47e4a606469ead182702fbb8defd9c">&#9670;&#160;</a></span>TRAINING_IMAGES</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::filesystem::path Input::TRAINING_IMAGES</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">                                        = <a class="code hl_variable" href="#ae55c4415e87f0804159366d031715374">TRAINING</a> / </div>
-<div class="line"><span class="stringliteral">&quot;train-images-idx3-ubyte&quot;</span></div>
-<div class="ttc" id="anamespace_input_html_ae55c4415e87f0804159366d031715374"><div class="ttname"><a href="#ae55c4415e87f0804159366d031715374">Input::TRAINING</a></div><div class="ttdeci">const std::filesystem::path TRAINING</div><div class="ttdoc">File path to the training set.</div><div class="ttdef"><b>Definition</b> input.hpp:37</div></div>
-</div><!-- fragment -->
-<p>File path to the image file in the training set. </p>
-
-</div>
-</div>
-<a id="a9e044e885c0309942ee37a3e9942d0ac" name="a9e044e885c0309942ee37a3e9942d0ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e044e885c0309942ee37a3e9942d0ac">&#9670;&#160;</a></span>TRAINING_LABELS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::filesystem::path Input::TRAINING_LABELS</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">                                        = <a class="code hl_variable" href="#ae55c4415e87f0804159366d031715374">TRAINING</a> /</div>
-<div class="line"><span class="stringliteral">&quot;train-labels-idx1-ubyte&quot;</span></div>
-</div><!-- fragment -->
-<p>File path to the label file in the training set. </p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

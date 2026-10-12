@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>number_guesser: /Users/grantyu/Workbench/Projects/guesser/include/internal/backpropagation.hpp File Reference</title>
+<title>number_guesser: /Users/grantyu/Desktop/Workbench/Projects/guesser/include/internal/backpropagation.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -121,6 +121,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:aa0a135f2eab98f6e7266a0797e5b1c2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces a bias gradient from a matrix of error gradients.  <br /></td></tr>
 <tr class="memitem:a6684c421ed74c986148610057c6133e7" id="r_a6684c421ed74c986148610057c6133e7"><td class="memItemLeft">Eigen::MatrixXf&#160;</td><td class="memItemRight"><a class="el" href="#a6684c421ed74c986148610057c6133e7">produce_next_error_gradients</a> (const Eigen::MatrixXf &amp;error_gradients, const Eigen::MatrixXf &amp;weights_matrix)</td></tr>
 <tr class="memdesc:a6684c421ed74c986148610057c6133e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces the matrix of error gradients for the next layer.  <br /></td></tr>
+<tr class="memitem:a4183db9c656d7a89c3c18d5dae8908ad" id="r_a4183db9c656d7a89c3c18d5dae8908ad"><td class="memItemLeft">Eigen::MatrixXf&#160;</td><td class="memItemRight"><a class="el" href="#a4183db9c656d7a89c3c18d5dae8908ad">produce_relu_derivative</a> (const Eigen::MatrixXf &amp;input)</td></tr>
+<tr class="memdesc:a4183db9c656d7a89c3c18d5dae8908ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the partial derivative of A=ReLU(Z) with respect to Z.  <br /></td></tr>
 <tr class="memitem:a9634c5219ea8eba8d709d545e63fdad7" id="r_a9634c5219ea8eba8d709d545e63fdad7"><td class="memItemLeft">Eigen::MatrixXf&#160;</td><td class="memItemRight"><a class="el" href="#a9634c5219ea8eba8d709d545e63fdad7">produce_weights_gradients</a> (const Eigen::MatrixXf &amp;error_gradients, const Eigen::MatrixXf &amp;input_matrix)</td></tr>
 <tr class="memdesc:a9634c5219ea8eba8d709d545e63fdad7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces a matrix of weight gradients from a matrix of error gradients and an input matrix.  <br /></td></tr>
 </table>
@@ -168,6 +170,26 @@ Functions</h2></td></tr>
 
 <p>Produces the matrix of error gradients for the next layer. </p>
 <dl class="section see"><dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/Backpropagation">https://en.wikipedia.org/wiki/Backpropagation</a> </dd></dl>
+
+</div>
+</div>
+<a id="a4183db9c656d7a89c3c18d5dae8908ad" name="a4183db9c656d7a89c3c18d5dae8908ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4183db9c656d7a89c3c18d5dae8908ad">&#9670;&#160;</a></span>produce_relu_derivative()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::MatrixXf produce_relu_derivative </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the partial derivative of A=ReLU(Z) with respect to Z. </p>
+<dl class="section see"><dt>See also</dt><dd>The ReLU activation functions in <a class="el" href="activation__functions_8hpp.html" title="activation_functions.hpp">activation_functions.hpp</a>. </dd></dl>
 
 </div>
 </div>

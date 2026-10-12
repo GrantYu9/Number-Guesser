@@ -8,8 +8,8 @@ var searchData=
   ['save_5foutput_5flayer_5',['save_output_layer',['../persistence_8hpp.html#a47fe2c72dda755eb4b259b5b6bf4311e',1,'persistence.hpp']]],
   ['save_5fweights_5fmatrices_6',['save_weights_matrices',['../persistence_8hpp.html#ab9c4ca429c1f8a5ff48906b35ec91101',1,'persistence.hpp']]],
   ['save_5fweights_5fmatrix_7',['save_weights_matrix',['../persistence_8hpp.html#a3d3070ed4e7ec4e2ca0494731f2a8d48',1,'persistence.hpp']]],
-  ['softmax_8',['softmax',['../activation__functions_8hpp.html#a6726002f28117e744d823cee662d66fc',1,'softmax(Eigen::VectorXf &amp;input):&#160;activation_functions.hpp'],['../activation__functions_8hpp.html#a8afe97a584d1f212171e84824015136a',1,'softmax(Eigen::MatrixXf &amp;input):&#160;activation_functions.hpp']]],
-  ['stochastic_5fgradient_5fdescent_9',['stochastic_gradient_descent',['../class_dense_layer.html#aea05f9332a3bbdb65541d13dbceebef2',1,'DenseLayer']]],
+  ['softmax_8',['softmax',['../activation__functions_8hpp.html#a73fa471859de7af44feb088624529109',1,'softmax(const Eigen::VectorXf &amp;input):&#160;activation_functions.hpp'],['../activation__functions_8hpp.html#a35781cba916768e1895f2a4d9cb32e94',1,'softmax(const Eigen::MatrixXf &amp;input):&#160;activation_functions.hpp']]],
+  ['stochastic_5fgradient_5fdescent_9',['stochastic_gradient_descent',['../class_dense_layer.html#a7282d49e507e1c51afaadd0a4449a32c',1,'DenseLayer']]],
   ['stochastic_5fgradient_5fdescent_2ehpp_10',['stochastic_gradient_descent.hpp',['../stochastic__gradient__descent_8hpp.html',1,'']]],
   ['stochasticgradientdescent_11',['StochasticGradientDescent',['../namespace_stochastic_gradient_descent.html',1,'']]]
 ];

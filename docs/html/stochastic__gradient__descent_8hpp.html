@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>number_guesser: /Users/grantyu/Workbench/Projects/guesser/include/internal/stochastic_gradient_descent.hpp File Reference</title>
+<title>number_guesser: /Users/grantyu/Desktop/Workbench/Projects/guesser/include/internal/stochastic_gradient_descent.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -125,22 +125,22 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a04dd571eba02dd3dab008402cd92df3c" id="r_a04dd571eba02dd3dab008402cd92df3c"><td class="memItemLeft">Eigen::VectorXf&#160;</td><td class="memItemRight"><a class="el" href="#a04dd571eba02dd3dab008402cd92df3c">produce_new_bias</a> (Eigen::VectorXf &amp;bias, Eigen::VectorXf &amp;gradient)</td></tr>
-<tr class="memdesc:a04dd571eba02dd3dab008402cd92df3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the new bias after stochastic gradient descent.  <br /></td></tr>
-<tr class="memitem:a2c2916a9f3eb545a861e8f55930d9fab" id="r_a2c2916a9f3eb545a861e8f55930d9fab"><td class="memItemLeft">Eigen::MatrixXf&#160;</td><td class="memItemRight"><a class="el" href="#a2c2916a9f3eb545a861e8f55930d9fab">produce_new_weights_matrix</a> (Eigen::MatrixXf &amp;weights_matrix, Eigen::MatrixXf &amp;gradients)</td></tr>
-<tr class="memdesc:a2c2916a9f3eb545a861e8f55930d9fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the new weight after stochastic gradient descent.  <br /></td></tr>
+<tr class="memitem:a04d10eca3ba02894fd6dc84674f3cda2" id="r_a04d10eca3ba02894fd6dc84674f3cda2"><td class="memItemLeft">Eigen::VectorXf&#160;</td><td class="memItemRight"><a class="el" href="#a04d10eca3ba02894fd6dc84674f3cda2">produce_new_bias</a> (const Eigen::VectorXf &amp;bias, const Eigen::VectorXf &amp;gradient)</td></tr>
+<tr class="memdesc:a04d10eca3ba02894fd6dc84674f3cda2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the new bias after stochastic gradient descent.  <br /></td></tr>
+<tr class="memitem:afe2289276a5bb15e30eecc660044003b" id="r_afe2289276a5bb15e30eecc660044003b"><td class="memItemLeft">Eigen::MatrixXf&#160;</td><td class="memItemRight"><a class="el" href="#afe2289276a5bb15e30eecc660044003b">produce_new_weights_matrix</a> (const Eigen::MatrixXf &amp;weights_matrix, const Eigen::MatrixXf &amp;gradients)</td></tr>
+<tr class="memdesc:afe2289276a5bb15e30eecc660044003b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the new weight after stochastic gradient descent.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a22d8a378b74f27cb499f62af5f5b2379" id="r_a22d8a378b74f27cb499f62af5f5b2379"><td class="memItemLeft"><a id="a22d8a378b74f27cb499f62af5f5b2379" name="a22d8a378b74f27cb499f62af5f5b2379"></a>
-constexpr float&#160;</td><td class="memItemRight"><b>StochasticGradientDescent::LEARNING_RATE</b> = 1e-3f</td></tr>
+constexpr float&#160;</td><td class="memItemRight"><b>StochasticGradientDescent::LEARNING_RATE</b> = 1e-4f</td></tr>
 <tr class="memdesc:a22d8a378b74f27cb499f62af5f5b2379"><td class="mdescLeft">&#160;</td><td class="mdescRight">The learning rate. <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides functions to calculate what the new weights or biases should be after applying stochastic gradient descent. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a04dd571eba02dd3dab008402cd92df3c" name="a04dd571eba02dd3dab008402cd92df3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04dd571eba02dd3dab008402cd92df3c">&#9670;&#160;</a></span>produce_new_bias()</h2>
+<a id="a04d10eca3ba02894fd6dc84674f3cda2" name="a04d10eca3ba02894fd6dc84674f3cda2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04d10eca3ba02894fd6dc84674f3cda2">&#9670;&#160;</a></span>produce_new_bias()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -148,12 +148,12 @@ constexpr float&#160;</td><td class="memItemRight"><b>StochasticGradientDescent:
         <tr>
           <td class="memname">Eigen::VectorXf produce_new_bias </td>
           <td>(</td>
-          <td class="paramtype">Eigen::VectorXf &amp;</td>          <td class="paramname"><span class="paramname"><em>bias</em></span>, </td>
+          <td class="paramtype">const Eigen::VectorXf &amp;</td>          <td class="paramname"><span class="paramname"><em>bias</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Eigen::VectorXf &amp;</td>          <td class="paramname"><span class="paramname"><em>gradient</em></span>&#160;)</td>
+          <td class="paramtype">const Eigen::VectorXf &amp;</td>          <td class="paramname"><span class="paramname"><em>gradient</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -163,8 +163,8 @@ constexpr float&#160;</td><td class="memItemRight"><b>StochasticGradientDescent:
 
 </div>
 </div>
-<a id="a2c2916a9f3eb545a861e8f55930d9fab" name="a2c2916a9f3eb545a861e8f55930d9fab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c2916a9f3eb545a861e8f55930d9fab">&#9670;&#160;</a></span>produce_new_weights_matrix()</h2>
+<a id="afe2289276a5bb15e30eecc660044003b" name="afe2289276a5bb15e30eecc660044003b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe2289276a5bb15e30eecc660044003b">&#9670;&#160;</a></span>produce_new_weights_matrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,12 +172,12 @@ constexpr float&#160;</td><td class="memItemRight"><b>StochasticGradientDescent:
         <tr>
           <td class="memname">Eigen::MatrixXf produce_new_weights_matrix </td>
           <td>(</td>
-          <td class="paramtype">Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>weights_matrix</em></span>, </td>
+          <td class="paramtype">const Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>weights_matrix</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>gradients</em></span>&#160;)</td>
+          <td class="paramtype">const Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>gradients</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>number_guesser: /Users/grantyu/Workbench/Projects/guesser/include/internal/activation_functions.hpp File Reference</title>
+<title>number_guesser: /Users/grantyu/Desktop/Workbench/Projects/guesser/include/internal/activation_functions.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -114,25 +114,20 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('activation__fu
 
 <p>Provides activation functions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="globals_8hpp_source.html">globals.hpp</a>&quot;</code><br />
-<code>#include &lt;eigen3/Eigen/Core&gt;</code><br />
-<code>#include &lt;array&gt;</code><br />
+<div class="textblock"><code>#include &lt;eigen3/Eigen/Core&gt;</code><br />
 </div>
 <p><a href="activation__functions_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a95430ebb29e415ffe39fdc2897715bf8" id="r_a95430ebb29e415ffe39fdc2897715bf8"><td class="memItemLeft">Eigen::VectorXf&#160;</td><td class="memItemRight"><a class="el" href="#a95430ebb29e415ffe39fdc2897715bf8">relu</a> (const Eigen::VectorXf &amp;input)</td></tr>
-<tr class="memdesc:a95430ebb29e415ffe39fdc2897715bf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">ReLu activation function. Vector version.  <br /></td></tr>
+<tr class="memdesc:a95430ebb29e415ffe39fdc2897715bf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the ReLU activation function.  <br /></td></tr>
 <tr class="memitem:aaaaeefe6cb9dd57f532212add288fa4c" id="r_aaaaeefe6cb9dd57f532212add288fa4c"><td class="memItemLeft">Eigen::MatrixXf&#160;</td><td class="memItemRight"><a class="el" href="#aaaaeefe6cb9dd57f532212add288fa4c">relu</a> (const Eigen::MatrixXf &amp;input)</td></tr>
-<tr class="memdesc:aaaaeefe6cb9dd57f532212add288fa4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ReLu activation function. Matrix version. Operates column wise.  <br /></td></tr>
-<tr class="memitem:a92f79549c7c4e3b19d8cdc645de214c6" id="r_a92f79549c7c4e3b19d8cdc645de214c6"><td class="memItemLeft"><a id="a92f79549c7c4e3b19d8cdc645de214c6" name="a92f79549c7c4e3b19d8cdc645de214c6"></a>
-Eigen::MatrixXf&#160;</td><td class="memItemRight"><b>relu_derivative</b> (Eigen::MatrixXf &amp;input)</td></tr>
-<tr class="memdesc:a92f79549c7c4e3b19d8cdc645de214c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">!!! <br /></td></tr>
-<tr class="memitem:a6726002f28117e744d823cee662d66fc" id="r_a6726002f28117e744d823cee662d66fc"><td class="memItemLeft">Eigen::VectorXf&#160;</td><td class="memItemRight"><a class="el" href="#a6726002f28117e744d823cee662d66fc">softmax</a> (Eigen::VectorXf &amp;input)</td></tr>
-<tr class="memdesc:a6726002f28117e744d823cee662d66fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The softmax activation function. Vector version.  <br /></td></tr>
-<tr class="memitem:a8afe97a584d1f212171e84824015136a" id="r_a8afe97a584d1f212171e84824015136a"><td class="memItemLeft">Eigen::MatrixXf&#160;</td><td class="memItemRight"><a class="el" href="#a8afe97a584d1f212171e84824015136a">softmax</a> (Eigen::MatrixXf &amp;input)</td></tr>
-<tr class="memdesc:a8afe97a584d1f212171e84824015136a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The softmax activation function. Matrix version.  <br /></td></tr>
+<tr class="memdesc:aaaaeefe6cb9dd57f532212add288fa4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the ReLu activation function column wise.  <br /></td></tr>
+<tr class="memitem:a73fa471859de7af44feb088624529109" id="r_a73fa471859de7af44feb088624529109"><td class="memItemLeft">Eigen::VectorXf&#160;</td><td class="memItemRight"><a class="el" href="#a73fa471859de7af44feb088624529109">softmax</a> (const Eigen::VectorXf &amp;input)</td></tr>
+<tr class="memdesc:a73fa471859de7af44feb088624529109"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the softmax activation function.  <br /></td></tr>
+<tr class="memitem:a35781cba916768e1895f2a4d9cb32e94" id="r_a35781cba916768e1895f2a4d9cb32e94"><td class="memItemLeft">Eigen::MatrixXf&#160;</td><td class="memItemRight"><a class="el" href="#a35781cba916768e1895f2a4d9cb32e94">softmax</a> (const Eigen::MatrixXf &amp;input)</td></tr>
+<tr class="memdesc:a35781cba916768e1895f2a4d9cb32e94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the softmax activation function column wise.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides activation functions. </p>
@@ -152,7 +147,7 @@ Eigen::MatrixXf&#160;</td><td class="memItemRight"><b>relu_derivative</b> (Eigen
       </table>
 </div><div class="memdoc">
 
-<p>ReLu activation function. Matrix version. Operates column wise. </p>
+<p>Applies the ReLu activation function column wise. </p>
 <dl class="section see"><dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/Rectified_linear_unit">https://en.wikipedia.org/wiki/Rectified_linear_unit</a> </dd></dl>
 
 </div>
@@ -172,13 +167,13 @@ Eigen::MatrixXf&#160;</td><td class="memItemRight"><b>relu_derivative</b> (Eigen
       </table>
 </div><div class="memdoc">
 
-<p>ReLu activation function. Vector version. </p>
+<p>Applies the ReLU activation function. </p>
 <dl class="section see"><dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/Rectified_linear_unit">https://en.wikipedia.org/wiki/Rectified_linear_unit</a> </dd></dl>
 
 </div>
 </div>
-<a id="a8afe97a584d1f212171e84824015136a" name="a8afe97a584d1f212171e84824015136a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8afe97a584d1f212171e84824015136a">&#9670;&#160;</a></span>softmax() <span class="overload">[1/2]</span></h2>
+<a id="a35781cba916768e1895f2a4d9cb32e94" name="a35781cba916768e1895f2a4d9cb32e94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35781cba916768e1895f2a4d9cb32e94">&#9670;&#160;</a></span>softmax() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -186,21 +181,21 @@ Eigen::MatrixXf&#160;</td><td class="memItemRight"><b>relu_derivative</b> (Eigen
         <tr>
           <td class="memname">Eigen::MatrixXf softmax </td>
           <td>(</td>
-          <td class="paramtype">Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td class="paramtype">const Eigen::MatrixXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The softmax activation function. Matrix version. </p>
-<dl class="section return"><dt>Returns</dt><dd>A vector of probabilities. </dd></dl>
+<p>Applies the softmax activation function column wise. </p>
 <dl class="section invariant"><dt>Invariant</dt><dd>input must be a matrix that has NUMBER_OF_OUTPUTS, or 10, coefficients. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A matrix with columns of vectors with 10 probabilitiess </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/Softmax_function">https://en.wikipedia.org/wiki/Softmax_function</a> </dd></dl>
 
 </div>
 </div>
-<a id="a6726002f28117e744d823cee662d66fc" name="a6726002f28117e744d823cee662d66fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6726002f28117e744d823cee662d66fc">&#9670;&#160;</a></span>softmax() <span class="overload">[2/2]</span></h2>
+<a id="a73fa471859de7af44feb088624529109" name="a73fa471859de7af44feb088624529109"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73fa471859de7af44feb088624529109">&#9670;&#160;</a></span>softmax() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -208,15 +203,15 @@ Eigen::MatrixXf&#160;</td><td class="memItemRight"><b>relu_derivative</b> (Eigen
         <tr>
           <td class="memname">Eigen::VectorXf softmax </td>
           <td>(</td>
-          <td class="paramtype">Eigen::VectorXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td class="paramtype">const Eigen::VectorXf &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The softmax activation function. Vector version. </p>
-<dl class="section return"><dt>Returns</dt><dd>A vector of probabilities. </dd></dl>
+<p>Applies the softmax activation function. </p>
 <dl class="section invariant"><dt>Invariant</dt><dd>input must be a vector that has NUMBER_OF_OUTPUTS, or 10, coefficients. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of 10 probabilities. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/Softmax_function">https://en.wikipedia.org/wiki/Softmax_function</a> </dd></dl>
 
 </div>

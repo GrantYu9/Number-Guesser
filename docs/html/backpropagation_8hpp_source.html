@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>number_guesser: /Users/grantyu/Workbench/Projects/guesser/include/internal/backpropagation.hpp Source File</title>
+<title>number_guesser: /Users/grantyu/Desktop/Workbench/Projects/guesser/include/internal/backpropagation.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -123,9 +123,12 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('backpropagatio
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">const</span> Eigen::MatrixXf&amp; error_gradients,</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">const</span> Eigen::MatrixXf&amp; weights_matrix);</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="backpropagation_8hpp.html#a9634c5219ea8eba8d709d545e63fdad7">   25</a></span>Eigen::MatrixXf <a class="code hl_function" href="backpropagation_8hpp.html#a9634c5219ea8eba8d709d545e63fdad7">produce_weights_gradients</a>(</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">const</span> Eigen::MatrixXf&amp; error_gradients, </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">const</span> Eigen::MatrixXf&amp; input_matrix);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="backpropagation_8hpp.html#a4183db9c656d7a89c3c18d5dae8908ad">   24</a></span>Eigen::MatrixXf <a class="code hl_function" href="backpropagation_8hpp.html#a4183db9c656d7a89c3c18d5dae8908ad">produce_relu_derivative</a>(<span class="keyword">const</span> Eigen::MatrixXf&amp; input);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="backpropagation_8hpp.html#a9634c5219ea8eba8d709d545e63fdad7">   30</a></span>Eigen::MatrixXf <a class="code hl_function" href="backpropagation_8hpp.html#a9634c5219ea8eba8d709d545e63fdad7">produce_weights_gradients</a>(</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">const</span> Eigen::MatrixXf&amp; error_gradients, </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">const</span> Eigen::MatrixXf&amp; input_matrix);</div>
+<div class="ttc" id="abackpropagation_8hpp_html_a4183db9c656d7a89c3c18d5dae8908ad"><div class="ttname"><a href="backpropagation_8hpp.html#a4183db9c656d7a89c3c18d5dae8908ad">produce_relu_derivative</a></div><div class="ttdeci">Eigen::MatrixXf produce_relu_derivative(const Eigen::MatrixXf &amp;input)</div><div class="ttdoc">Returns the partial derivative of A=ReLU(Z) with respect to Z.</div></div>
 <div class="ttc" id="abackpropagation_8hpp_html_a6684c421ed74c986148610057c6133e7"><div class="ttname"><a href="backpropagation_8hpp.html#a6684c421ed74c986148610057c6133e7">produce_next_error_gradients</a></div><div class="ttdeci">Eigen::MatrixXf produce_next_error_gradients(const Eigen::MatrixXf &amp;error_gradients, const Eigen::MatrixXf &amp;weights_matrix)</div><div class="ttdoc">Produces the matrix of error gradients for the next layer.</div></div>
 <div class="ttc" id="abackpropagation_8hpp_html_a9634c5219ea8eba8d709d545e63fdad7"><div class="ttname"><a href="backpropagation_8hpp.html#a9634c5219ea8eba8d709d545e63fdad7">produce_weights_gradients</a></div><div class="ttdeci">Eigen::MatrixXf produce_weights_gradients(const Eigen::MatrixXf &amp;error_gradients, const Eigen::MatrixXf &amp;input_matrix)</div><div class="ttdoc">Produces a matrix of weight gradients from a matrix of error gradients and an input matrix.</div></div>
 <div class="ttc" id="abackpropagation_8hpp_html_aa0a135f2eab98f6e7266a0797e5b1c2f"><div class="ttname"><a href="backpropagation_8hpp.html#aa0a135f2eab98f6e7266a0797e5b1c2f">produce_bias_gradient</a></div><div class="ttdeci">Eigen::VectorXf produce_bias_gradient(const Eigen::MatrixXf &amp;error_gradients)</div><div class="ttdoc">Produces a bias gradient from a matrix of error gradients.</div></div>

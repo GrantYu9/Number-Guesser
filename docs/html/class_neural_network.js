@@ -6,5 +6,6 @@ var class_neural_network =
     [ "forward_vector", "class_neural_network.html#ac510bed107bd66a134f933d8e5d4586d", null ],
     [ "get_hidden_layers", "class_neural_network.html#a9b754e6111d5dfa4c6acf6f4a7974a5f", null ],
     [ "get_input_layer", "class_neural_network.html#a4d7674b4380f4d2917567042b51a7f18", null ],
-    [ "get_output_layer", "class_neural_network.html#a609df82394270aa131263f6d32e83f33", null ]
+    [ "get_output_layer", "class_neural_network.html#a609df82394270aa131263f6d32e83f33", null ],
+    [ "operator==", "class_neural_network.html#a93894d2a30fbf3c303bbee2a5a62ff8c", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>number_guesser: /Users/grantyu/Workbench/Projects/guesser/include/internal/persistence.hpp File Reference</title>
+<title>number_guesser: /Users/grantyu/Desktop/Workbench/Projects/guesser/include/internal/persistence.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -114,12 +114,12 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('persistence_8h
 
 <p>Provides functions to load and save weight and bias data from file.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="dense__layer_8hpp_source.html">dense_layer.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;array&gt;</code><br />
+<code>#include &lt;eigen3/Eigen/Core&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
+<code>#include &quot;<a class="el" href="dense__layer_8hpp_source.html">dense_layer.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="globals_8hpp_source.html">globals.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="neural__network_8hpp_source.html">neural_network.hpp</a>&quot;</code><br />
-<code>#include &lt;array&gt;</code><br />
-<code>#include &lt;filesystem&gt;</code><br />
-<code>#include &lt;eigen3/Eigen/Core&gt;</code><br />
 </div>
 <p><a href="persistence_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -127,43 +127,35 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('persistence_8h
 Functions</h2></td></tr>
 <tr class="memitem:a0428b853f308ac77cf866b9023c54db1" id="r_a0428b853f308ac77cf866b9023c54db1"><td class="memItemLeft">Eigen::VectorXf&#160;</td><td class="memItemRight"><a class="el" href="#a0428b853f308ac77cf866b9023c54db1">load_bias</a> (const std::filesystem::path &amp;path)</td></tr>
 <tr class="memdesc:a0428b853f308ac77cf866b9023c54db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load bias from file.  <br /></td></tr>
-<tr class="memitem:a9d93f1e9289995599eb8b02af20944fc" id="r_a9d93f1e9289995599eb8b02af20944fc"><td class="memItemLeft">std::array&lt; Eigen::VectorXf, <a class="el" href="namespace_globals.html#a003559c2b1302c2a3b037d3b0945e25c">Globals::NUMBER_OF_HIDDEN_LAYERS</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9d93f1e9289995599eb8b02af20944fc">load_biases</a> (const std::filesystem::path &amp;path)</td></tr>
+<tr class="memitem:a9d93f1e9289995599eb8b02af20944fc" id="r_a9d93f1e9289995599eb8b02af20944fc"><td class="memItemLeft">std::array&lt; Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9d93f1e9289995599eb8b02af20944fc">load_biases</a> (const std::filesystem::path &amp;path)</td></tr>
 <tr class="memdesc:a9d93f1e9289995599eb8b02af20944fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load biases from file.  <br /></td></tr>
-<tr class="memitem:ab2e3165cc92a98944e6d481030aef59a" id="r_ab2e3165cc92a98944e6d481030aef59a"><td class="memItemLeft"><a id="ab2e3165cc92a98944e6d481030aef59a" name="ab2e3165cc92a98944e6d481030aef59a"></a>
-std::array&lt; <a class="el" href="class_dense_layer.html">DenseLayer</a>, <a class="el" href="namespace_globals.html#a003559c2b1302c2a3b037d3b0945e25c">Globals::NUMBER_OF_HIDDEN_LAYERS</a> &gt;&#160;</td><td class="memItemRight"><b>load_hidden_layers</b> ()</td></tr>
-<tr class="memdesc:ab2e3165cc92a98944e6d481030aef59a"><td class="mdescLeft">&#160;</td><td class="mdescRight">!!! <br /></td></tr>
-<tr class="memitem:a7fcdc4fe24c679ec4c8bae0444041991" id="r_a7fcdc4fe24c679ec4c8bae0444041991"><td class="memItemLeft"><a id="a7fcdc4fe24c679ec4c8bae0444041991" name="a7fcdc4fe24c679ec4c8bae0444041991"></a>
-<a class="el" href="class_dense_layer.html">DenseLayer</a>&#160;</td><td class="memItemRight"><b>load_input_layer</b> ()</td></tr>
-<tr class="memdesc:a7fcdc4fe24c679ec4c8bae0444041991"><td class="mdescLeft">&#160;</td><td class="mdescRight">!!! <br /></td></tr>
-<tr class="memitem:ad466b3592fb72ba6e7bbf91c0b8ccba9" id="r_ad466b3592fb72ba6e7bbf91c0b8ccba9"><td class="memItemLeft"><a id="ad466b3592fb72ba6e7bbf91c0b8ccba9" name="ad466b3592fb72ba6e7bbf91c0b8ccba9"></a>
-<a class="el" href="class_dense_layer.html">DenseLayer</a>&#160;</td><td class="memItemRight"><b>load_output_layer</b> ()</td></tr>
-<tr class="memdesc:ad466b3592fb72ba6e7bbf91c0b8ccba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">!!! <br /></td></tr>
-<tr class="memitem:a9dfc2aebe1b31eca373172b55138c7bf" id="r_a9dfc2aebe1b31eca373172b55138c7bf"><td class="memItemLeft"><a id="a9dfc2aebe1b31eca373172b55138c7bf" name="a9dfc2aebe1b31eca373172b55138c7bf"></a>
-<a class="el" href="class_neural_network.html">NeuralNetwork</a>&#160;</td><td class="memItemRight"><b>load_neural_network</b> ()</td></tr>
-<tr class="memdesc:a9dfc2aebe1b31eca373172b55138c7bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">!!! <br /></td></tr>
+<tr class="memitem:ab2e3165cc92a98944e6d481030aef59a" id="r_ab2e3165cc92a98944e6d481030aef59a"><td class="memItemLeft">std::array&lt; <a class="el" href="class_dense_layer.html">DenseLayer</a>, Globals::NUMBER_OF_HIDDEN_LAYERS &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ab2e3165cc92a98944e6d481030aef59a">load_hidden_layers</a> ()</td></tr>
+<tr class="memdesc:ab2e3165cc92a98944e6d481030aef59a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads hidden layers from file.  <br /></td></tr>
+<tr class="memitem:a7fcdc4fe24c679ec4c8bae0444041991" id="r_a7fcdc4fe24c679ec4c8bae0444041991"><td class="memItemLeft"><a class="el" href="class_dense_layer.html">DenseLayer</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7fcdc4fe24c679ec4c8bae0444041991">load_input_layer</a> ()</td></tr>
+<tr class="memdesc:a7fcdc4fe24c679ec4c8bae0444041991"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the input layer from file.  <br /></td></tr>
+<tr class="memitem:ad466b3592fb72ba6e7bbf91c0b8ccba9" id="r_ad466b3592fb72ba6e7bbf91c0b8ccba9"><td class="memItemLeft"><a class="el" href="class_dense_layer.html">DenseLayer</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad466b3592fb72ba6e7bbf91c0b8ccba9">load_output_layer</a> ()</td></tr>
+<tr class="memdesc:ad466b3592fb72ba6e7bbf91c0b8ccba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the output layer from file.  <br /></td></tr>
+<tr class="memitem:a9dfc2aebe1b31eca373172b55138c7bf" id="r_a9dfc2aebe1b31eca373172b55138c7bf"><td class="memItemLeft"><a class="el" href="class_neural_network.html">NeuralNetwork</a>&#160;</td><td class="memItemRight"><a class="el" href="#a9dfc2aebe1b31eca373172b55138c7bf">load_neural_network</a> ()</td></tr>
+<tr class="memdesc:a9dfc2aebe1b31eca373172b55138c7bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the neural network from file.  <br /></td></tr>
 <tr class="memitem:ad011a29d79a987ff71e6629620a4c2f2" id="r_ad011a29d79a987ff71e6629620a4c2f2"><td class="memItemLeft">Eigen::MatrixXf&#160;</td><td class="memItemRight"><a class="el" href="#ad011a29d79a987ff71e6629620a4c2f2">load_weights_matrix</a> (const std::filesystem::path &amp;path)</td></tr>
 <tr class="memdesc:ad011a29d79a987ff71e6629620a4c2f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load weights matrix from file.  <br /></td></tr>
-<tr class="memitem:ac6d71f98cb588628a4dfe4580a68dcb8" id="r_ac6d71f98cb588628a4dfe4580a68dcb8"><td class="memItemLeft">std::array&lt; Eigen::MatrixXf, <a class="el" href="namespace_globals.html#a003559c2b1302c2a3b037d3b0945e25c">Globals::NUMBER_OF_HIDDEN_LAYERS</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac6d71f98cb588628a4dfe4580a68dcb8">load_weights_matrices</a> (const std::filesystem::path &amp;path)</td></tr>
+<tr class="memitem:ac6d71f98cb588628a4dfe4580a68dcb8" id="r_ac6d71f98cb588628a4dfe4580a68dcb8"><td class="memItemLeft">std::array&lt; Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac6d71f98cb588628a4dfe4580a68dcb8">load_weights_matrices</a> (const std::filesystem::path &amp;path)</td></tr>
 <tr class="memdesc:ac6d71f98cb588628a4dfe4580a68dcb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load weights matrices from file.  <br /></td></tr>
 <tr class="memitem:a4ff8e7b5510ac430b2259650252c8039" id="r_a4ff8e7b5510ac430b2259650252c8039"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4ff8e7b5510ac430b2259650252c8039">save_bias</a> (const std::filesystem::path &amp;path, const Eigen::VectorXf &amp;bias)</td></tr>
 <tr class="memdesc:a4ff8e7b5510ac430b2259650252c8039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save bias to file.  <br /></td></tr>
-<tr class="memitem:af06ebc84814f6f619083028a5b53d2f9" id="r_af06ebc84814f6f619083028a5b53d2f9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af06ebc84814f6f619083028a5b53d2f9">save_biases</a> (const std::filesystem::path &amp;path, const std::array&lt; Eigen::VectorXf, <a class="el" href="namespace_globals.html#a003559c2b1302c2a3b037d3b0945e25c">Globals::NUMBER_OF_HIDDEN_LAYERS</a> &gt; &amp;biases)</td></tr>
+<tr class="memitem:af06ebc84814f6f619083028a5b53d2f9" id="r_af06ebc84814f6f619083028a5b53d2f9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af06ebc84814f6f619083028a5b53d2f9">save_biases</a> (const std::filesystem::path &amp;path, const std::array&lt; Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS &gt; &amp;biases)</td></tr>
 <tr class="memdesc:af06ebc84814f6f619083028a5b53d2f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save biases to file.  <br /></td></tr>
-<tr class="memitem:a79d8c968e1730c731292d81893243d5a" id="r_a79d8c968e1730c731292d81893243d5a"><td class="memItemLeft"><a id="a79d8c968e1730c731292d81893243d5a" name="a79d8c968e1730c731292d81893243d5a"></a>
-void&#160;</td><td class="memItemRight"><b>save_hidden_layers</b> (const std::array&lt; <a class="el" href="class_dense_layer.html">DenseLayer</a>, <a class="el" href="namespace_globals.html#a003559c2b1302c2a3b037d3b0945e25c">Globals::NUMBER_OF_HIDDEN_LAYERS</a> &gt; &amp;hidden_layers)</td></tr>
-<tr class="memdesc:a79d8c968e1730c731292d81893243d5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">!!! <br /></td></tr>
-<tr class="memitem:a35f8b7c454eb23aa56ae66db733c937b" id="r_a35f8b7c454eb23aa56ae66db733c937b"><td class="memItemLeft"><a id="a35f8b7c454eb23aa56ae66db733c937b" name="a35f8b7c454eb23aa56ae66db733c937b"></a>
-void&#160;</td><td class="memItemRight"><b>save_input_layer</b> (const <a class="el" href="class_dense_layer.html">DenseLayer</a> &amp;input_layer)</td></tr>
-<tr class="memdesc:a35f8b7c454eb23aa56ae66db733c937b"><td class="mdescLeft">&#160;</td><td class="mdescRight">!!! <br /></td></tr>
-<tr class="memitem:a47fe2c72dda755eb4b259b5b6bf4311e" id="r_a47fe2c72dda755eb4b259b5b6bf4311e"><td class="memItemLeft"><a id="a47fe2c72dda755eb4b259b5b6bf4311e" name="a47fe2c72dda755eb4b259b5b6bf4311e"></a>
-void&#160;</td><td class="memItemRight"><b>save_output_layer</b> (const <a class="el" href="class_dense_layer.html">DenseLayer</a> &amp;output_layer)</td></tr>
-<tr class="memdesc:a47fe2c72dda755eb4b259b5b6bf4311e"><td class="mdescLeft">&#160;</td><td class="mdescRight">!!! <br /></td></tr>
-<tr class="memitem:a104ca79cd5e6f97272dcfc556221a424" id="r_a104ca79cd5e6f97272dcfc556221a424"><td class="memItemLeft"><a id="a104ca79cd5e6f97272dcfc556221a424" name="a104ca79cd5e6f97272dcfc556221a424"></a>
-void&#160;</td><td class="memItemRight"><b>save_neural_network</b> (const <a class="el" href="class_neural_network.html">NeuralNetwork</a> &amp;neural_network)</td></tr>
-<tr class="memdesc:a104ca79cd5e6f97272dcfc556221a424"><td class="mdescLeft">&#160;</td><td class="mdescRight">!!! <br /></td></tr>
+<tr class="memitem:a79d8c968e1730c731292d81893243d5a" id="r_a79d8c968e1730c731292d81893243d5a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a79d8c968e1730c731292d81893243d5a">save_hidden_layers</a> (const std::array&lt; <a class="el" href="class_dense_layer.html">DenseLayer</a>, Globals::NUMBER_OF_HIDDEN_LAYERS &gt; &amp;hidden_layers)</td></tr>
+<tr class="memdesc:a79d8c968e1730c731292d81893243d5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves hidden layers to file.  <br /></td></tr>
+<tr class="memitem:a35f8b7c454eb23aa56ae66db733c937b" id="r_a35f8b7c454eb23aa56ae66db733c937b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a35f8b7c454eb23aa56ae66db733c937b">save_input_layer</a> (const <a class="el" href="class_dense_layer.html">DenseLayer</a> &amp;input_layer)</td></tr>
+<tr class="memdesc:a35f8b7c454eb23aa56ae66db733c937b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves input layer to file.  <br /></td></tr>
+<tr class="memitem:a47fe2c72dda755eb4b259b5b6bf4311e" id="r_a47fe2c72dda755eb4b259b5b6bf4311e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a47fe2c72dda755eb4b259b5b6bf4311e">save_output_layer</a> (const <a class="el" href="class_dense_layer.html">DenseLayer</a> &amp;output_layer)</td></tr>
+<tr class="memdesc:a47fe2c72dda755eb4b259b5b6bf4311e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves output layer to file.  <br /></td></tr>
+<tr class="memitem:a104ca79cd5e6f97272dcfc556221a424" id="r_a104ca79cd5e6f97272dcfc556221a424"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a104ca79cd5e6f97272dcfc556221a424">save_neural_network</a> (const <a class="el" href="class_neural_network.html">NeuralNetwork</a> &amp;neural_network)</td></tr>
+<tr class="memdesc:a104ca79cd5e6f97272dcfc556221a424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves neural network to file.  <br /></td></tr>
 <tr class="memitem:a3d3070ed4e7ec4e2ca0494731f2a8d48" id="r_a3d3070ed4e7ec4e2ca0494731f2a8d48"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3d3070ed4e7ec4e2ca0494731f2a8d48">save_weights_matrix</a> (const std::filesystem::path &amp;path, const Eigen::MatrixXf &amp;weights_matrix)</td></tr>
 <tr class="memdesc:a3d3070ed4e7ec4e2ca0494731f2a8d48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save weights matrix to file.  <br /></td></tr>
-<tr class="memitem:ab9c4ca429c1f8a5ff48906b35ec91101" id="r_ab9c4ca429c1f8a5ff48906b35ec91101"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab9c4ca429c1f8a5ff48906b35ec91101">save_weights_matrices</a> (const std::filesystem::path &amp;path, const std::array&lt; Eigen::MatrixXf, <a class="el" href="namespace_globals.html#a003559c2b1302c2a3b037d3b0945e25c">Globals::NUMBER_OF_HIDDEN_LAYERS</a> &gt; &amp;weights_matrices)</td></tr>
+<tr class="memitem:ab9c4ca429c1f8a5ff48906b35ec91101" id="r_ab9c4ca429c1f8a5ff48906b35ec91101"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab9c4ca429c1f8a5ff48906b35ec91101">save_weights_matrices</a> (const std::filesystem::path &amp;path, const std::array&lt; Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS &gt; &amp;weights_matrices)</td></tr>
 <tr class="memdesc:ab9c4ca429c1f8a5ff48906b35ec91101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save weights matrices to file.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
@@ -202,7 +194,7 @@ void&#160;</td><td class="memItemRight"><b>save_neural_network</b> (const <a cla
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::array&lt; Eigen::VectorXf, <a class="el" href="namespace_globals.html#a003559c2b1302c2a3b037d3b0945e25c">Globals::NUMBER_OF_HIDDEN_LAYERS</a> &gt; load_biases </td>
+          <td class="memname">std::array&lt; Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS &gt; load_biases </td>
           <td>(</td>
           <td class="paramtype">const std::filesystem::path &amp;</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
           <td></td>
@@ -220,6 +212,106 @@ void&#160;</td><td class="memItemRight"><b>save_neural_network</b> (const <a cla
 
 </div>
 </div>
+<a id="ab2e3165cc92a98944e6d481030aef59a" name="ab2e3165cc92a98944e6d481030aef59a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2e3165cc92a98944e6d481030aef59a">&#9670;&#160;</a></span>load_hidden_layers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt; <a class="el" href="class_dense_layer.html">DenseLayer</a>, Globals::NUMBER_OF_HIDDEN_LAYERS &gt; load_hidden_layers </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads hidden layers from file. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_file_read_error.html" title="When we fail to read a file.">FileReadError</a></td><td>If there was a file read error. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7fcdc4fe24c679ec4c8bae0444041991" name="a7fcdc4fe24c679ec4c8bae0444041991"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fcdc4fe24c679ec4c8bae0444041991">&#9670;&#160;</a></span>load_input_layer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_dense_layer.html">DenseLayer</a> load_input_layer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads the input layer from file. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_file_read_error.html" title="When we fail to read a file.">FileReadError</a></td><td>If there was a file read error. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9dfc2aebe1b31eca373172b55138c7bf" name="a9dfc2aebe1b31eca373172b55138c7bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dfc2aebe1b31eca373172b55138c7bf">&#9670;&#160;</a></span>load_neural_network()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_neural_network.html">NeuralNetwork</a> load_neural_network </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads the neural network from file. </p>
+<p>Loads the input layer, hidden layers, and output layer from file. </p><dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_file_read_error.html" title="When we fail to read a file.">FileReadError</a></td><td>If there was a file read error. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad466b3592fb72ba6e7bbf91c0b8ccba9" name="ad466b3592fb72ba6e7bbf91c0b8ccba9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad466b3592fb72ba6e7bbf91c0b8ccba9">&#9670;&#160;</a></span>load_output_layer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_dense_layer.html">DenseLayer</a> load_output_layer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads the output layer from file. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_file_read_error.html" title="When we fail to read a file.">FileReadError</a></td><td>If there was a file read error. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ac6d71f98cb588628a4dfe4580a68dcb8" name="ac6d71f98cb588628a4dfe4580a68dcb8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac6d71f98cb588628a4dfe4580a68dcb8">&#9670;&#160;</a></span>load_weights_matrices()</h2>
 
@@ -227,7 +319,7 @@ void&#160;</td><td class="memItemRight"><b>save_neural_network</b> (const <a cla
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::array&lt; Eigen::MatrixXf, <a class="el" href="namespace_globals.html#a003559c2b1302c2a3b037d3b0945e25c">Globals::NUMBER_OF_HIDDEN_LAYERS</a> &gt; load_weights_matrices </td>
+          <td class="memname">std::array&lt; Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS &gt; load_weights_matrices </td>
           <td>(</td>
           <td class="paramtype">const std::filesystem::path &amp;</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
           <td></td>
@@ -313,7 +405,7 @@ void&#160;</td><td class="memItemRight"><b>save_neural_network</b> (const <a cla
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::array&lt; Eigen::VectorXf, <a class="el" href="namespace_globals.html#a003559c2b1302c2a3b037d3b0945e25c">Globals::NUMBER_OF_HIDDEN_LAYERS</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>biases</em></span>&#160;)</td>
+          <td class="paramtype">const std::array&lt; Eigen::VectorXf, Globals::NUMBER_OF_HIDDEN_LAYERS &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>biases</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -322,6 +414,106 @@ void&#160;</td><td class="memItemRight"><b>save_neural_network</b> (const <a cla
 <p>Encoding: {int row} {{{float value} ...} ...} </p><dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="class_file_write_error.html" title="When we fail to write to a file.">FileWriteError</a></td><td>If we could not write to file. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a79d8c968e1730c731292d81893243d5a" name="a79d8c968e1730c731292d81893243d5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79d8c968e1730c731292d81893243d5a">&#9670;&#160;</a></span>save_hidden_layers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void save_hidden_layers </td>
+          <td>(</td>
+          <td class="paramtype">const std::array&lt; <a class="el" href="class_dense_layer.html">DenseLayer</a>, Globals::NUMBER_OF_HIDDEN_LAYERS &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>hidden_layers</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saves hidden layers to file. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_file_write_error.html" title="When we fail to write to a file.">FileWriteError</a></td><td>If there was a problem writing to file. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a35f8b7c454eb23aa56ae66db733c937b" name="a35f8b7c454eb23aa56ae66db733c937b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35f8b7c454eb23aa56ae66db733c937b">&#9670;&#160;</a></span>save_input_layer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void save_input_layer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_dense_layer.html">DenseLayer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>input_layer</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saves input layer to file. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_file_write_error.html" title="When we fail to write to a file.">FileWriteError</a></td><td>If there was a problem writing to file. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a104ca79cd5e6f97272dcfc556221a424" name="a104ca79cd5e6f97272dcfc556221a424"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a104ca79cd5e6f97272dcfc556221a424">&#9670;&#160;</a></span>save_neural_network()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void save_neural_network </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_neural_network.html">NeuralNetwork</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>neural_network</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saves neural network to file. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_file_write_error.html" title="When we fail to write to a file.">FileWriteError</a></td><td>If there was a problem writing to file. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a47fe2c72dda755eb4b259b5b6bf4311e" name="a47fe2c72dda755eb4b259b5b6bf4311e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47fe2c72dda755eb4b259b5b6bf4311e">&#9670;&#160;</a></span>save_output_layer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void save_output_layer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_dense_layer.html">DenseLayer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>output_layer</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saves output layer to file. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_file_write_error.html" title="When we fail to write to a file.">FileWriteError</a></td><td>If there was a problem writing to file. </td></tr>
   </table>
   </dd>
 </dl>
@@ -342,7 +534,7 @@ void&#160;</td><td class="memItemRight"><b>save_neural_network</b> (const <a cla
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::array&lt; Eigen::MatrixXf, <a class="el" href="namespace_globals.html#a003559c2b1302c2a3b037d3b0945e25c">Globals::NUMBER_OF_HIDDEN_LAYERS</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>weights_matrices</em></span>&#160;)</td>
+          <td class="paramtype">const std::array&lt; Eigen::MatrixXf, Globals::NUMBER_OF_HIDDEN_LAYERS &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>weights_matrices</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
