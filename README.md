@@ -25,12 +25,15 @@ This is a multilayer perceptron classification neural network with an input laye
 - CMake
 - GNU Make
 - Eigen
-- stb-image and stb-image-resize2. It should be noted that these are included in the project already
 
 ### Optional
 - Doxygen
 - GoogleTest
 - spdlog
+
+### Internal
+- stb-image
+- stb-image-resize2
 
 ## Building & Using
 ### Building
